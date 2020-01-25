@@ -1,0 +1,117 @@
+/* ----------------------------------------- */
+/* HERO */
+/* ----------------------------------------- */
+.hero-container {
+    width:100%;
+    max-width:map-get($layout, 'max-width' );
+    height:77vh;
+    min-height:720px;
+    max-height:1020px;
+    @include flex-row(center,center);
+}
+
+.hero-wrapper {
+    width:100%;
+    align-self:stretch;
+    @include flex-row(center,center);
+
+
+    .content-container {
+        @include fillContainer;
+        @include flex-col(center,center);
+        flex:9;
+
+        div {
+            @include flex-row(flex-start,center);
+            line-height: 36px;
+            padding: 10px 0px;
+
+            &:first-child {
+                width:100%;
+                border-bottom:4px solid map-get($colors, 'pink' );  
+            }
+
+            &:nth-child(2) {
+                justify-content: space-between;
+                width:95%;
+                border-bottom:4px solid map-get($colors, 'blue' );
+            }
+
+            &:nth-child(3) {
+                width:90%;
+                border-bottom:4px solid map-get($colors, 'pink' );
+            }
+
+            button {
+                background:map-get($colors, 'blue' );
+                border:none;
+                position:absolute;
+                right:8%;
+                top:50%;
+
+                a {
+                    color:white;
+                    font-family:map-get($fonts, 'heading' );
+                    font-weight:900;
+                    font-size:1.618em;
+                    display:inline-block;
+                    padding:27.5px;
+                }
+            }
+
+        }
+
+    }
+
+    .form-container {
+        height:100%;
+        flex:1;
+        @include flex-col(center,center);
+        
+        .background-shape {
+            width:0;
+            height:80%;
+            border-left:100px solid map-get($colors, 'pink' );
+            transform:skew(-20deg) translateX(-75px);
+            position:relative;
+            z-index:-1;
+        }
+
+        .form {
+            background-color:map-get($colors, 'blue' );
+            position:absolute;
+            z-index:1;
+            right:8%;
+            padding:30px;
+            max-width:300px;
+            width:20%;
+
+            .frm_forms {
+                
+            }
+
+            .frm_primary_label {
+                color:map-get($colors, 'white' );
+                font-family:map-get($fonts, 'body' );            
+                font-size:1rem;
+                font-weight:400;
+            }
+
+            .frm_form_title {
+                color:map-get($colors, 'white' );
+                font-family:map-get($fonts, 'heading' );
+                font-weight:900;
+                font-size:1.5rem;
+                padding-bottom:10px;
+            }
+
+            .frm_button_submit {
+                color:map-get($colors, 'black' );
+                font-family:map-get($fonts, 'body' );
+                font-weight:400;
+                font-size:1.5rem;
+                background:map-get($colors, 'white' );
+            }
+        }
+    } 
+}

@@ -1,0 +1,64 @@
+
+	/* 404 Page */
+	/* ----------------------------------------- */
+
+	.error404 {
+		
+		overflow:hidden;
+
+		header {
+			display: none;
+		}
+
+		footer {
+			display: none;
+		}
+
+		* {
+			text-align:center;
+		}
+	}
+
+	.page-404 {
+		width:100vw;
+		height:100vh;
+		background: map-get($colors , 'brand');
+
+		.page-title{
+			font-size:120px;
+			padding-bottom:75px;
+			color: map-get($colors , 'white' );
+		}
+	
+		.section-heading {
+			padding-bottom:35px;
+			color: map-get($colors , 'white' );
+			font-weight:400;
+			font-size:35px;
+		}
+
+		p {
+			margin:0;
+			padding-bottom:35px;
+			color: map-get($colors , 'white' );
+			font-size:12px;
+		}
+
+		button {
+			width:115px;
+			padding:5px 10px;
+			border-radius:25px;
+			color: map-get($colors , 'heading' );
+			background-color: map-get($colors , 'white' );
+			border:none;
+			outline: none;
+
+			&:hover, &:active {
+				background-color: map-get($colors , 'heading' );
+			}
+
+			a {
+				font-size:12px;
+			}
+		}
+	}

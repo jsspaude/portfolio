@@ -1,0 +1,46 @@
+/* ----------------------------------------- */
+/* CONFIG */
+/* ----------------------------------------- */
+
+// Assets
+$imagepath: '../img';
+
+//Fonts
+$fonts:(
+	'heading': 	('Archivo', sans-serif),
+	'body': 	('Roboto', sans-serif)
+);
+
+
+//Colors
+$colors: (
+	"white": 		#FFF,
+	"black": 		#000,
+	"gray":  		#808080,
+	"blue": 		#305f72,
+	"pink": 		#f18c8e,
+	"beige":		#ffebcf,
+);
+
+//Layout
+$layout: (
+	'max-width': 		1500px,
+	'max-width-half' :	750px, 
+	'content-margin': 	8%,
+	'grid-max':			12,
+	'header-height': 	23%
+);
+
+
+//Primary Styles
+$primary: 	(
+	font-weight:				400,
+	line-height:				1.33,
+	font-family: 				map-get($fonts, 'mainfont'),
+	overflow-x: 				hidden,
+	background: 				#fff,
+	-webkit-font-smoothing: 	antialiased,
+	-moz-osx-font-smoothing: 	grayscale,
+	-webkit-text-size-adjust: 	100%,
+	-ms-text-size-adjust: 		100%
+);

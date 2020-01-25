@@ -1,0 +1,22 @@
+
+	/* EDITOR CSS FILE */
+	/* ----------------------------------------- */
+
+
+
+        //Load Config
+        @import 'includes/_config.scss';
+
+        //Helpers
+        @import 'includes/helpers/_mixins.scss';
+        @import 'includes/helpers/_functions.scss';
+        @import 'includes/helpers/_helpers.scss';
+
+        //Base
+        @import 'includes/base/*.scss';
+
+        //Themes
+        @import 'includes/vendors/wordpress/*.scss';
+
+        //Editor
+        @import 'includes/themes/editor/*.scss';

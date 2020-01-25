@@ -1,0 +1,155 @@
+
+	/* GENERAL */
+	/* ----------------------------------------- */
+	
+		html {
+			scroll-behavior: smooth;
+			@include mq('desktop-wide') {
+				font-size:12px;
+			}
+		}
+
+
+		body {	
+			padding-top:150px;		
+			@each $key, $value in $primary {
+				#{"" + $key}: $value ;
+			}
+
+			#wrapper {
+
+				main.main {
+					padding:0 map-get($layout, 'content-margin' );
+				}
+			}
+
+			@include mq('desktop-wide') {
+				padding-top:0px;
+			}
+		}
+
+
+		//Anchor
+		a,
+		a:hover,
+		a:active,
+		a:visited {
+			outline: none;
+			text-decoration:none;
+			color:inherit;
+		}
+
+
+		@each $key, $value in $colors {
+			.bg#{$key} {
+				background: $value;
+			}
+
+			.color#{$key} {
+				color: $value;
+			}
+
+			.hovercolor#{$key}:hover {
+				color: $value;
+				transition: background 0.5s ease;
+			}
+
+			.hoverbg#{$key}:hover {
+				background: $value;
+				transition: background 0.5s ease;
+			}
+
+			.hovercolordarken#{$key}:hover {
+				color: darken($value,10%);
+				transition: background 0.5s ease;
+			}
+
+			.hoverbgdarken#{$key}:hover {
+				background: darken($value,10%);
+				transition: background 0.5s ease;
+			}
+
+			.hovercolorlighten#{$key}:hover {
+				color: lighten($value,10%);
+				transition: background 0.5s ease;
+			}
+
+			.hoverbglighten#{$key}:hover {
+				background: lighten($value,10%);
+				transition: background 0.5s ease;
+			}
+
+
+		}
+		
+		// Selections
+		::selection {
+		    color: map-get($colors, 'white'); 
+		    background: map-get($colors, 'blue');
+		}
+		
+		
+		//Clearfix
+		.clearfix {
+
+			zoom:1;
+
+			&:before {
+				content: '';
+				display: table;
+			}
+
+			&:after {
+				@extend :before;
+				clear:both;
+			}
+
+		}
+
+		//Box Sizing
+		*,
+		*:before,
+		*:after {
+			box-sizing:border-box;
+		}
+
+		//Resets
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul {
+			@include list-reset();
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.responsive-only {
+			display: none;
+			@include mq('tablet') {
+				display: block;
+			}
+		}
+
+		// &[data-view="mobile"] {
+
+		// }
+
+		// &[data-view="desktop"] {
+			
+		// }
+
+		.section {
+			& [data-scroll-show] {
+				opacity: 0;
+				transition: opacity 2s ease;
+
+				&.show {
+					opacity: 1;
+				}
+			}
+		}

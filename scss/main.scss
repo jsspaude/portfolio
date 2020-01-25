@@ -1,0 +1,21 @@
+
+	/* MAIN CSS FILE */
+	/* ----------------------------------------- */
+
+	@import 'includes/_config.scss';
+
+	@import 'includes/helpers/_mixins.scss';
+	@import 'includes/helpers/_functions.scss';
+	@import 'includes/helpers/_helpers.scss';
+
+	@import 'includes/base/*';
+ 
+	@import 'includes/partials/*';
+
+	@import 'includes/components/*';
+
+	@import 'includes/pages/*';
+
+	@import 'includes/themes/wordpress/*';
+
+	@import 'includes/vendors/*';

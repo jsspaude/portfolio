@@ -8,6 +8,8 @@
     min-height:720px;
     max-height:1020px;
     @include flex-row(center,center);
+    // background: rgb(255,255,255);
+    // background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
     
     .features-wrapper {
         width:100%;
@@ -15,8 +17,20 @@
         max-width:map-get($layout, 'max-width' );
         @include flex-row(space-between,center);
 
-        h2 {
-            color:map-get($colors, 'pink');
+        .section-heading-container {
+            height:100%;
+            flex:.25;
+            
+            @include flex-row(center,center);
+
+            h3 {
+                transform: rotate(90deg);
+                width:auto;
+                position: absolute;
+                font-family:map-get($fonts, 'heading' );
+                font-weight:900;
+            }
+
         }
 
         .titles-container {
@@ -24,6 +38,7 @@
             height:100%;
             align-self:stretch;
             @include flex-col(space-around,center);
+            flex-wrap:nowrap;
 
             .heading-container {
                 flex-basis:33%;
@@ -35,6 +50,7 @@
                     word-wrap: break-word;
                     position:absolute;
                     z-index:0;
+                    color:map-get($colors, 'pink');
                 }
 
                 .animation-container {
@@ -64,29 +80,52 @@
                     
                     .animation-container {
                         flex:none;
-                        width:40%;
-                        height:50%;
+                        display:block;
+                        width:150px;
+                        height:100px;
                         transform:translateX(-50px);
                         background-color:map-get($colors, 'blue' );
                         box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3);
 
                         &:before {
                             content: "";
+                            position:absolute;
                             display:inline-block;
-                            width:15%;
-                            height:40%;
-                            border:2px solid map-get($colors, 'blue' );
-                            transform:translate(30px, 80px);
+                            width:20px;
+                            height:30px;
+                            background-color:map-get($colors, 'blue' );
+                            transform:translate(30px, 110px);
+                            transition: all .5s;
                         }
 
                         &:after {
                             content: "";
                             display:inline-block;
-                            width:25%;
-                            height:60%;
-                            border:5px solid map-get($colors, 'blue' );
-                            transform:translate(150px, 10%);
+                            position:absolute;
+                            width:40px;
+                            height:60px;
+                            background-color:map-get($colors, 'blue' );
+                            transform:translate(160px, 15px);
+                            transition: all .5s;
                             
+                        }
+                    }
+
+                    &:hover {
+                        
+                        .animation-container {
+
+                            &:before {
+                                width:40px;
+                                height:60px;
+                                transition: all .5s;
+                            }
+
+                            &:after {
+                                width:20px;
+                                height:30px;
+                                transition: all .5s;
+                            }
                         }
                     }
                 }
@@ -97,11 +136,10 @@
                         flex:none;
                         width:80px;
                         height:80px;
-                        border:2px solid map-get($colors, 'blue');
+                        border:0px solid map-get($colors, 'blue');
                         border-radius:50%;
                         background-color:map-get($colors, 'white');
-                        box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5);
-                        animation: bubbleOne 1s ease-in-out .1s infinite alternate;
+                        animation: bubbleOne 1.5s ease-in 1s 1 forwards;
                         
 
                         &:before {
@@ -109,12 +147,11 @@
                             display:inline-block;
                             width:70px;
                             height:70px;
-                            border:2px solid map-get($colors, 'blue');
+                            border:0px solid map-get($colors, 'blue');
                             border-radius:50%;
                             transform:translate(-60px, 10px);
                             background-color:map-get($colors, 'white');
-                            box-shadow: 0 1px 2px 0 rgba(0,0,0,.9), inset 0px -3px 1px 1px rgba(204,198,197,.5);
-                            animation: bubbleOne 1s ease-in-out .5s infinite alternate;
+                            animation: bubbleOne .5s ease-in 1s 1 forwards;
                             
                         }
 
@@ -123,12 +160,11 @@
                             display:inline-block;
                             width:60px;
                             height:60px;
-                            border:2px solid map-get($colors, 'blue');
+                            border:0px solid map-get($colors, 'blue');
                             border-radius:50%;
                             transform:translate(70px, -90px);
                             background-color:map-get($colors, 'white');
-                            box-shadow: 0 1px 2px 0 rgba(0,0,0,.7), inset 0px -3px 1px 1px rgba(204,198,197,.5);
-                            animation: bubbleOne 1.5s ease-in-out .2s infinite alternate;
+                            animation: bubbleOne 1.5s ease-in 1s 1 forwards;
                         }
                     }
                 }
@@ -137,31 +173,43 @@
                     
                     .animation-container {
                         flex:none;
-                        width:100px;
-                        height:100px;
-                        border:2px dashed map-get($colors, 'blue');
-                        transform:translate(-50px, -20px);
-                        
+                        width:200px;
+                        height:200px;
+                        transform:translateX(-30px);
 
-                        &:before {
-                            content: "";
-                            display:inline-block; 
-                            width:200px;
-                            height:0;
-                            border-bottom:2px dashed map-get($colors, 'blue');
-                            transform:rotate(-45deg) translateY(20px);
-                        }
+                    //     &:after {
+                    //         content: "";
+                    //         display:inline-block;
+                    //         height:80px;
+                    //         width:80px;
+                    //         border-radius:50%;
+                    //         border:none;
+                    //         transform:translateY(50px);
+                    //         position:absolute;
+                    //         transition: all .5s;
+                    //     }
+                    // }
 
-                        &:after {
-                            content: "";
-                            display:inline-block;
-                            height:80px;
-                            width:80px;
-                            border-radius:50%;
-                            border:2px dashed map-get($colors, 'blue');
-                            transform:translateY(50px);
-                        }
-                    }
+                    // &:hover {
+
+                    //     .animation-container {
+
+                    //         &:before {
+                    //             content:"";
+                    //             width:200px;
+                    //             position:absolute;
+                    //             transform:rotate(45deg) translateY(70px);
+                    //             transition: all .5s;
+                    //         }
+
+                    //         &:after {
+                    //             content:"";
+                    //             border:2px dashed map-get($colors, 'blue');
+                    //             transition: all .5s;
+                    //         }
+                    //     }
+
+                }
                 }
             }   
         }
@@ -180,9 +228,9 @@
                 h4 {
                     margin:0 !important;
                     width:90%;
-                    
                     border-bottom:solid 1px map-get($colors, 'pink' );
                     padding:30px;
+                    background:rgba(255,255,255,0.75);
                 }
             }
         }
@@ -199,3 +247,36 @@
         }
   }
 
+
+// SVGS
+
+.line {
+  stroke-dasharray: 1772;
+  stroke-dashoffset: 1772;
+  animation: draw 3000ms ease-in-out 4ms forwards;
+}
+
+.line2 {
+stroke-dasharray: 1772;
+  stroke-dashoffset: 1772;
+  animation: draw 4000ms ease-in-out 4ms forwards;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1772;
+    stroke-opacity:0;
+  }
+  to{
+    stroke-dashoffset: 0;
+    stroke-opacity:1;
+  }
+}
+
+
+
+#svg1 {
+    max-height:100% !important;
+    position:absolute;
+    z-index:0;
+}

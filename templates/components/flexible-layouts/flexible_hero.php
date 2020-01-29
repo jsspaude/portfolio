@@ -22,8 +22,8 @@
             </div>
         </div>
         <div class="form-container">
-            <div class='background-shape'>
-            </div>
+            <!-- <div class='background-shape'>
+            </div> -->
             <div class="form">
                 <?php echo $heroForm; ?>
             </div>

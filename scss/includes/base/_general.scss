@@ -18,6 +18,20 @@
 
 			#wrapper {
 
+				.background-shape {
+					background: rgb(241,140,142);
+					background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(241,140,142,1) 95%);
+					height:500vh;
+					width:100px;
+					align-self:stretch;
+					transform:skew(-20deg);
+					transform-origin: top right;
+					position:absolute;
+					right:8%;
+					z-index:-1;
+					pointer-events: none;
+				}
+
 				main.main {
 					padding:0 map-get($layout, 'content-margin' );
 				}

@@ -12,6 +12,7 @@
 
 		body {	
 			padding-top:150px;		
+			@include flex-col(flex-start, center);
 			@each $key, $value in $primary {
 				#{"" + $key}: $value ;
 			}
@@ -19,9 +20,8 @@
 			#wrapper {
 
 				.background-shape {
-					background: rgb(241,140,142);
-					background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(241,140,142,1) 95%);
-					height:500vh;
+					background: map-get($colors, 'pink' );
+					height:110.09vh;
 					width:100px;
 					align-self:stretch;
 					transform:skew(-20deg);
@@ -30,6 +30,17 @@
 					right:8%;
 					z-index:-1;
 					pointer-events: none;
+
+					&:after {
+						content:'';
+						width: 0; 
+						height: 0; 
+						border-left: 50px solid transparent;
+						border-right: 50px solid transparent;
+						border-top: 50px solid map-get($colors, 'pink');
+						position:absolute;
+						bottom:-50px;
+					}
 				}
 
 				main.main {

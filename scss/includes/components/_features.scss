@@ -8,82 +8,43 @@
     min-height:720px;
     max-height:1020px;
     @include flex-row(center,center);
-    // background: rgb(255,255,255);
-    // background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-    
+
     .features-wrapper {
+        background-color:map-get($colors, 'blue');
+        height:100%;
+        width: 100%;
+        max-width:none;
+        position:absolute;
+        z-index:-2;
+    }
+
+    .features-content-container {
         width:100%;
         height:80%;
-        max-width:map-get($layout, 'max-width' );
-        @include flex-row(space-between,center);
+        @include flex-row(center,center);
 
-        .section-heading-container {
-            height:100%;
-            flex:.25;
-            
-            @include flex-row(center,center);
+        .features-content {
+            flex:1;
+            @include flex-col(space-between,center);
+            align-self:stretch;
 
-            h3 {
-                transform: rotate(90deg);
-                width:auto;
-                position: absolute;
-                font-family:map-get($fonts, 'heading' );
-                font-weight:900;
+            &:nth-child(2) {
+                border-left:dashed 2px map-get($colors, 'pink');
+                border-right:dashed 2px map-get($colors, 'pink');
             }
 
-        }
-
-        .titles-container {
-            flex:1;
-            height:100%;
-            align-self:stretch;
-            @include flex-col(space-around,center);
-            flex-wrap:nowrap;
-
-            .heading-container {
-                flex-basis:33%;
+            .animation-container {
                 width:100%;
+                height:30%;
+                align-self:stretch;
                 @include flex-row(center,center);
-                
-                h2 {
-                    width:8%;
-                    word-wrap: break-word;
-                    position:absolute;
-                    z-index:0;
-                    color:map-get($colors, 'pink');
-                }
 
-                .animation-container {
-                    flex:1;
-                    height:100%;
-                    position:relative;
-                    z-index:-1;
-                }
+                &[data-row='1'] {
 
-                &:nth-child(odd){
-
-                    h2 {
-                        color:map-get($colors, 'black' );
-                        text-shadow: -4px -4px 0px map-get($colors, 'pink' );
-                    }
-                }
-
-                &:nth-child(even){
-
-                    h2 {
-                        color:map-get($colors, 'pink' ) !important;
-                        text-shadow: -4px -4px 0px map-get($colors, 'black' );
-                    }
-                }
-
-                &:nth-child(1) {
-                    
-                    .animation-container {
+                    .animation {
                         flex:none;
-                        display:block;
                         width:150px;
                         height:100px;
-                        transform:translateX(-50px);
                         background-color:map-get($colors, 'blue' );
                         box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3);
 
@@ -94,8 +55,9 @@
                             width:20px;
                             height:30px;
                             background-color:map-get($colors, 'blue' );
-                            transform:translate(30px, 110px);
-                            transition: all .5s;
+                            transform:translate(-50px, 0px);
+                            animation: responsive1 1s ease-in .5s 1 forwards;
+                            animation-play-state: paused; 
                         }
 
                         &:after {
@@ -106,42 +68,23 @@
                             height:60px;
                             background-color:map-get($colors, 'blue' );
                             transform:translate(160px, 15px);
-                            transition: all .5s;
-                            
-                        }
-                    }
-
-                    &:hover {
-                        
-                        .animation-container {
-
-                            &:before {
-                                width:40px;
-                                height:60px;
-                                transition: all .5s;
-                            }
-
-                            &:after {
-                                width:20px;
-                                height:30px;
-                                transition: all .5s;
-                            }
+                            animation: responsive2 1.25s ease-in .5s 1 forwards;
+                            animation-play-state: paused;       
                         }
                     }
                 }
 
-                &:nth-child(2) {
-                    
-                    .animation-container {
-                        flex:none;
+                &[data-row='2'] {
+
+                    .animation {
                         width:80px;
                         height:80px;
                         border:0px solid map-get($colors, 'blue');
                         border-radius:50%;
                         background-color:map-get($colors, 'white');
-                        animation: bubbleOne 1.5s ease-in 1s 1 forwards;
-                        
-
+                        animation: bubbleOne 2s ease-in 2.75s infinite alternate;
+                        animation-play-state: paused;
+                            
                         &:before {
                             content: "";
                             display:inline-block;
@@ -151,7 +94,8 @@
                             border-radius:50%;
                             transform:translate(-60px, 10px);
                             background-color:map-get($colors, 'white');
-                            animation: bubbleOne .5s ease-in 1s 1 forwards;
+                            animation: bubbleOne 2.25s ease-in 1.75s infinite alternate;
+                            animation-play-state: paused;  
                             
                         }
 
@@ -164,75 +108,125 @@
                             border-radius:50%;
                             transform:translate(70px, -90px);
                             background-color:map-get($colors, 'white');
-                            animation: bubbleOne 1.5s ease-in 1s 1 forwards;
+                            animation: bubbleOne 2.5s ease-in 1.75s infinite alternate;
+                            animation-play-state: paused;  
                         }
                     }
                 }
 
-                &:nth-child(3) {
-                    
-                    .animation-container {
+                &[data-row='3'] {
+
+                    .animation {
                         flex:none;
-                        width:200px;
-                        height:200px;
-                        transform:translateX(-30px);
-
-                    //     &:after {
-                    //         content: "";
-                    //         display:inline-block;
-                    //         height:80px;
-                    //         width:80px;
-                    //         border-radius:50%;
-                    //         border:none;
-                    //         transform:translateY(50px);
-                    //         position:absolute;
-                    //         transition: all .5s;
-                    //     }
-                    // }
-
-                    // &:hover {
-
-                    //     .animation-container {
-
-                    //         &:before {
-                    //             content:"";
-                    //             width:200px;
-                    //             position:absolute;
-                    //             transform:rotate(45deg) translateY(70px);
-                    //             transition: all .5s;
-                    //         }
-
-                    //         &:after {
-                    //             content:"";
-                    //             border:2px dashed map-get($colors, 'blue');
-                    //             transition: all .5s;
-                    //         }
-                    //     }
-
+                        width:120px;
+                        height:120px;
+                    }
                 }
+            }
+        }
+
+        .titles-container {
+            height:10%;
+            width:100%;
+            align-self:stretch;
+            @include flex-row(center,center);
+            flex-wrap:nowrap;
+
+            .heading-container {
+                height:100%;
+                width:80%;
+                @include flex-row(flex-start,center);
+                padding:0 30px;
+                
+                h3 {
+                    position:absolute;
+                    z-index:0;
+                    color:map-get($colors, 'pink' );
+                    text-shadow: -2px -2px 0px map-get($colors, 'black' );
+                    font-family:map-get($fonts, "heading");
+                    font-weight:900;
+                    border-bottom:dashed 2px map-get($colors,'blue' );
+                }
+
+                &[data-row='2'] {
+
+                    h3 {
+                        color:map-get($colors, 'pink' ) !important;
+                        text-shadow:none;
+                    }
                 }
             }   
         }
 
         .descriptions-container {
-            flex:2;
-            height:100%;
+            height:60%;
+            width:100%;
             align-self:stretch;
-            @include flex-col(space-around,center);
+            @include flex-row(space-around,center);
 
             .paragraph-container {
-                flex-basis:33%;
+                height:100%;
                 width:100%;
-                @include flex-col(center,flex-start);
+                @include flex-col(flex-start,center);
 
                 h4 {
                     margin:0 !important;
-                    width:90%;
-                    border-bottom:solid 1px map-get($colors, 'pink' );
+                    width:80%;
+                    color:map-get($colors, 'black' );
+                    text-shadow:1px 1px .5px white;
                     padding:30px;
-                    background:rgba(255,255,255,0.75);
+                    font-weight:400px;
+                    
                 }
             }
+        }
+    }
+}
+
+
+.active {
+    
+    .animation, .line, .line2 {
+        animation-play-state: running !important;
+    }
+
+    .animation {
+
+        &:before {
+            animation-play-state: running !important;
+        }
+        
+        &:after {
+            animation-play-state: running !important;
+        }
+    }
+
+    .heading-container {
+
+        &[data-row='2'] {
+
+            h3 {
+                text-shadow: -2px -2px 0px map-get($colors, 'black' );
+                transition:all 1s ease-in;
+            }
+        }
+    }
+}
+
+.in-view {
+
+    .paragraph-container {
+
+        &[data-row='1'] {
+        transform:translateX(0vw) !important;
+        }
+
+        &[data-row='2'] {
+        transform:translateY(0vh) !important;
+        }
+
+        &[data-row='3'] {
+        transform:translateX(0vw) !important;
         }
     }
 }
@@ -244,22 +238,38 @@
         box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), 
         inset 0px 4px 1px 1px white, 
         inset 0px -3px 1px 1px rgba(204,198,197,.5);
-        }
-  }
+    }
+}
+
+@keyframes responsive1 {
+    100% {
+        width:40px;
+        height:60px;
+    }
+}
+
+@keyframes responsive2 {
+    100% {
+        width:20px;
+        height:30px;
+    }
+}
 
 
 // SVGS
 
 .line {
-  stroke-dasharray: 1772;
-  stroke-dashoffset: 1772;
-  animation: draw 3000ms ease-in-out 4ms forwards;
+    stroke-dasharray: 1772;
+    stroke-dashoffset: 1772;
+    animation: draw 3000ms ease-in-out 2.25s forwards;
+    animation-play-state: paused;  
 }
 
 .line2 {
-stroke-dasharray: 1772;
-  stroke-dashoffset: 1772;
-  animation: draw 4000ms ease-in-out 4ms forwards;
+    stroke-dasharray: 1772;
+    stroke-dashoffset: 1772;
+    animation: draw 4000ms ease-in-out 2.5s forwards;
+    animation-play-state: paused;  
 }
 
 @keyframes draw {
@@ -273,10 +283,15 @@ stroke-dasharray: 1772;
   }
 }
 
-
-
 #svg1 {
     max-height:100% !important;
     position:absolute;
     z-index:0;
+}
+
+.st0 {
+    fill:none;
+    stroke:#305f72;
+    stroke-width:10;
+    stroke-miterlimit:10;
 }

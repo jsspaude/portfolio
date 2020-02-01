@@ -4,212 +4,100 @@
 
 .features-container {
     width:100%;
-    height:100vh;
+    height:auto;
     min-height:720px;
     max-height:1020px;
-    @include flex-row(center,center);
+    @include flex-col(center,flex-start);
 
-    .features-wrapper {
-        background-color:map-get($colors, 'blue');
-        height:100%;
-        width: 100%;
-        max-width:none;
-        position:absolute;
-        z-index:-2;
+
+
+    .section-heading {
+        height:10%;
     }
 
     .features-content-container {
         width:100%;
-        height:80%;
-        @include flex-row(center,center);
+        height:50%;
+        padding-top:30px;
+        @include flex-row(space-between,center);
 
         .features-content {
             flex:1;
-            @include flex-col(space-between,center);
-            align-self:stretch;
+            @include flex-col(center,center);
+            align-self:stretch;}
 
-            &:nth-child(2) {
-                border-left:dashed 2px map-get($colors, 'pink');
-                border-right:dashed 2px map-get($colors, 'pink');
+            .titles-container {
+                height:10%;
+                width:100%;
+                @include flex-row(flex-start,center);
+                flex-wrap:nowrap;
+
+                .animation-container {
+                    width:auto;
+                    height:auto;
+                    padding-left:30px;
+                   
+    
+                    .animation {
+    
+                        svg {
+                            height:30px;
+                            width:30px;
+                        }
+                    }
+                }    
+
+                .heading-container {
+                    height:100%;
+                    width:auto;
+                    padding-left:15px;
+                    @include flex-row(flex-start,center);
+                    
+                    h4 {
+                        color:map-get($colors, 'pink' );
+                        text-shadow: -2px -1px 1px map-get($colors, 'white' );
+                        font-family:map-get($fonts, "heading");
+                        font-weight:900;
+                        // border-bottom:2px dashed map-get($colors, 'white' );
+                       
+                    }
+                }   
             }
 
-            .animation-container {
+            .descriptions-container {
+                height:60%;
                 width:100%;
-                height:30%;
-                align-self:stretch;
+                padding-left:75px;
                 @include flex-row(center,center);
 
-                &[data-row='1'] {
+                .paragraph-container {
+                    height:100%;
+                    width:100%;
+                    padding-top:30px;
+                    @include flex-row(flex-start,flex-start);
 
-                    .animation {
-                        flex:none;
-                        width:150px;
-                        height:100px;
-                        background-color:map-get($colors, 'blue' );
-                        box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3);
-
-                        &:before {
-                            content: "";
-                            position:absolute;
-                            display:inline-block;
-                            width:20px;
-                            height:30px;
-                            background-color:map-get($colors, 'blue' );
-                            transform:translate(-50px, 0px);
-                            animation: responsive1 1s ease-in .5s 1 forwards;
-                            animation-play-state: paused; 
-                        }
-
-                        &:after {
-                            content: "";
-                            display:inline-block;
-                            position:absolute;
-                            width:40px;
-                            height:60px;
-                            background-color:map-get($colors, 'blue' );
-                            transform:translate(160px, 15px);
-                            animation: responsive2 1.25s ease-in .5s 1 forwards;
-                            animation-play-state: paused;       
-                        }
+                    p {
+                        margin:0 !important;
+                        font-weight:400 !important;  
                     }
-                }
 
-                &[data-row='2'] {
+                    &[data-row='1'] {
 
-                    .animation {
-                        width:80px;
-                        height:80px;
-                        border:0px solid map-get($colors, 'blue');
-                        border-radius:50%;
-                        background-color:map-get($colors, 'white');
-                        animation: bubbleOne 2s ease-in 2.75s infinite alternate;
-                        animation-play-state: paused;
-                            
-                        &:before {
-                            content: "";
-                            display:inline-block;
-                            width:70px;
-                            height:70px;
-                            border:0px solid map-get($colors, 'blue');
-                            border-radius:50%;
-                            transform:translate(-60px, 10px);
-                            background-color:map-get($colors, 'white');
-                            animation: bubbleOne 2.25s ease-in 1.75s infinite alternate;
-                            animation-play-state: paused;  
-                            
+                        p {
+                            color:map-get($colors, 'black' );
                         }
-
-                        &:after {
-                            content: "";
-                            display:inline-block;
-                            width:60px;
-                            height:60px;
-                            border:0px solid map-get($colors, 'blue');
-                            border-radius:50%;
-                            transform:translate(70px, -90px);
-                            background-color:map-get($colors, 'white');
-                            animation: bubbleOne 2.5s ease-in 1.75s infinite alternate;
-                            animation-play-state: paused;  
-                        }
-                    }
-                }
-
-                &[data-row='3'] {
-
-                    .animation {
-                        flex:none;
-                        width:120px;
-                        height:120px;
                     }
                 }
             }
         }
-
-        .titles-container {
-            height:10%;
-            width:100%;
-            align-self:stretch;
-            @include flex-row(center,center);
-            flex-wrap:nowrap;
-
-            .heading-container {
-                height:100%;
-                width:80%;
-                @include flex-row(flex-start,center);
-                padding:0 30px;
-                
-                h3 {
-                    position:absolute;
-                    z-index:0;
-                    color:map-get($colors, 'pink' );
-                    text-shadow: -2px -2px 0px map-get($colors, 'black' );
-                    font-family:map-get($fonts, "heading");
-                    font-weight:900;
-                    border-bottom:dashed 2px map-get($colors,'blue' );
-                }
-
-                &[data-row='2'] {
-
-                    h3 {
-                        color:map-get($colors, 'pink' ) !important;
-                        text-shadow:none;
-                    }
-                }
-            }   
-        }
-
-        .descriptions-container {
-            height:60%;
-            width:100%;
-            align-self:stretch;
-            @include flex-row(space-around,center);
-
-            .paragraph-container {
-                height:100%;
-                width:100%;
-                @include flex-col(flex-start,center);
-
-                h4 {
-                    margin:0 !important;
-                    width:80%;
-                    color:map-get($colors, 'black' );
-                    text-shadow:1px 1px .5px white;
-                    padding:30px;
-                    font-weight:400px;
-                    
-                }
-            }
-        }
-    }
+    
 }
 
 
 .active {
     
-    .animation, .line, .line2 {
+    .line1, .line2, .line3 {
         animation-play-state: running !important;
-    }
-
-    .animation {
-
-        &:before {
-            animation-play-state: running !important;
-        }
-        
-        &:after {
-            animation-play-state: running !important;
-        }
-    }
-
-    .heading-container {
-
-        &[data-row='2'] {
-
-            h3 {
-                text-shadow: -2px -2px 0px map-get($colors, 'black' );
-                transition:all 1s ease-in;
-            }
-        }
     }
 }
 
@@ -258,28 +146,35 @@
 
 // SVGS
 
-.line {
+.line1 {
     stroke-dasharray: 1772;
     stroke-dashoffset: 1772;
-    animation: draw 3000ms ease-in-out 2.25s forwards;
-    animation-play-state: paused;  
+    animation: draw 1000ms ease-in-out .5s forwards;
+    animation-play-state: paused !important;
 }
 
 .line2 {
     stroke-dasharray: 1772;
     stroke-dashoffset: 1772;
-    animation: draw 4000ms ease-in-out 2.5s forwards;
-    animation-play-state: paused;  
+    animation: draw 2000ms ease-in-out 1s forwards;
+    animation-play-state: paused !important;
+}
+
+.line3 {
+    stroke-dasharray: 1772;
+    stroke-dashoffset: 1772;
+    animation: draw 2000ms ease-in-out 1.5s forwards;
+    animation-play-state: paused !important;
 }
 
 @keyframes draw {
   from {
     stroke-dashoffset: 1772;
-    stroke-opacity:0;
+
   }
   to{
     stroke-dashoffset: 0;
-    stroke-opacity:1;
+
   }
 }
 

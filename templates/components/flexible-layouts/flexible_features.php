@@ -6,6 +6,9 @@
     ?>
     <div class='features-wrapper'>
     </div>
+    <div class='section-heading'>
+        <h2><?php echo $sectionHeading; ?></h2>
+    </div>
     <div class='features-content-container'>
     <?php if( have_rows('feature_instance') ):
     ?>
@@ -16,19 +19,19 @@
             $featureDesc        = get_sub_field('description', false, false);
         ?>
         <div class="features-content">
-            <div class='animation-container' data-row="<?php echo get_row_index();?>">
-                <div class="animation">
-                    <?php echo $svg;?>
-                </div>
-            </div>
             <div class='titles-container'>
+                <div class='animation-container' data-row="<?php echo get_row_index();?>">
+                    <div class="animation">
+                        <?php echo $svg;?>
+                    </div>
+                </div>
                 <div class='heading-container' data-row="<?php echo get_row_index();?>">
-                    <h3><?php echo $featureHeading; ?></h3>
+                    <h4><?php echo $featureHeading; ?></h4>
                 </div>
             </div>
             <div class='descriptions-container'>
                 <div class='paragraph-container' data-row="<?php echo get_row_index();?>">
-                    <h4><?php echo $featureDesc; ?></h4>
+                    <p><?php echo $featureDesc; ?></p>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 		
 		<title><?php wp_title('|',true,'right'); ?></title>
-		<link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700|Carrois+Gothic+SC&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Archivo:700|Roboto:300,400&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" />
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		<link rel="icon" href="<?php bloginfo('template_directory'); ?>/favicon.png" type="image/x-icon" />

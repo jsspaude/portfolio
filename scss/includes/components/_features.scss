@@ -4,12 +4,14 @@
 
 .features-container {
     width:100%;
-    height:auto;
-    min-height:720px;
-    max-height:1020px;
-    @include flex-col(center,flex-start);
+    max-width:map-get($layout, 'max-width' );
+    height:calc(100vh - 190px);
+    @include flex-col(flex-start,flex-start);
 
-
+    @include mq('desktop-wide') {
+        height:100vh;
+        padding-top:100px;
+    }
 
     .section-heading {
         height:10%;
@@ -116,30 +118,6 @@
         &[data-row='3'] {
         transform:translateX(0vw) !important;
         }
-    }
-}
-
-// ANIMATIONS
-
-@keyframes bubbleOne {
-    100%  {
-        box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), 
-        inset 0px 4px 1px 1px white, 
-        inset 0px -3px 1px 1px rgba(204,198,197,.5);
-    }
-}
-
-@keyframes responsive1 {
-    100% {
-        width:40px;
-        height:60px;
-    }
-}
-
-@keyframes responsive2 {
-    100% {
-        width:20px;
-        height:30px;
     }
 }
 

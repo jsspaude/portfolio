@@ -6,7 +6,7 @@
     width:100%;
     max-width:map-get($layout, 'max-width' );
     height:calc(100vh - 190px);
-    @include flex-col(flex-start,flex-start);
+    @include flex-col(center,flex-start);
     flex-wrap:nowrap;
 
     @include mq('desktop-wide') {
@@ -32,47 +32,25 @@
                 @include flex-row(center, center);
                 display:block !important;
                 overflow:hidden;
-            }
+                background-color:map-get($colors, 'pink');
 
-            &[data-col='1'] {
-
-                .graphic-container {
-                    background-color:map-get($colors, 'pink');
-
-                    #wp-wave {
-                        width:auto; 
-                        height:auto;
-
-                        .fill {
-                            @include fillContainer;
-                            animation: fillAction 4s ease-in 1 forwards;
-                        }
-
-                        .waveFill {
-                            stroke:map-get($colors, 'blue' );
-                        }
-
-                        .wp-logo {
-                            transform: scale(.5) translate(50% , 30%);
-                        }
-                    }
+                svg {
+                    width:auto; 
+                    height:auto;
+                    max-height:100%;
                 }
-            }
 
-            &[data-col='2'] {
-
-                .graphic-container {
-
-                    .fill2 {
-                        @include fillContainer;
-                        animation: fillAction 4s ease-in 1 forwards;
-                    }
+                .fill {
+                    @include fillContainer;
+                    animation: fillAction 4s ease-in 1 forwards;
                 }
+
             }
 
             h5 {
                 font-size:1.5rem;
                 font-family:map-get($fonts, 'heading' );
+                color:map-get($colors, 'black' );
                 font-weight:700;
                 width:90%;
                 padding:5px 0;
@@ -83,28 +61,32 @@
 
 //SVGS
 
-.waveFill {
+.wpFill, .wrenchFill, .puzzleFill {
     fill:map-get($colors, 'blue' );
+    transform:scale(2) rotate(20deg);
+    transform-origin:center top;
 }
 
-.wp-logo {
+.wpLogo, .wrenchShape, .puzzleShape {
     fill:map-get($colors, 'pink' );
 }
 
-.wrenchShape {
-    fill:map-get($colors, 'pink');
-}
 
-.wrenchFill {
-    fill:map-get($colors, 'blue' );
-}
 
 
 @keyframes fillAction {
     0% {
-        transform: translate(0, 100%);
+        transform: translate(-50%, 100%);
     }
     100% {
-        transform: translate(0, -20%);
+        transform: translate(50%, -50%);
     }
+}
+
+.paused {
+    animation-play-state: paused !important;
+}
+
+.active {
+    animation-play-state: running !important;
 }

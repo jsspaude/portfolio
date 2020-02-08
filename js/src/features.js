@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    var topofDiv    = $('.form-container').offset().top;
-    var height      = $('.form-container').outerHeight();
+    var topofDiv    = $('.services-content-container').offset().top;
+    var height      = $('.services-content-container').outerHeight();
     $(window).scroll(function(){    
         if ($(this).scrollTop() > (topofDiv + height - 190)){ 
             $('.features-content-container').addClass('active');

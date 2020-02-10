@@ -8,10 +8,6 @@
     height:calc(100vh - 190px);
     @include flex-col(flex-start,flex-start);
 
-    @include mq('desktop-wide') {
-        height:100vh;
-        padding-top:100px;
-    }
 
     .section-heading {
         height:10%;

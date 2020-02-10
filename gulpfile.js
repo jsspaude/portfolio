@@ -5,8 +5,9 @@ const babel                     = require('gulp-babel');
 const concat                    = require('gulp-concat');
 const sassGlob                  = require('gulp-sass-glob');
 const terser                    = require('gulp-terser');
+const autoprefixer              = require('autoprefixer');
+const postcss                   = require('gulp-postcss');
 const browserSync               = require('browser-sync').create();
-
 
 // Compile SASS
 
@@ -14,6 +15,7 @@ function css() {
     return src('./scss/**/*.scss')
         .pipe(sassGlob())
         .pipe(sass())
+        .pipe(postcss([ autoprefixer() ]))
         .pipe(minifyCSS())
         .pipe(dest('./css/'))
         .pipe(browserSync.stream());

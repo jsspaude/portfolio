@@ -2,16 +2,24 @@ $(document).ready(function() {
     var topofDiv    = $('.form-container').offset().top;
     var height      = $('.form-container').outerHeight();
 
+    console.log(topofDiv);
+    console.log(height);
+
     $('.fill').addClass('paused');
 
     $(window).scroll(function(){    
+<<<<<<< HEAD
 <<<<<<< HEAD
         if ($(this).scrollTop() > (topofDiv + height - 190)){ 
 =======
         if ($(this).scrollTop() > (topofDiv + height)){ 
 >>>>>>> fixing
+=======
+        if ($(this).scrollTop() > (topofDiv + height)){ 
+>>>>>>> features svgs updated
             $('.fill').removeClass('paused');
             $('.fill').addClass('active');
+            console.log('active');
         }
         else{
             $('.fill').removeClass('active');
@@ -19,6 +27,13 @@ $(document).ready(function() {
         }
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+    $(window).on('scroll', function() {
+        console.log( $(this).scrollTop() );
+    });
+>>>>>>> features svgs updated
 });
 
 =======

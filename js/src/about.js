@@ -27,10 +27,14 @@ $(document).ready(function() {
           setTimeout(function() {
             specialChar.addClass('active');
 <<<<<<< HEAD
+<<<<<<< HEAD
           }, i*100);
 =======
           }, i*150);
 >>>>>>> fixing
+=======
+          }, i*150);
+>>>>>>> features svgs updated
         });
             
     }
@@ -50,10 +54,13 @@ $(document).ready(function() {
     
             $(this).html(abtContents);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             console.log(abtStr);
 =======
 >>>>>>> fixing
+=======
+>>>>>>> features svgs updated
         });
     }
 

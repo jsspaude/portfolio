@@ -4,6 +4,7 @@
 
 .about-container {
 <<<<<<< HEAD
+<<<<<<< HEAD
     width:100%;
     max-width:map-get($layout, 'max-width' );
     height:calc(100vh - 190px);
@@ -15,6 +16,8 @@
     }
 =======
 >>>>>>> fixing
+=======
+>>>>>>> features svgs updated
 
     .about-content-container {
         @include flex-row(space-between, center);
@@ -24,11 +27,15 @@
             flex:1;
             align-self:stretch;
 <<<<<<< HEAD
+<<<<<<< HEAD
             @include flex-col(center, flex-start);
             padding:30px 0;
 =======
             @include flex-col(flex-start, flex-start);
 >>>>>>> fixing
+=======
+            @include flex-col(flex-start, flex-start);
+>>>>>>> features svgs updated
 
             div {
                 padding:15px 0;
@@ -51,17 +58,27 @@
                 
                 .specialChar {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     color:map-get($colors, 'pink' );
                     text-shadow:none;
                     transition: all ease 2s;
+=======
+                    color:map-get($colors, 'white' ) !important;
+                    text-shadow:0px 0px 0px map-get($colors, 'white' );
+                    transition: all 4s;
+                    transition:color 1s;
+                    transform:translate(-2px 2px);
+>>>>>>> features svgs updated
 
 
                     &.active {
-                        text-shadow:-1px 1px 0px map-get($colors, 'black' );
-                        color:map-get($colors, 'pink' );
+                        text-shadow:-2px 2px 2px map-get($colors, 'black' );
+                        color:map-get($colors, 'pink' ) !important;
+                        transform:translate(0px px);
                     }
                 }
             }
+<<<<<<< HEAD
 =======
                     color:map-get($colors, 'white' ) !important;
 
@@ -74,11 +91,16 @@
                     }
                 }
             }
+=======
+>>>>>>> features svgs updated
 
             p {
                 padding:5px 0px;
             }
+<<<<<<< HEAD
 >>>>>>> fixing
+=======
+>>>>>>> features svgs updated
         }
 
         .about-graphic-container {

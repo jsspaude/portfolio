@@ -17,15 +17,15 @@
     
     endif;?>
 
-<section class="about-container">
-    <div class='about-wrapper'>
+<section class="about-container component">
+    <div class='about-wrapper section-wrapper'>
     </div>
     <div class="section-heading">
         <h2>
             <?php echo $sectionHeading; ?>
         </h2>
     </div>
-    <div class='about-content-container'>
+    <div class='about-content-container section-content'>
         <div class='about-content'>
             <div class='content-heading'>
                 <h4 class="special-heading">

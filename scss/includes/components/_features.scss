@@ -3,25 +3,14 @@
 /* ----------------------------------------- */
 
 .features-container {
-    width:100%;
-    max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
-    @include flex-col(flex-start,flex-start);
-
-
-    .section-heading {
-        height:10%;
-    }
 
     .features-content-container {
         width:100%;
-        height:50%;
-        padding-top:30px;
-        @include flex-row(space-between,center);
+        @include flex-row(space-between,flex-start);
 
         .features-content {
             flex:1;
-            @include flex-col(center,center);
+            @include flex-col(flex-start,center);
             align-self:stretch;}
 
             .titles-container {
@@ -33,8 +22,6 @@
                 .animation-container {
                     width:auto;
                     height:auto;
-                    padding-left:30px;
-                   
     
                     .animation {
     
@@ -65,7 +52,7 @@
             .descriptions-container {
                 height:60%;
                 width:100%;
-                padding-left:75px;
+                padding-left:45px;
                 @include flex-row(center,center);
 
                 .paragraph-container {

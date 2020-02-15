@@ -55,35 +55,6 @@ $(document).ready(function() {
 			window.location.hash = hash;
 		  });
 		}
-	  });	
-	
-
-	// Scroll function to detect if elements with [data-scroll-show] are in view
-
-	$(window).scroll(function(){
-
-		$('[data-scroll-show]').each(function() {
-
-			var topofDiv = $(this).offset().top; //gets offset of div
-			var height = $(this).outerHeight(); //gets height of div
-			var dataAmount = $(this).data('scroll-show');
-
-			if (dataAmount < 1) {
-				var amount = 1.5;
-			}
-			else {
-				var amount = dataAmount;
-			}
-
-			if($(window).scrollTop() > (topofDiv - height*amount)){
-			   $(this).addClass('show');
-			}
-			else{
-			   $(this).removeClass('show');
-			}
-
-		});
-
-	});
+	});	
 });
 

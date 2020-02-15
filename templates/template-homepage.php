@@ -30,9 +30,6 @@ endif;
 
 ?>
 
-
-
-
     </main>
 
 </div>

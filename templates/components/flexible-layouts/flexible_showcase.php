@@ -2,9 +2,12 @@
     //VARS
         $sectionHeading         = get_sub_field('section_heading');
 ?>
-<section class="showcase-container">
+<section class="showcase-container component">
 
 <div class='section-heading'>
+     <h2><?php echo $sectionHeading; ?></h2>
+</div>
+<div class='section-heading-small'>
      <h2><?php echo $sectionHeading; ?></h2>
 </div>
 
@@ -18,18 +21,19 @@
                 $projectLink        = get_sub_field('project_link'); 
     ?>
 
-    <div class='showcase-wrapper' data-row='<?php echo get_row_index(); ?>'>
-        
+    <div class='showcase-wrapper section-wrapper' data-row='<?php echo get_row_index(); ?>'>
     </div>
 
-    <div class='showcase-content-container' data-row='<?php echo get_row_index(); ?>'>
-        <div class='showcase-graphic' style="background-image:url(<?php echo $projectGraphic['url']; ?>)">
+    <div class='showcase-content-container section-content' data-row='<?php echo get_row_index(); ?>'>
+        <div class='showcase-graphic-container'> 
+            <div class="showcase-graphic" style="background-image:url(<?php echo $projectGraphic['url']; ?>)">
+            </div>
         </div>
         <div class='showcase-content'>
             <div class='heading-container'>
-                <h4>
+                <h3>
                     <?php echo $projectHeading; ?>
-                </h4>
+                </h3>
             </div>
 
             <?php if( have_rows('tag_instance') ): ?>

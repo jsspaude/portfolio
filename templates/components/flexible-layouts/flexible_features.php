@@ -1,15 +1,15 @@
 
-<section class="features-container">
+<section class="features-container component">
     <?php if( get_row_layout() === 'flexible_features' ):
         //VARS
         $sectionHeading     = get_sub_field('section_heading');
     ?>
-    <div class='features-wrapper'>
+    <div class='features-wrapper section-wrapper'>
     </div>
     <div class='section-heading'>
         <h2><?php echo $sectionHeading; ?></h2>
     </div>
-    <div class='features-content-container'>
+    <div class='features-content-container section-content'>
     <?php if( have_rows('feature_instance') ):
     ?>
         <?php while( have_rows('feature_instance') ): the_row();

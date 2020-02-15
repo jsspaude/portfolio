@@ -3,9 +3,9 @@
 	/* ----------------------------------------- */
 	
 		html {
-			scroll-behavior: smooth;
 			font-size:18px;
-			overflow-x: hidden;
+			width:100vw;
+		
 			@include mq('desktop-wide') {
 				font-size:16px;
 			}
@@ -21,27 +21,17 @@
 			#wrapper {
 
 				.background-shape {
+					overflow-x:hidden;
 					background: map-get($colors, 'pink' );
 					height:100vh;
 					width:100px;
 					align-self:stretch;
 					transform:skew(-20deg);
-					transform-origin: top right;
+					transform-origin: top center;
 					position:absolute;
 					right:8%;
 					z-index:-1;
 					pointer-events: none;
-
-					&:after {
-						content:'';
-						width: 0; 
-						height: 0; 
-						border-left: 50px solid transparent;
-						border-right: 50px solid transparent;
-						border-top: 50px solid map-get($colors, 'pink');
-						position:absolute;
-						bottom:-50px;
-					}
 				}
 
 				main.main {
@@ -163,7 +153,30 @@
 		}
 
 		section {
-			margin:15px 0;
+			
+			&.component {
+				width:100%;
+				max-width:map-get($layout, 'max-width' );
+				height:calc(100vh - 50px);
+				min-height:550px;
+				@include flex-col(flex-start,flex-start);
+				flex-wrap:nowrap;
+				margin:30px 0;
+				
+
+				.section-heading {
+					height:10%;
+				}
+
+				.section-wrapper {
+					position:absolute;
+				}
+
+				.section-content {
+					height:80%;
+					padding:30px;
+				}
+			}
 
 			& [data-scroll-show] {
 				opacity: 0;

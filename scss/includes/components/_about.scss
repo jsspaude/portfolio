@@ -3,15 +3,6 @@
 /* ----------------------------------------- */
 
 .about-container {
-    width:100%;
-    max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
-    @include flex-col(center,flex-start);
-    flex-wrap:nowrap;
-
-    .section-heading {
-        height:10%;
-    }
 
     .about-content-container {
         @include flex-row(space-between, center);
@@ -20,8 +11,7 @@
         .about-content {
             flex:1;
             align-self:stretch;
-            @include flex-col(center, flex-start);
-            padding:30px 0;
+            @include flex-col(flex-start, flex-start);
 
             div {
                 padding:15px 0;
@@ -43,16 +33,23 @@
                 font-size:2.25rem;
                 
                 .specialChar {
-                    color:map-get($colors, 'pink' );
-                    text-shadow:none;
-                    transition: all ease 2s;
+                    color:map-get($colors, 'white' ) !important;
+                    text-shadow:0px 0px 0px map-get($colors, 'white' );
+                    transition: all 4s;
+                    transition:color 1s;
+                    transform:translate(-2px 2px);
 
 
                     &.active {
-                        text-shadow:-1px 1px 0px map-get($colors, 'black' );
-                        color:map-get($colors, 'pink' );
+                        text-shadow:-2px 2px 2px map-get($colors, 'black' );
+                        color:map-get($colors, 'pink' ) !important;
+                        transform:translate(0px px);
                     }
                 }
+            }
+
+            p {
+                padding:5px 0px;
             }
         }
 

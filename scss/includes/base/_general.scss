@@ -46,7 +46,7 @@
 
 				main.main {
 					padding:0 map-get($layout, 'content-margin' );
-					@include flex-col(center, center);
+					@include flex-col(flex-start, center);
 				}
 			}
 
@@ -162,15 +162,9 @@
 			}
 		}
 
-		// &[data-view="mobile"] {
+		section {
+			margin:15px 0;
 
-		// }
-
-		// &[data-view="desktop"] {
-			
-		// }
-
-		.section {
 			& [data-scroll-show] {
 				opacity: 0;
 				transition: opacity 2s ease;

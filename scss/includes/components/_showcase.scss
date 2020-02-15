@@ -1,0 +1,15 @@
+/* ----------------------------------------- */
+/* SHOWCASE */
+/* ----------------------------------------- */
+
+.showcase-container {
+    width:100%;
+    max-width:map-get($layout, 'max-width' );
+    height:calc(100vh - 190px);
+    @include flex-col(center,flex-start);
+    flex-wrap:nowrap;
+
+    .section-heading {
+        height:10%;
+    }
+}

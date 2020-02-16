@@ -3,14 +3,14 @@
     $sectionHeading = get_sub_field('section_heading');
 ?>
 
-<section class="services-container">
-    <div class='services-wrapper'>
+<section class="services-container component">
+    <div class='services-wrapper section-wrapper'>
     </div>
-    <div class ='section-heading-container'>
+    <div class ='section-heading'>
         <h2> <?php echo $sectionHeading; ?> </h2>
     </div>
 <?php if( have_rows('services_instance') ) : ?>
-    <div class='services-content-container'>
+    <div class='services-content-container section-content'>
         <?php while( have_rows('services_instance') ): the_row(); 
             //VARS
             $servicesHeading    = get_sub_field('heading');
@@ -24,7 +24,7 @@
             <div class='heading-container'>
                 <h5><?php echo $servicesHeading ?></h5>
             </div>
-            <div class='description-container'>
+            <div class='paragraph-container'>
                 <p><?php echo $servicesDesc; ?>
             </div>
         </div>
@@ -32,8 +32,3 @@
     </div>
 <?php endif; ?>
 </section>
-
-
-
-
-

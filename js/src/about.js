@@ -3,8 +3,6 @@ $(document).ready(function() {
     var topofDiv        = $('.features-content-container').offset().top;
     var height          = $('.features-content-container').outerHeight();
     var abtStringType   = $('.special-heading');
-    var specialChar     = $('.specialChar');
-    var abtCharActive   = specialCharActive();
         
     arrayAbt(abtStringType);
     
@@ -23,7 +21,7 @@ $(document).ready(function() {
           var specialChar = $(this);
           setTimeout(function() {
             specialChar.addClass('active');
-          }, i*100);
+          }, i*150);
         });
             
     }
@@ -42,8 +40,6 @@ $(document).ready(function() {
             }
     
             $(this).html(abtContents);
-
-            console.log(abtStr);
         });
     }
 

@@ -10,5 +10,5 @@ $(document).ready(function() {
             $('.features-content-container').removeClass('active');
         }
     });
-});
 
+});

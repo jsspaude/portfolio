@@ -22,6 +22,10 @@
     ?>
 
     <div class='showcase-wrapper section-wrapper' data-row='<?php echo get_row_index(); ?>'>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 800">
+        <path class="svg-line-path" d="M6.5 0v800"/>
+        <path class="svg-line-dash" d="M6.5 0v800"/>
+    </svg>
     </div>
 
     <div class='showcase-content-container section-content' data-row='<?php echo get_row_index(); ?>'>

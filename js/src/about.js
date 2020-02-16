@@ -3,8 +3,6 @@ $(document).ready(function() {
     var topofDiv        = $('.features-content-container').offset().top;
     var height          = $('.features-content-container').outerHeight();
     var abtStringType   = $('.special-heading');
-    var specialChar     = $('.specialChar');
-    var abtCharActive   = specialCharActive();
         
     arrayAbt(abtStringType);
     

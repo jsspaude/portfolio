@@ -2,16 +2,12 @@ $(document).ready(function() {
     var topofDiv    = $('.form-container').offset().top;
     var height      = $('.form-container').outerHeight();
 
-    console.log(topofDiv);
-    console.log(height);
-
     $('.fill').addClass('paused');
 
     $(window).scroll(function(){    
         if ($(this).scrollTop() > (topofDiv + height)){ 
             $('.fill').removeClass('paused');
             $('.fill').addClass('active');
-            console.log('active');
         }
         else{
             $('.fill').removeClass('active');
@@ -19,8 +15,23 @@ $(document).ready(function() {
         }
     });
 
-    $(window).on('scroll', function() {
-        console.log( $(this).scrollTop() );
+    $(window).scroll(function() {
+
+            // // calculate the percentage the user has scrolled down the page
+            // var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
+
+            // $('.fill').css('transform', 'translateX(' + scrollPercent + '%)'  );
+
+            // console.log(scrollPercent);
+
+            var scrollCon       = $('.services-container').offset().top;
+            var scrollCurr      = $(window).scrollTop();
+            var scrollPercent   = ((scrollCurr + 100) / scrollCon) *100;
+            var scrollPos       = scrollPercent - 100;
+
+            $('.fill').css('transform', 'translateX(' + scrollPos + '%)'  );
     });
+
 });
 
+    

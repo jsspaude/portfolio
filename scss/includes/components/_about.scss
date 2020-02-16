@@ -34,16 +34,13 @@
                 
                 .specialChar {
                     color:map-get($colors, 'white' ) !important;
-                    text-shadow:0px 0px 0px map-get($colors, 'white' );
-                    transition: all 4s;
-                    transition:color 1s;
-                    transform:translate(-2px 2px);
-
 
                     &.active {
-                        text-shadow:-2px 2px 2px map-get($colors, 'black' );
-                        color:map-get($colors, 'pink' ) !important;
-                        transform:translate(0px px);
+                        color:map-get($colors, 'black' ) !important;
+
+                        &[data-char='8'],&[data-char='10'],&[data-char='11'] {
+                            color: map-get($colors, 'blue' ) !important;
+                        }
                     }
                 }
             }
@@ -67,7 +64,9 @@
             &:before {
                 content: "";
                 display:block;
-                background-color:map-get($colors, 'blue');
+                border-top:30px map-get($colors, 'blue' ) solid;
+                border-bottom:30px map-get($colors, 'blue' ) solid;
+                border-left:30px map-get($colors, 'blue' ) solid;
                 height:500px;
                 width:250px;
                 position: absolute;
@@ -79,7 +78,9 @@
             &:after {
                 content: "";
                 display:block;
-                background-color:map-get($colors, 'pink');
+                border-top:30px map-get($colors, 'pink' ) solid;
+                border-bottom:30px map-get($colors, 'pink' ) solid;
+                border-right:30px map-get($colors, 'pink' ) solid;
                 height:500px;
                 width:250px;
                 position: absolute;
@@ -96,7 +97,7 @@
                 }
     
                 &:before {
-                    transform:translate(50px, 0px);
+                    transform:translate(0px, 0px);
                     transition:all linear 1s;
                 }
     

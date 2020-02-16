@@ -4,10 +4,13 @@ $(document).ready(function() {
     var height          = $('.features-content-container').outerHeight();
     var abtStringType   = $('.special-heading');
 <<<<<<< HEAD
+<<<<<<< HEAD
     var specialChar     = $('.specialChar');
     var abtCharActive   = specialCharActive();
 =======
 >>>>>>> fixing
+=======
+>>>>>>> showcase lines
         
     arrayAbt(abtStringType);
     

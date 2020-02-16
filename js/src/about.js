@@ -3,8 +3,11 @@ $(document).ready(function() {
     var topofDiv        = $('.features-content-container').offset().top;
     var height          = $('.features-content-container').outerHeight();
     var abtStringType   = $('.special-heading');
+<<<<<<< HEAD
     var specialChar     = $('.specialChar');
     var abtCharActive   = specialCharActive();
+=======
+>>>>>>> fixing
         
     arrayAbt(abtStringType);
     
@@ -23,7 +26,11 @@ $(document).ready(function() {
           var specialChar = $(this);
           setTimeout(function() {
             specialChar.addClass('active');
+<<<<<<< HEAD
           }, i*100);
+=======
+          }, i*150);
+>>>>>>> fixing
         });
             
     }
@@ -42,8 +49,11 @@ $(document).ready(function() {
             }
     
             $(this).html(abtContents);
+<<<<<<< HEAD
 
             console.log(abtStr);
+=======
+>>>>>>> fixing
         });
     }
 

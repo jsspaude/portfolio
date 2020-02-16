@@ -4,9 +4,17 @@
 
 .features-container {
     width:100%;
+<<<<<<< HEAD
     max-width:map-get($layout, 'max-width' );
     height:calc(100vh - 190px);
     @include flex-col(flex-start,flex-start);
+=======
+    height:auto;
+    min-height:720px;
+    max-height:1020px;
+    @include flex-col(center,flex-start);
+
+>>>>>>> fixing
 
 
     .section-heading {

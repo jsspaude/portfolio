@@ -46,7 +46,11 @@
 
 				main.main {
 					padding:0 map-get($layout, 'content-margin' );
+<<<<<<< HEAD
 					@include flex-col(flex-start, center);
+=======
+					@include flex-col(center, center);
+>>>>>>> fixing
 				}
 			}
 

@@ -3,13 +3,226 @@
 /* ----------------------------------------- */
 
 .showcase-container {
-    width:100%;
-    max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
-    @include flex-col(center,flex-start);
-    flex-wrap:nowrap;
+    height:auto !important;
 
-    .section-heading {
-        height:10%;
+    .showcase-wrapper {
+        left: 0;
+        right: 0;
+        top:0;
+        height:calc(100vh - 50px) !important;
+        width:100%;
+        max-width: 84%;
+        margin-left: auto;
+        margin-right: auto;
+        z-index:-1;
+
+        svg {
+            width:15px;
+            float:right;
+            height:100vh;
+            transform:translateY((50vh));
+        }
+
+        .svg-line-path {
+            fill:none; 
+            animation: dashed-line 3s ease-in-out 1 forwards;
+            stroke:map-get($colors, 'blue' ); 
+            stroke-width: 10; 
+            stroke-dasharray: 940; /* this is the entire length of the line */
+            stroke-dashoffset: 940; /* this is the entire length of the line */
+            animation-play-state: paused;
+
+        }
+
+        &.active {
+
+            .svg-line-path {
+                animation-play-state: running !important;
+            }
+        }
+
+        &.odd {
+    
+            .svg-line-path {
+                stroke:map-get($colors, 'pink' )!important; 
+            }
+        }
+
+        .svg-line-dash {
+            fill: none;
+            stroke: #FFFFFF; /* this must match the background color */
+            stroke-dasharray: 10 20; /* draws a 10px dash line with a 16px gap between */
+            stroke-width: 12; /* make the dashed line slightly bigger than the one it's covering */
+          }
+        
+        @keyframes dashed-line {
+            from {
+                stroke-dashoffset: 940;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+    }
+
+    .section-heading-small {
+        color:map-get($colors, 'pink' );
+        transition:all ease 500ms;
+        position:fixed; 
+        top:15px;
+        z-index:100;
+
+        h2 {
+            transform:translateX(150px);
+            transition:all ease 500ms;
+            font-size:1rem;
+            opacity:0;
+        }
+    }
+
+    &.active {
+
+        .section-heading {
+            transition:all ease 500ms;
+
+            h2 {
+                transform:translateX(-500px);
+                transition:all ease 500ms;
+            }
+        }
+
+        .section-heading-small {
+            transition:all ease 1ms;
+
+            h2 {
+                transition:all ease 1s;
+                opacity:1;
+                text-shadow:-1px 1px 0px (map-get($colors, 'black' ));
+            }
+        }
+
+    }
+
+    .showcase-content-container {
+        @include flex-row(flex-start, center);
+        width:100%;
+        height:calc(100vh - 50px) !important;
+
+        .showcase-graphic-container {
+            flex:1;
+            height:100%;
+            @include flex-col(center, center);
+
+            .showcase-graphic {
+                width:75%;
+                height:75%;
+                background-size:cover;
+                background-position:top;
+                background-repeat:no-repeat;
+                transition: all ease 4s;
+                border: 2px solid map-get($colors, black );
+
+                &:hover {
+                    background-position:bottom;
+                }
+
+                &:after {
+                    content:"";
+                    display:block;
+                    width:100%;
+                    height:100%;
+                    border: 10px solid map-get($colors, 'pink' );
+                    transform:translate(-50px, -50px);
+                    position:relative;
+                    z-index:-1;
+                }
+            }
+        }
+
+        &:before {
+            content:"";
+            display:block;
+            position:absolute;
+            right:6.75%;
+            height:50px;
+            width:50px;
+            background-color:map-get($colors, 'pink' );
+            border-radius:25px;
+            transform:translateY(50px);
+        }
+
+        .showcase-content {
+            flex:2;
+            height:100%;
+            padding:30px;
+            @include flex-col(center, flex-start);
+
+            h3 {
+                font-family:map-get($fonts, 'heading' );
+                font-weight:700;
+            }
+
+            .tag-container {
+                @include flex-row(space-between, flex-start);
+                width:auto;
+                height:5%;
+
+                h6 {
+                    margin:0 15px;
+                    padding:2px 5px;
+                    width:auto;
+                    color:white;
+                    background-color:map-get($colors, 'blue' );
+
+                    &:nth-child(1) {
+                        margin-left:0px;
+                    }
+                }
+            }
+
+            .heading-container {
+                height:10%;
+                @include flex-col(center, flex-start);
+            }
+
+            .paragraph-container {
+                height:40%;
+                @include flex-col(center, flex-start);
+            }
+
+            .link-container {
+                height:15%;
+                @include flex-col(center, flex-start);
+            }
+        }
+    }
+}
+
+.odd {
+
+    &:before {
+        background-color:map-get($colors, 'blue') !important ;
+    }
+
+    .showcase-graphic {
+
+        &:after {
+            content:"";
+            display:block;
+            width:100%;
+            height:100%;
+            border: 10px solid map-get($colors, 'blue' ) !important;
+            transform:translate(-50px, -50px);
+            position:relative;
+            z-index:-1;
+        }
+    }
+
+    .tag-container {
+
+        h6 {
+            background-color:map-get($colors, 'pink' ) !important;
+        }
     }
 }

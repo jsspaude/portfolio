@@ -4,21 +4,12 @@
 ?>
 <section class="showcase-container component">
 
-<<<<<<< HEAD
     <div class='section-heading'>
         <h2><?php echo $sectionHeading; ?></h2>
     </div>
     <div class='section-heading-small'>
         <h2><?php echo $sectionHeading; ?></h2>
     </div>
-=======
-<div class='section-heading'>
-     <h2><?php echo $sectionHeading; ?></h2>
-</div>
-<div class='section-heading-small'>
-     <h2><?php echo $sectionHeading; ?></h2>
-</div>
->>>>>>> features svgs updated
 
     <?php if( have_rows('showcase_instance') ):
 
@@ -31,19 +22,10 @@
     ?>
 
     <div class='showcase-wrapper section-wrapper' data-row='<?php echo get_row_index(); ?>'>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> showcase lines
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 800">
         <path class="svg-line-path" d="M6.5 0v800"/>
         <path class="svg-line-dash" d="M6.5 0v800"/>
     </svg>
-<<<<<<< HEAD
-=======
->>>>>>> features svgs updated
-=======
->>>>>>> showcase lines
     </div>
 
     <div class='showcase-content-container section-content' data-row='<?php echo get_row_index(); ?>'>

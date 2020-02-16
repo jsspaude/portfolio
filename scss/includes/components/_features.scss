@@ -3,34 +3,27 @@
 /* ----------------------------------------- */
 
 .features-container {
-<<<<<<< HEAD
     width:100%;
-<<<<<<< HEAD
-    max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
-    @include flex-col(flex-start,flex-start);
-=======
     height:auto;
     min-height:720px;
     max-height:1020px;
     @include flex-col(center,flex-start);
 
->>>>>>> fixing
 
 
     .section-heading {
         height:10%;
     }
-=======
->>>>>>> features svgs updated
 
     .features-content-container {
         width:100%;
-        @include flex-row(space-between,flex-start);
+        height:50%;
+        padding-top:30px;
+        @include flex-row(space-between,center);
 
         .features-content {
             flex:1;
-            @include flex-col(flex-start,center);
+            @include flex-col(center,center);
             align-self:stretch;}
 
             .titles-container {
@@ -42,6 +35,8 @@
                 .animation-container {
                     width:auto;
                     height:auto;
+                    padding-left:30px;
+                   
     
                     .animation {
     
@@ -72,7 +67,7 @@
             .descriptions-container {
                 height:60%;
                 width:100%;
-                padding-left:45px;
+                padding-left:75px;
                 @include flex-row(center,center);
 
                 .paragraph-container {

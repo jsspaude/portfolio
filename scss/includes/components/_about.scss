@@ -3,21 +3,10 @@
 /* ----------------------------------------- */
 
 .about-container {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    width:100%;
-    max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
-    @include flex-col(center,flex-start);
-    flex-wrap:nowrap;
 
     .section-heading {
         height:10%;
     }
-=======
->>>>>>> fixing
-=======
->>>>>>> features svgs updated
 
     .about-content-container {
         @include flex-row(space-between, center);
@@ -26,16 +15,9 @@
         .about-content {
             flex:1;
             align-self:stretch;
-<<<<<<< HEAD
-<<<<<<< HEAD
             @include flex-col(center, flex-start);
             padding:30px 0;
-=======
-            @include flex-col(flex-start, flex-start);
->>>>>>> fixing
-=======
-            @include flex-col(flex-start, flex-start);
->>>>>>> features svgs updated
+
 
             div {
                 padding:15px 0;
@@ -57,34 +39,6 @@
                 font-size:2.25rem;
                 
                 .specialChar {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    color:map-get($colors, 'pink' );
-                    text-shadow:none;
-                    transition: all ease 2s;
-=======
-                    color:map-get($colors, 'white' ) !important;
-<<<<<<< HEAD
-                    text-shadow:0px 0px 0px map-get($colors, 'white' );
-                    transition: all 4s;
-                    transition:color 1s;
-                    transform:translate(-2px 2px);
->>>>>>> features svgs updated
-
-=======
->>>>>>> showcase lines
-
-                    &.active {
-                        color:map-get($colors, 'black' ) !important;
-
-                        &[data-char='8'],&[data-char='10'],&[data-char='11'] {
-                            color: map-get($colors, 'blue' ) !important;
-                        }
-                    }
-                }
-            }
-<<<<<<< HEAD
-=======
                     color:map-get($colors, 'white' ) !important;
 
                     &.active {
@@ -96,16 +50,11 @@
                     }
                 }
             }
-=======
->>>>>>> features svgs updated
 
             p {
                 padding:5px 0px;
             }
-<<<<<<< HEAD
->>>>>>> fixing
-=======
->>>>>>> features svgs updated
+
         }
 
         .about-graphic-container {
@@ -122,19 +71,9 @@
             &:before {
                 content: "";
                 display:block;
-<<<<<<< HEAD
-<<<<<<< HEAD
-                background-color:map-get($colors, 'blue');
-=======
                 border-top:30px map-get($colors, 'blue' ) solid;
                 border-bottom:30px map-get($colors, 'blue' ) solid;
                 border-left:30px map-get($colors, 'blue' ) solid;
->>>>>>> fixing
-=======
-                border-top:30px map-get($colors, 'blue' ) solid;
-                border-bottom:30px map-get($colors, 'blue' ) solid;
-                border-left:30px map-get($colors, 'blue' ) solid;
->>>>>>> showcase lines
                 height:500px;
                 width:250px;
                 position: absolute;
@@ -146,19 +85,9 @@
             &:after {
                 content: "";
                 display:block;
-<<<<<<< HEAD
-<<<<<<< HEAD
-                background-color:map-get($colors, 'pink');
-=======
                 border-top:30px map-get($colors, 'pink' ) solid;
                 border-bottom:30px map-get($colors, 'pink' ) solid;
                 border-right:30px map-get($colors, 'pink' ) solid;
->>>>>>> fixing
-=======
-                border-top:30px map-get($colors, 'pink' ) solid;
-                border-bottom:30px map-get($colors, 'pink' ) solid;
-                border-right:30px map-get($colors, 'pink' ) solid;
->>>>>>> showcase lines
                 height:500px;
                 width:250px;
                 position: absolute;
@@ -175,15 +104,7 @@
                 }
     
                 &:before {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    transform:translate(50px, 0px);
-=======
                     transform:translate(0px, 0px);
->>>>>>> fixing
-=======
-                    transform:translate(0px, 0px);
->>>>>>> showcase lines
                     transition:all linear 1s;
                 }
     

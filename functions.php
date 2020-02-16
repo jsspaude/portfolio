@@ -111,7 +111,8 @@
 		'Javascript' 	=> array(
 			//These Javascript FIles will Appear on the Website Frontend
 			'Client' => array(
-				'scripts.js'
+				'scripts.js',
+				'libraries/lazysizes.min.js'
 			),
 			//These Javascript Files will Appear in the Administration Area
 			'Admin' => array(
@@ -281,9 +282,12 @@
 	*	Additional Image Sizes
 	*
 	**/
-	add_image_size( 'artwork', 440, 454, true );
-	add_image_size( 'artwork-slide', 1444, 731, true );
-	add_image_size( 'artwork-thumb', 110, 107, true );
+	add_image_size( 'laptopLrg', 400, 600, true );
+	add_image_size( 'laptopMed', 300, 500, true );
+	add_image_size( 'laptopSmall', 200, 400, true );
+	add_image_size( 'squareMed', 440, 440, true );
+	add_image_size( 'squareLrg', 600, 600, true );
+	add_image_size( 'squareSmall', 200, 200, true );
 	/**
 	*
 	*	wp_enqueue_scripts

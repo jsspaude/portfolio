@@ -4,10 +4,13 @@
 .hero-container {
     width:100%;
     max-width:map-get($layout, 'max-width' );
-    height:77vh;
-    min-height:720px;
-    max-height:1020px;
+    height:calc(100vh - 190px);
     @include flex-row(center,center);
+
+    @include mq('desktop-wide') {
+        height:100vh;
+        padding-top:100px;
+    }
 }
 
 .hero-wrapper {
@@ -67,15 +70,6 @@
         height:100%;
         flex:1;
         @include flex-col(center,center);
-        
-        .background-shape {
-            width:0;
-            height:80%;
-            border-left:100px solid map-get($colors, 'pink' );
-            transform:skew(-20deg) translateX(-75px);
-            position:relative;
-            z-index:-1;
-        }
 
         .form {
             background-color:map-get($colors, 'blue' );
@@ -83,12 +77,11 @@
             z-index:1;
             right:8%;
             padding:30px;
-            max-width:300px;
+            max-width:400px;
             width:20%;
-
-            .frm_forms {
-                
-            }
+            -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+            -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+            box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
 
             .frm_primary_label {
                 color:map-get($colors, 'white' );
@@ -109,8 +102,9 @@
                 color:map-get($colors, 'black' );
                 font-family:map-get($fonts, 'body' );
                 font-weight:400;
-                font-size:1.5rem;
+                font-size:1rem;
                 background:map-get($colors, 'white' );
+                box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5);
             }
         }
     } 

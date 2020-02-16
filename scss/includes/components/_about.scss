@@ -1,0 +1,121 @@
+/* ----------------------------------------- */
+/* ABOUT */
+/* ----------------------------------------- */
+
+.about-container {
+    width:100%;
+    max-width:map-get($layout, 'max-width' );
+    height:calc(100vh - 190px);
+    @include flex-col(center,flex-start);
+    flex-wrap:nowrap;
+
+    .section-heading {
+        height:10%;
+    }
+
+    .about-content-container {
+        @include flex-row(space-between, center);
+        height:90%;
+
+        .about-content {
+            flex:1;
+            align-self:stretch;
+            @include flex-col(center, flex-start);
+            padding:30px 0;
+
+            div {
+                padding:15px 0;
+
+                &.content-heading {
+                    height:auto;
+                    @include flex-col(center, flex-start);
+                }
+
+                &.content-paragraph {
+                    height:75%;
+                    @include flex-col(flex-start, flex-start);
+                }
+            }
+
+            h4 {
+                font-family:map-get($fonts, 'heading' );
+                font-weight:700;
+                font-size:2.25rem;
+                
+                .specialChar {
+                    color:map-get($colors, 'pink' );
+                    text-shadow:none;
+                    transition: all ease 2s;
+
+
+                    &.active {
+                        text-shadow:-1px 1px 0px map-get($colors, 'black' );
+                        color:map-get($colors, 'pink' );
+                    }
+                }
+            }
+        }
+
+        .about-graphic-container {
+            flex:1;
+            align-self:stretch;
+            @include flex-row(center, flex-start);
+
+            img {
+                position:relative;
+                z-index:3;
+                transition:all ease-in 1s;
+            }
+
+            &:before {
+                content: "";
+                display:block;
+                background-color:map-get($colors, 'blue');
+                height:500px;
+                width:250px;
+                position: absolute;
+                z-index:2;
+                transform:translate(-100vw, 0px);
+                transition:all linear 1s;
+            }
+
+            &:after {
+                content: "";
+                display:block;
+                background-color:map-get($colors, 'pink');
+                height:500px;
+                width:250px;
+                position: absolute;
+                z-index:1;
+                transform:translate(100vw, 50px);
+                transition:all linear 1s;
+            }
+
+            &.active {
+
+                img {
+                    transform:rotate(2deg);
+                    transition:all ease-in 1s;
+                }
+    
+                &:before {
+                    transform:translate(50px, 0px);
+                    transition:all linear 1s;
+                }
+    
+                &:after {
+                    transform:translate(100px, 50px);
+                    transition:all linear 1s;
+                }
+
+                &:hover {
+                    img {
+                        transform:rotate(-2deg);
+                        transition:all ease-in 1s;
+                    }
+                }
+
+            }
+        }
+    }
+}

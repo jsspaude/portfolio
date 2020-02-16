@@ -4,22 +4,49 @@
 	
 		html {
 			scroll-behavior: smooth;
+			font-size:18px;
+			overflow-x: hidden;
 			@include mq('desktop-wide') {
-				font-size:12px;
+				font-size:16px;
 			}
 		}
 
-
 		body {	
 			padding-top:150px;		
+			position:relative;
 			@each $key, $value in $primary {
 				#{"" + $key}: $value ;
 			}
 
 			#wrapper {
 
+				.background-shape {
+					background: map-get($colors, 'pink' );
+					height:100vh;
+					width:100px;
+					align-self:stretch;
+					transform:skew(-20deg);
+					transform-origin: top right;
+					position:absolute;
+					right:8%;
+					z-index:-1;
+					pointer-events: none;
+
+					&:after {
+						content:'';
+						width: 0; 
+						height: 0; 
+						border-left: 50px solid transparent;
+						border-right: 50px solid transparent;
+						border-top: 50px solid map-get($colors, 'pink');
+						position:absolute;
+						bottom:-50px;
+					}
+				}
+
 				main.main {
 					padding:0 map-get($layout, 'content-margin' );
+					@include flex-col(flex-start, center);
 				}
 			}
 
@@ -135,15 +162,9 @@
 			}
 		}
 
-		// &[data-view="mobile"] {
+		section {
+			margin:15px 0;
 
-		// }
-
-		// &[data-view="desktop"] {
-			
-		// }
-
-		.section {
 			& [data-scroll-show] {
 				opacity: 0;
 				transition: opacity 2s ease;

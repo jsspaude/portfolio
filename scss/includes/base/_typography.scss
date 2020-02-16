@@ -2,11 +2,6 @@
 /* TYPOGRAPHY */
 /* ----------------------------------------- */
 
-p {
-    &:not([class]) {
-        margin-bottom: 35px;
-    }
-}
 .text-center {
     text-align: center;
 }
@@ -35,7 +30,7 @@ nav {
 		font-family:map-get($fonts, 'heading' );
 		font-size:1.5rem;
 		text-transform:uppercase;
-		font-weight:900;
+		font-weight:700;
 	}
 }
 
@@ -43,14 +38,14 @@ nav {
 h1 {	
 	font-size:5.063rem;
 	font-family:map-get($fonts, 'heading' );
-	font-weight:900;
+	font-weight:700;
 	color:map-get($colors, "blue" );
 }
 
 h2 {
 	font-size:3.375rem;
 	font-family:map-get($fonts, 'heading' );
-	font-weight:900;
+	font-weight:700;
 }
 
 h3 {
@@ -75,7 +70,7 @@ h5 {
 h6 {
 	font-size:0.667rem;
 	font-family:map-get($fonts, 'heading' );
-	font-weight:900;
+	font-weight:700;
 
 }
 

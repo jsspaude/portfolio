@@ -25,16 +25,6 @@
 
             &:hover {
 
-                svg {
-                    
-                    .fill {
-
-                        path {
-                            fill:map-get($colors, 'pink' );
-                        }
-                    }
-                }
-
                 h5 {
                     color:map-get($colors, 'blue' );
                 }
@@ -54,22 +44,6 @@
                     overflow:hidden;
                     stroke:map-get($colors, 'white' );
                     stroke-width:2;
-
-                    
-
-                    // .fill1 {
-                    //     animation: fillAction 1s linear 1 forwards;
-                    // }
-
-                    // .fill2 {
-                    //     animation: fillAction 1s linear .5s 1 forwards;
-                    //     transform:translateX(-200%);
-                    // }
-
-                    // .fill3 {
-                    //     animation: fillAction 1s linear 1s 1 forwards;
-                    //     transform:translateX(-200%);
-                    // }
                 }
             }
 
@@ -91,31 +65,10 @@
 
 //SVGS
 
-.wpFill, .wrenchFill, .puzzleFill {
+.shapeFill {
     fill:map-get($colors, 'blue' );
-}
 
-.wpLogo, .wrenchShape, .puzzleShape {
-    fill:map-get($colors, 'white' );
-    
-}
-
-
-
-
-@keyframes fillAction {
-    0% {
-        transform: translateX(-200%);
+    &.active {
+        fill:map-get($colors, 'pink' ) !important;
     }
-    100% {
-        transform: translateX(0%);
-    }
-}
-
-.paused {
-    animation-play-state: paused !important;
-}
-
-.active {
-    animation-play-state: running !important;
 }

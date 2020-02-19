@@ -1,19 +1,6 @@
 $(document).ready(function() {
-    var topofDiv    = $('.form-container').offset().top;
-    var height      = $('.form-container').outerHeight();
-
-    $('.fill').addClass('paused');
-
-    $(window).scroll(function(){    
-        if ($(this).scrollTop() > (topofDiv + height)){ 
-            $('.fill').removeClass('paused');
-            $('.fill').addClass('active');
-        }
-        else{
-            $('.fill').removeClass('active');
-            $('.fill').addClass('paused');
-        }
-    });
+    var topofDiv    = $('.services-container').offset().top;
+    
 
     $(window).scroll(function() {
 
@@ -25,11 +12,21 @@ $(document).ready(function() {
             // console.log(scrollPercent);
 
             var scrollCon       = $('.services-container').offset().top;
-            var scrollCurr      = $(window).scrollTop();
-            var scrollPercent   = ((scrollCurr + 100) / scrollCon) *100;
-            var scrollPos       = scrollPercent - 100;
+            var scrollCurr      = ($(window).scrollTop()) + 50;
+            var scrollPercent   = ((scrollCurr) / scrollCon) *100;
+            var scrollPos       = scrollPercent;
 
-            $('.fill').css('transform', 'translateX(' + scrollPos + '%)'  );
+            if(scrollPos >= 90) {
+                $('.svgMask').css('transform', 'translateX(100%)' );
+                $('.shapeFill').addClass('active');
+            }
+
+            else {
+                $('.svgMask').css('transform', 'translateX(' + scrollPos + '%)'  );
+                $('.shapeFill').removeClass('active');
+            }
+
+            console.log(scrollCurr);
     });
 
 });

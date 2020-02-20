@@ -11,22 +11,28 @@ $(document).ready(function() {
 
             // console.log(scrollPercent);
 
-            var scrollCon       = $('.services-container').offset().top;
-            var scrollCurr      = ($(window).scrollTop()) + 50;
-            var scrollPercent   = ((scrollCurr) / scrollCon) *100;
-            var scrollPos       = scrollPercent;
+            var scrollContainer         = $('.services-container').position().top;
+            var scrollContent           = $('.services-content').position().top;
+            var scrollCurrent           = ($(window).scrollTop());
+            var scrollPercent           = ((scrollCurrent) / scrollContent) *100;
+            var scrollPosition          = scrollPercent;
+            var container               = $('.shapeFill');
 
-            if(scrollPos >= 90) {
-                $('.svgMask').css('transform', 'translateX(100%)' );
-                $('.shapeFill').addClass('active');
-            }
+            $(container).each(function(i){
+                if(scrollPosition >= 90) {
+                    $('.svgMask').css('transform', 'translateX(100%)' );
+                    $(this).addClass('active');
+                }
+            });
 
-            else {
-                $('.svgMask').css('transform', 'translateX(' + scrollPos + '%)'  );
+            if(scrollPosition < 90) {
+                $('.svgMask').css('transform', 'translateX(' + scrollPosition + '%)'  );
                 $('.shapeFill').removeClass('active');
             }
 
-            console.log(scrollCurr);
+            console.log(scrollContainer);
+            console.log(scrollContent);
+            console.log(scrollCurrent);
     });
 
 });

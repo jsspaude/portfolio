@@ -17,6 +17,14 @@
             height:100%;
             @include flex-col(flex-start, flex-start);
             flex-wrap:nowrap;
+
+            @include mq('tablet') {
+                width:100%;
+                
+                .svgMask, rect {
+                    display:none;
+                }
+            }
             
 
             &:nth-child(2) {
@@ -67,6 +75,7 @@
 
 .shapeFill {
     fill:map-get($colors, 'blue' );
+    stroke:none;
 
     &.active {
         fill:map-get($colors, 'pink' ) !important;

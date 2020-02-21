@@ -1,40 +1,33 @@
 $(document).ready(function() {
-    var topofDiv    = $('.services-container').offset().top;
-    
+    var servicesContainer   = $('.services-container').position().top;
+    var contentContainer    = $('.services-content-container').position().top;
+    var svgMask             = $('[data-svg]');
+    var shapeFill           = $('.shapeFill');
 
     $(window).scroll(function() {
 
-            // // calculate the percentage the user has scrolled down the page
-            // var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
+        // SCROLL SVGMASKS ON X AXIS USING DIV SCROLL TOP VALUE
+        var scrollCurrent       = ($(document).scrollTop());
+        var heightDiff          = (contentContainer - servicesContainer) + 80;
+        var percentArray        = [];
+       
+        $('.services-content').each(function(i){
+            var positContent    = ($(this).position().top) - heightDiff;
+            var scrollPercent   = ((scrollCurrent) / positContent) *100;
 
-            // $('.fill').css('transform', 'translateX(' + scrollPercent + '%)'  );
-
-            // console.log(scrollPercent);
-
-            var scrollContainer         = $('.services-container').position().top;
-            var scrollContent           = $('.services-content').position().top;
-            var scrollCurrent           = ($(window).scrollTop());
-            var scrollPercent           = ((scrollCurrent) / scrollContent) *100;
-            var scrollPosition          = scrollPercent;
-            var container               = $('.shapeFill');
-
-            $(container).each(function(i){
-                if(scrollPosition >= 90) {
-                    $('.svgMask').css('transform', 'translateX(100%)' );
-                    $(this).addClass('active');
-                }
-            });
-
-            if(scrollPosition < 90) {
-                $('.svgMask').css('transform', 'translateX(' + scrollPosition + '%)'  );
-                $('.shapeFill').removeClass('active');
+            if(positContent < scrollCurrent) {
+                $(svgMask).css('transform', 'translateX(100%)' );
+                $(shapeFill[i]).addClass('active');
+            }
+            else{
+                $(shapeFill[i]).removeClass('active');
             }
 
-            console.log(scrollContainer);
-            console.log(scrollContent);
-            console.log(scrollCurrent);
+            $(scrollPercent).each(function(){
+                percentArray.push(this);
+            });
+        
+            $(svgMask[i]).css('transform', 'translateX(' + percentArray[i] + '%)'  );
+        });
     });
-
 });
-
-    

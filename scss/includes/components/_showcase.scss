@@ -16,6 +16,10 @@
         margin-right: auto;
         z-index:-1;
 
+        @include mq('tablet') {
+            display: none;
+        }
+
         svg {
             width:15px;
             float:right;
@@ -66,21 +70,6 @@
         
     }
 
-    .section-heading-small {
-        color:map-get($colors, 'pink' );
-        transition:all ease 500ms;
-        position:fixed; 
-        top:15px;
-        z-index:100;
-
-        h2 {
-            transform:translateX(150px);
-            transition:all ease 500ms;
-            font-size:1rem;
-            opacity:0;
-        }
-    }
-
     &.active {
 
         .section-heading {
@@ -112,7 +101,12 @@
         .showcase-graphic-container {
             flex:1;
             height:100%;
+            width:100%;
             @include flex-col(center, center);
+
+            @include mq('tablet') {
+                flex:2;
+            }
 
             .showcase-graphic {
                 width:75%;
@@ -122,6 +116,10 @@
                 background-repeat:no-repeat;
                 transition: all ease 4s;
                 border: 2px solid map-get($colors, black );
+
+                @include mq('tablet') {
+                    width:100%;
+                }
 
                 &:hover {
                     background-position:bottom;
@@ -136,6 +134,10 @@
                     transform:translate(-50px, -50px);
                     position:relative;
                     z-index:-1;
+
+                    @include mq('tablet') {
+                        transform:translate(-20px,-20px);
+                    }
                 }
             }
         }
@@ -150,6 +152,10 @@
             background-color:map-get($colors, 'pink' );
             border-radius:25px;
             transform:translateY(50px);
+
+            @include mq('tablet') {
+                display:none;
+            }
         }
 
         .showcase-content {
@@ -157,6 +163,11 @@
             height:100%;
             padding:30px;
             @include flex-col(center, flex-start);
+            flex-wrap: nowrap;
+
+            @include mq('tablet') {
+                padding:0;
+            }
 
             h3 {
                 font-family:map-get($fonts, 'heading' );
@@ -168,6 +179,12 @@
                 width:auto;
                 height:5%;
 
+                @include mq('tablet') {
+                    height:auto;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                }
+
                 h6 {
                     margin:0 15px;
                     padding:2px 5px;
@@ -178,22 +195,41 @@
                     &:nth-child(1) {
                         margin-left:0px;
                     }
+
+                    @include mq('tablet') {
+                        margin:2.5px 0;
+                    }
                 }
             }
 
             .heading-container {
                 height:10%;
                 @include flex-col(center, flex-start);
+
+                @include mq('tablet') {
+                    height:auto;
+                }
             }
 
             .paragraph-container {
                 height:40%;
                 @include flex-col(center, flex-start);
+
+                @include mq('tablet') {
+                    height:auto;
+                    padding: 15px 0;
+                }
             }
 
             .link-container {
                 height:15%;
                 @include flex-col(center, flex-start);
+                padding: 15px 0;
+
+                h5 {
+                    font-family:map-get($fonts, 'heading' );
+                    font-weight:700;
+                }
             }
         }
     }

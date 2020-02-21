@@ -1,13 +1,10 @@
-<!-- <?php if( get_row_layout() === 'flexible_showcase' ) : 
+<?php if( get_row_layout() === 'flexible_showcase' ) : 
     //VARS
         $sectionHeading         = get_sub_field('section_heading');
 ?>
 <section class="showcase-container component">
 
 <div class='section-heading'>
-     <h2><?php echo $sectionHeading; ?></h2>
-</div>
-<div class='section-heading-small'>
      <h2><?php echo $sectionHeading; ?></h2>
 </div>
 
@@ -76,4 +73,4 @@
 
 </section>
 
-<?php endif; ?> -->
+<?php endif; ?>

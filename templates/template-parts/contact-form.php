@@ -197,14 +197,7 @@ do_action( 'wp-contact-form-template_form_before' ); ?>
           echo '<' . $error_tag . ' class="alert">' . $message_error . '</' . $error_tag . '>';
         ?>
       </div>
-      
-      <div class="field">
-        <input type="checkbox" id="cc" name="cc" value="1" <?php if ( isset( $cc ) ) checked( '1', intval($cc) ); ?> />
-        <label for="cc" style="display: inline;">
-          <?php _e( 'Receive a copy of this message?', $text_domain_string ); ?>
-        </label>
-      </div>
-      
+	  
       <div class="field" style="display: none !important;">
         <label for="text">
           <?php _e( 'Spam protection', $text_domain_string ); ?>

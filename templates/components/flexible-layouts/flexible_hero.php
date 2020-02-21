@@ -3,7 +3,6 @@
     //VARS
     $subHeading1        = get_sub_field('sub_heading_1');
     $subHeading2        = get_sub_field('sub_heading_2');
-    $subHeading3        = get_sub_field('sub_heading_3');
     $heroForm           = get_sub_field('form');
 ?>
 
@@ -17,9 +16,6 @@
         </div>
         <div>
             <h4> <?php echo $subHeading2;  ?> </h4>
-        </div>
-        <div>
-            <h5> <?php echo $subHeading3;  ?> </h4>
         </div>
     </div>
     <div class="form-container">

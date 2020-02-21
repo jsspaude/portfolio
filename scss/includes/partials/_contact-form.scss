@@ -22,7 +22,8 @@
         @include mq('tablet') {
             width:80%;
             position:relative;
-            margin:30px;
+            left:0;
+            margin-top:30px;
         }
 
         fieldset {
@@ -62,6 +63,10 @@
             padding:2px;
         }
 
+        .form-submit {
+            padding:10px 0px;
+        }
+
         h6 {
             color:map-get($colors, 'white' );
             font-family:map-get($fonts, 'heading' );
@@ -75,6 +80,7 @@
             font-family:map-get($fonts, 'body' );
             font-weight:400;
             font-size:1rem;
+            padding:5px;
             background:map-get($colors, 'white' );
             box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5);
         }

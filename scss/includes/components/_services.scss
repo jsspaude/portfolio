@@ -46,6 +46,7 @@
                 position:relative;
                 align-self:stretch;
                 overflow:hidden;
+                border:none;
 
                 @include mq('tablet') {
                     height:30%;
@@ -60,17 +61,22 @@
                 }
             }
 
+            &.active {
+                .graphic-container {
+                    border:10px solid map-get($colors, 'blue' ) !important;
+                }
+
+                h5 {
+                    color:map-get($colors, 'pink' ) !important;
+                }
+
+                .shapeFill {
+                    fill:map-get($colors, 'pink' ) !important;
+                }
+            }
+
             .heading-container {
                 padding-top:15px;
-
-                &.active {
-                    @include mq('tablet') {
-
-                        h5 {
-                            color:map-get($colors, 'pink' ) !important;
-                        }
-                    }
-                }
             }
 
             h5 {
@@ -90,16 +96,4 @@
 .shapeFill {
     fill:map-get($colors, 'blue' );
     stroke:none;
-
-    &.active {
-        fill:map-get($colors, 'pink' ) !important;
-    }
-}
-
-svg {
-    border:none;
-
-    &.active {
-        border:10px solid map-get($colors, 'blue' ) !important;
-    }
 }

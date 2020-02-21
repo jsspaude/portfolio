@@ -114,7 +114,7 @@
                 background-size:cover;
                 background-position:top;
                 background-repeat:no-repeat;
-                transition: all ease 4s;
+                transition: all ease 6s;
                 border: 2px solid map-get($colors, black );
 
                 @include mq('tablet') {
@@ -122,6 +122,10 @@
                 }
 
                 &:hover {
+                    background-position:bottom;
+                }
+
+                &:active {
                     background-position:bottom;
                 }
 

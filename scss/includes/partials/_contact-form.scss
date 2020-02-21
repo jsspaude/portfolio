@@ -19,6 +19,12 @@
         font-size:1rem;
         font-weight:400;
 
+        @include mq('tablet') {
+            width:80%;
+            position:relative;
+            margin:30px;
+        }
+
         fieldset {
             border:none;
         }

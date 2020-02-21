@@ -1,4 +1,4 @@
-<?php if( get_row_layout() === 'flexible_showcase' ) : 
+<!-- <?php if( get_row_layout() === 'flexible_showcase' ) : 
     //VARS
         $sectionHeading         = get_sub_field('section_heading');
 ?>
@@ -76,4 +76,4 @@
 
 </section>
 
-<?php endif; ?>
+<?php endif; ?> -->

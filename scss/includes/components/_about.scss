@@ -61,33 +61,33 @@
                 transition:all ease-in 1s;
             }
 
-            &:before {
-                content: "";
-                display:block;
-                border-top:30px map-get($colors, 'blue' ) solid;
-                border-bottom:30px map-get($colors, 'blue' ) solid;
-                border-left:30px map-get($colors, 'blue' ) solid;
-                height:500px;
-                width:250px;
-                position: absolute;
-                z-index:2;
-                transform:translate(-100vw, 0px);
-                transition:all linear 1s;
-            }
+            // &:before {
+            //     content: "";
+            //     display:block;
+            //     border-top:30px map-get($colors, 'blue' ) solid;
+            //     border-bottom:30px map-get($colors, 'blue' ) solid;
+            //     border-left:30px map-get($colors, 'blue' ) solid;
+            //     height:500px;
+            //     width:250px;
+            //     position: absolute;
+            //     z-index:2;
+            //     transform:translate(-100vw, 0px);
+            //     transition:all linear 1s;
+            // }
 
-            &:after {
-                content: "";
-                display:block;
-                border-top:30px map-get($colors, 'pink' ) solid;
-                border-bottom:30px map-get($colors, 'pink' ) solid;
-                border-right:30px map-get($colors, 'pink' ) solid;
-                height:500px;
-                width:250px;
-                position: absolute;
-                z-index:1;
-                transform:translate(100vw, 50px);
-                transition:all linear 1s;
-            }
+            // &:after {
+            //     content: "";
+            //     display:block;
+            //     border-top:30px map-get($colors, 'pink' ) solid;
+            //     border-bottom:30px map-get($colors, 'pink' ) solid;
+            //     border-right:30px map-get($colors, 'pink' ) solid;
+            //     height:500px;
+            //     width:250px;
+            //     position: absolute;
+            //     z-index:1;
+            //     transform:translate(100vw, 50px);
+            //     transition:all linear 1s;
+            // }
 
             &.active {
 

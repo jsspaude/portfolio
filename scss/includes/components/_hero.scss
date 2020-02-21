@@ -4,34 +4,36 @@
 .hero-container {
     width:100%;
     max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
+    min-height:100vh;
     @include flex-row(center,center);
 
     @include mq('desktop-wide') {
-        height:100vh;
+        min-height:100vh;
         padding-top:100px;
     }
-}
-
-.hero-wrapper {
-    width:100%;
-    align-self:stretch;
-    @include flex-row(center,center);
 
     @include mq('tablet') {
-        flex-direction: column;
+        flex-direction:column;
     }
-
 
     .content-container {
         @include fillContainer;
         @include flex-col(center,center);
         flex:9;
 
+        @include mq('tablet') {
+            align-items: flex-start !important;
+        }
+
         div {
             @include flex-row(flex-start,center);
             line-height: 36px;
             padding: 10px 0px;
+
+            @include mq('tablet') {
+                width:90% !important;
+                justify-content: flex-start !important;
+            }
 
             &:first-child {
                 width:100%;

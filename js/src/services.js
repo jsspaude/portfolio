@@ -15,26 +15,35 @@ $(document).ready(function() {
        
         $('.services-content').each(function(i){
             var positContent    = $(this).position().top;
+            var svg             = $(this).find('svg');
             var offsetContent   = $(this).offset().top;
             var positDiff       = offsetContent - containerPosit;
-            var scrollPercent   = ((scrollCurrent / positContent) *100) -1;
-
-            if(positContent < scrollCurrent) {
-                $(svgMask).css('transform', 'translateX(100%)' );
-                $(shapeFill[i]).addClass('active');
-                $(headingContainer[i]).addClass('active');
-            }
-            else{
-                $(shapeFill[i]).removeClass('active');
-            }
+            var scrollPercent   = ((scrollCurrent / (positContent)) *100);
 
             $(scrollPercent).each(function(){
                 percentArray.push(this);
             });
-        
-            $(svgMask[i]).css('transform', 'translateX(' + percentArray[i] + '%)'  );
 
+            if(offsetContent < scrollCurrent) {
+                $(svgMask).css('transform', 'translateX(100%)' );
+                $(shapeFill[i]).addClass('active');
+                $(svg).addClass('active');
+                $(headingContainer[i]).addClass('active');
+            }
+            else{
+                $(shapeFill[i]).removeClass('active');
+                $(svg).removeClass('active');
+            }
+            if(!shapeFill.hasClass('active')){
+                $(svgMask).css('transform', 'translateX(' + percentArray[i] + '%)'  );
+            }
+
+            
         
+            
+
+            console.log(offsetContent);
+            console.log(scrollCurrent);
         });
     });
 });

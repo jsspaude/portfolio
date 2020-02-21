@@ -67,7 +67,7 @@
                     @include mq('tablet') {
 
                         h5 {
-                            color:map-get($colors, 'blue' ) !important;
+                            color:map-get($colors, 'pink' ) !important;
                         }
                     }
                 }
@@ -93,5 +93,13 @@
 
     &.active {
         fill:map-get($colors, 'pink' ) !important;
+    }
+}
+
+svg {
+    border:none;
+
+    &.active {
+        border:10px solid map-get($colors, 'blue' ) !important;
     }
 }

@@ -2,6 +2,7 @@ $(document).ready(function() {
     var topofDiv    = $('.showcase-content-container').offset().top;
     var x           = 1;
     var length      = 0;
+    var scrolling   = false;
     
     $("div[data-row]").each(function() {
         if ($(this).attr('data-row') % 2 == 1 && ($(this).attr('data-row') != 0)){
@@ -9,17 +10,7 @@ $(document).ready(function() {
         }
     });
 
-    $(window).scroll(function(){    
-        if ($(this).scrollTop() > (topofDiv - 100)){ 
-            $('.showcase-container').addClass('active');
-        }
-        else{
-            $('.showcase-container').removeClass('active');
-        }
-    });
-
     $('.showcase-wrapper').each(function(i){
-
         var $this           = $(this).data('row', i);
         var container       = $('.showcase-content-container[data-row="1"');
         var posit           = $(container).position();
@@ -36,21 +27,35 @@ $(document).ready(function() {
         }
 
         length++;
-    });   
+    });
 
-    $(window).scroll(function(){  
+    $( window ).scroll( function() {
+        scrolling = true;
+    });
+    
+    setInterval( function() {
+        if ( scrolling ) {
 
-        var dashedLine      = $('.showcase-wrapper[data-row=' + (x) +']')
-        var height          = dashedLine.offset().top;
+            scrolling           = false;
+            var dashedLine      = $('.showcase-wrapper[data-row=' + (x) +']')
+            var height          = dashedLine.offset().top;
+            
+            if ($(this).scrollTop() > (topofDiv - 100)){ 
+                $('.showcase-container').addClass('active');
+            }
 
+            else{
+                $('.showcase-container').removeClass('active');
+            }
+            
+            if ($(this).scrollTop() > (height - 70) && (x != length)) {
 
-        if ($(this).scrollTop() > (height - 70) && (x != length)) {
+                $(dashedLine).addClass('active');
 
-            $(dashedLine).addClass('active');
-
-            if (x < length) {
-                x++
+                if (x < length) {
+                    x++
+                }
             }
         }
-    });
+    }, 20 );
 });

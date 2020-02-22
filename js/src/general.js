@@ -34,7 +34,7 @@ $(document).ready(function() {
 		else if($(window.top == 0)) {
 			$('#header').removeClass('header-small');
 			// $('#branding>a>h1, #branding>a>div>h4, #branding>a>div>h5').removeClass('header-font-small');
-			$('#primary-navigation').removeClass('primary-navigation-small');
+			// $('#primary-navigation').removeClass('primary-navigation-small');
 			$('.open').removeClass('open');
 		}
 	});

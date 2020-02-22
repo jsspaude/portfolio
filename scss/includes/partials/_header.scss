@@ -8,8 +8,8 @@ header {
     height:map-get($layout, 'header-height' );
     @include flex-row(center,center);
     position:fixed;
-    z-index:5;
-    padding:30px 0px;
+    z-index:4;
+    padding:0px 0px;
     top:0px;
     background:map-get($colors, 'white');
 
@@ -121,12 +121,6 @@ header {
         }
 
         #menu-toggle {
-            @include flex-row(center,center);
-            align-self:stretch;
-            width:50px;
-            cursor: pointer;
-            position:relative;
-            z-index:5;
 
             span {
                 height:30px;
@@ -171,34 +165,35 @@ header {
     position:relative;
     z-index:5;
 
-    &.open {
-        padding:10px 0px !important;
+    span {
+        height:40px;
+        width:2px;
+        background-color:map-get($colors, 'pink' );
+        display:inline-block;
+        transform:rotate(20deg);
 
-        span {
-            height:0px !important;
-            width:0px !important;
-            background-color:map-get($colors, 'blue' );
+        &:before {
+            content: "";
+            height:30px;
+            width:2px;
+            background-color:map-get($colors, 'pink' );
             display:inline-block;
-            transform:rotate(0deg) !important;
+            position: absolute;
+            top:50%;
+            transform:translate(-7px, -5px);
+            transition: all .5s ease-in;
+        }
 
-            &:before {
-                content: "";
-                height:30px !important;
-                width:2px !important;
-                background-color:map-get($colors, 'blue' ) !important;
-                transition: all .5s ease-in;
-                transform:rotate(-45deg) !important;
-                top:0 !important;
-            }
-
-            &:after {
-                content: "";
-                height:30px !important;
-                width:2px !important;
-                background-color:map-get($colors, 'blue' ) !important;
-                transition: all .5s ease-in;
-                transform:rotate(45deg) !important;
-            }
+        &:after {
+            content: "";
+            height:25px;
+            width:2px;
+            background-color:map-get($colors, 'pink' );
+            display:inline-block;
+            position: absolute;
+            top:50%;
+            transform:translate(7px, -5px);
+            transition: all .5s ease-in;
         }
     }
 }

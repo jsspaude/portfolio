@@ -11,7 +11,11 @@
         .features-content {
             flex:1;
             @include flex-col(flex-start,center);
-            align-self:stretch;}
+            align-self:stretch;
+
+            @include mq('tablet') {
+                margin:50px 0 !important;
+            }
 
             .titles-container {
                 height:10%;
@@ -55,11 +59,20 @@
                 padding-left:45px;
                 @include flex-row(center,center);
 
+                @include mq('tablet') {
+                    // padding-left:0;
+                    justify-content: flex-start;
+                }
+
                 .paragraph-container {
                     height:100%;
                     width:100%;
                     padding-top:30px;
                     @include flex-row(flex-start,flex-start);
+
+                    @include mq('tablet') {
+                        width:80%;
+                    }
 
                     p {
                         margin:0 !important;
@@ -75,7 +88,7 @@
                 }
             }
         }
-    
+    }   
 }
 
 

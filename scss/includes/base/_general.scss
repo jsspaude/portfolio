@@ -5,9 +5,14 @@
 		html {
 			font-size:18px;
 			overflow-x:hidden;
+			max-width:100vw;
 		
 			@include mq('desktop-wide') {
 				font-size:16px;
+			}
+
+			@include mq('tablet') {
+				font-size:14px;
 			}
 		}
 
@@ -20,6 +25,8 @@
 			}
 
 			#wrapper {
+				max-width:100vw;
+				overflow-x:hidden;
 
 				.background-shape {
 					overflow-x:hidden;
@@ -33,7 +40,13 @@
 					right:8%;
 					z-index:-1;
 					pointer-events: none;
+
+					@include mq('tablet') {
+						display:none;
+					}
 				}
+
+				
 
 				main.main {
 					padding:0 map-get($layout, 'content-margin' );
@@ -146,10 +159,19 @@
 				@include flex-col(flex-start,flex-start);
 				flex-wrap:nowrap;
 				margin:30px 0;
+
+				@include mq('tablet') {
+					margin:50px 0;
+					align-items: center;
+				}
 				
 
 				.section-heading {
 					height:10%;
+
+					@include mq('tablet') {
+						width:90%;
+					}
 				}
 
 				.section-wrapper {
@@ -162,6 +184,8 @@
 
 					@include mq('tablet') {
 						flex-direction: column;
+						padding: 30px 0px;
+						width:90%;
 					}
 				}
 			}

@@ -16,15 +16,20 @@
 
             @include mq('tablet') {
                 width:100%;
-                
-                .svgMask, rect {
-                    display:none;
+                padding:0;
+                margin-top:100px;
+
+                &:first-child {
+                    margin:0;
                 }
             }
             
-
             &:nth-child(2) {
                 margin:0 35px;
+
+                @include mq('tablet') {
+                    margin:100px 0 0 0;
+                }
             }
 
             &:hover {
@@ -41,6 +46,11 @@
                 position:relative;
                 align-self:stretch;
                 overflow:hidden;
+                border:none;
+
+                @include mq('tablet') {
+                    height:30%;
+                }
 
                 svg {
                     width:100%;
@@ -48,6 +58,20 @@
                     overflow:hidden;
                     stroke:map-get($colors, 'white' );
                     stroke-width:2;
+                }
+            }
+
+            &.active {
+                .graphic-container {
+                    border:10px solid map-get($colors, 'blue' ) !important;
+                }
+
+                h5 {
+                    color:map-get($colors, 'pink' ) !important;
+                }
+
+                .shapeFill {
+                    fill:map-get($colors, 'pink' ) !important;
                 }
             }
 
@@ -72,8 +96,4 @@
 .shapeFill {
     fill:map-get($colors, 'blue' );
     stroke:none;
-
-    &.active {
-        fill:map-get($colors, 'pink' ) !important;
-    }
 }

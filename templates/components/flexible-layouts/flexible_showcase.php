@@ -7,9 +7,6 @@
 <div class='section-heading'>
      <h2><?php echo $sectionHeading; ?></h2>
 </div>
-<div class='section-heading-small'>
-     <h2><?php echo $sectionHeading; ?></h2>
-</div>
 
     <?php if( have_rows('showcase_instance') ):
 

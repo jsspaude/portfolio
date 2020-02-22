@@ -4,24 +4,14 @@
 .hero-container {
     width:100%;
     max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
-    @include flex-row(center,center);
-
-    @include mq('desktop-wide') {
-        height:100vh;
-        padding-top:100px;
-    }
-}
-
-.hero-wrapper {
-    width:100%;
-    align-self:stretch;
+    min-height:100vh;
     @include flex-row(center,center);
 
     @include mq('tablet') {
-        flex-direction: column;
+        flex-direction:column;
+        padding-top:100px;
+        margin-bottom:50px;
     }
-
 
     .content-container {
         @include fillContainer;
@@ -32,6 +22,11 @@
             @include flex-row(flex-start,center);
             line-height: 36px;
             padding: 10px 0px;
+
+            @include mq('tablet') {
+                justify-content: flex-start !important;
+                width:90% !important;
+            }
 
             &:first-child {
                 width:100%;

@@ -13,6 +13,25 @@
         margin-bottom:50px;
     }
 
+    .hero-wrapper {
+        height:100vh;
+        width:100vw;
+        position:absolute;
+        @include flex-col(flex-end,center);
+        z-index:-1;
+
+
+        .drawing {
+            fill:white;
+            stroke:black;
+            stroke-miterlimit:10;
+        }
+
+        .test {
+            stroke:red;
+        }
+    }
+
     .content-container {
         @include fillContainer;
         @include flex-col(center,center);

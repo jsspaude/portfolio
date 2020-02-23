@@ -1,8 +1,11 @@
 $(document).ready(function() {
-    var topofDiv    = $('.showcase-content-container').offset().top;
-    var x           = 1;
-    var length      = 0;
-    var scrolling   = false;
+    var topofDiv        = $('.showcase-content-container').offset().top;
+    var x               = 1;
+    var length          = 0;
+    var scrolling       = false;
+    const wrapperEnd    = $('.showcase-wrapper').length;
+
+    $($('.showcase-wrapper[data-row=' + (wrapperEnd) +']')).addClass('hidden');
     
     $("div[data-row]").each(function() {
         if ($(this).attr('data-row') % 2 == 1 && ($(this).attr('data-row') != 0)){
@@ -55,6 +58,10 @@ $(document).ready(function() {
                 if (x < length) {
                     x++
                 }
+            }
+
+            if(x == length) {
+                
             }
         }
     }, 20 );

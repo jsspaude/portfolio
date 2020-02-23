@@ -36,7 +36,7 @@
 				<div id="menu-toggle">
 					<span></span>
 				</div>
-				<nav id="primary-navigation" class="primary-navigation-small">
+				<nav id="primary-navigation">
 				<?php
 					wp_nav_menu(array(
 						'container_class' 	=> 'main-nav',

@@ -3,10 +3,11 @@
 /* ----------------------------------------- */
 
 .services-container {
-
+    
     .services-content-container {
         @include flex-row(space-between,space-between);
         flex-wrap:nowrap;
+        
 
         .services-content {
             width:30%;

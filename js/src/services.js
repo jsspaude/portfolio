@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var svgMask             = $('[data-svg]');
+    var svgMask             = $('.svgMask[data-svg]');
     var scrolling           = false;
  
     $( window ).scroll( function() {
@@ -18,8 +18,6 @@ $(document).ready(function() {
                 var offsetContent   = $(this).offset().top;
                 var scrollPercent   = ((scrollCurrent / (offsetContent - 200)) *100);
 
-                console.log(offsetContent);
-
                 $(scrollPercent).each(function(){
                     percentArray.push(this);
                 });
@@ -31,7 +29,6 @@ $(document).ready(function() {
 
                 if(!$(this).hasClass('active')){
                     $(svgMask[i]).css('transform', 'translateX(' + percentArray[i] + '%)'  );
-                    console.log('test');
                 }
             });
         }

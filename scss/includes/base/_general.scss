@@ -155,7 +155,7 @@
 			&.component {
 				width:100%;
 				max-width:map-get($layout, 'max-width' );
-				min-height:100vh;
+				min-height:90vh;
 				@include flex-col(flex-start,flex-start);
 				flex-wrap:nowrap;
 				margin:30px 0;

@@ -1,18 +1,34 @@
 $(document).ready(function() {
 
-    const   drawing        = $('.drawing[data-svg]');
-    const   drawingEnd     = $(drawing).length;
-    var     lengthArray    = [];
-    var     i              = 0;
-    var     $this          = $(drawing).get(i);
+    const drawing       = $('.foreground');
+    const heroSVG       = $('#van-skyline');   
+    const drawingEnd    = $(drawing).length;
+    const windowWidth   = $(window).width();
+    var scrolling       = false;
 
     $(drawing).each(function(i){
-        var $length = $(drawing).get(i).getTotalLength(); 
-        
-        lengthArray.push($length);
 
-        // $(this).addClass('test');
+        if(i <= drawingEnd) {
+
+            setTimeout(function() {
+
+                    $(drawing[i]).children().attr('filter' , 'url(#dropshadow)');
+                    $(drawing[i]).children().addClass('visible');
+            }, i*250);
+        }
     });
+ 
+    $( window ).scroll( function() {
+        scrolling = true;
+    });
+    
+    setInterval( function() {
+        if ( scrolling ) {
+            scrolling = false;
+            var scrollCurrent  = $(document).scrollTop();
 
+            $(heroSVG).css('transform', 'translateY(' + (scrollCurrent * 3) + 'px)');
+        }
+    }, 10 );
     
 });

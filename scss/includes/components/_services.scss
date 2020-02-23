@@ -56,6 +56,7 @@
                 svg {
                     width:100%;
                     height:100%;
+                    padding:5px;
                     overflow:hidden;
                     stroke:map-get($colors, 'white' );
                     stroke-width:2;
@@ -64,7 +65,8 @@
 
             &.active {
                 .graphic-container {
-                    border:10px solid map-get($colors, 'blue' ) !important;
+                    border:5px solid map-get($colors, 'blue' ) !important;
+                    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
                 }
 
                 h5 {

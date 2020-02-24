@@ -31,7 +31,7 @@
         svg {
             width:15px;
             float:right;
-            height:100vh;
+            height:calc(100vh - 50px);
             transform:translateY((50vh));
         }
 

@@ -17,13 +17,13 @@ $(document).ready(function() {
         var $this           = $(this).data('row', i);
         var container       = $('.showcase-content-container[data-row="1"');
         var posit           = $(container).position();
-        var height          = (container.height()) + 60;
+        var height          = (container.height()) + 90;
         var initNewPosit    = (posit.top*i) + posit.top;
         var newPosit        = (posit.top) + (height*i);
 
 
         if(i===0) {
-            $this.offset({top:initNewPosit});
+            $this.offset({top:(initNewPosit + 51)});
         }
         else{
             $this.offset({top:newPosit});

@@ -12,18 +12,34 @@
 
         <svg id="van-skyline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 961 205">
 
-            <filter id="dropshadow" height="130%">
+            <filter id="dropshadow-color" height="130%">
                 <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> <!-- stdDeviation is how much to blur -->
                 <feOffset dx="2" dy="2" result="offsetblur"/> <!-- how much to offset -->
+                <feColorMatrix in="offOut" result ="matrixOut" type="matrix"                           
+                                     values="0 0 0 0 2
+                                             0 0 0 0 0
+                                             0 0 0 0 0 
+                                             0 0 0 2 0" />
                 <feComponentTransfer>
-                    <feFuncA type="linear" slope="0.5"/> <!-- slope is the opacity of the shadow -->
+                    <feFuncA type="linear" slope="0.25"/> <!-- slope is the opacity of the shadow -->
                 </feComponentTransfer>
                 <feMerge> 
                     <feMergeNode/> <!-- this contains the offset blurred image -->
                     <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
                 </feMerge>
             </filter>
-            <path class="drawing background visible" data-svg='0' filter='url(#dropshadow)' d="M78.4,174.1l40.5-39.4l40.5,28.2l72.1-74.3l39.4,34.9l65.3-60.8l27,23.7L402.8,48l81.1,77.7l54.1-42.8
+            <filter id="dropshadow" height="130%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> <!-- stdDeviation is how much to blur -->
+                <feOffset dx="2" dy="2" result="offsetblur"/> <!-- how much to offset -->
+                <feComponentTransfer>
+                    <feFuncA type="linear" slope="0.25"/> <!-- slope is the opacity of the shadow -->
+                </feComponentTransfer>
+                <feMerge> 
+                    <feMergeNode/> <!-- this contains the offset blurred image -->
+                    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+                </feMerge>
+            </filter>
+            <path class="drawing background visible" data-svg='0' filter='url(#dropshadow-color)' d="M78.4,174.1l40.5-39.4l40.5,28.2l72.1-74.3l39.4,34.9l65.3-60.8l27,23.7L402.8,48l81.1,77.7l54.1-42.8
                 l41.7,38.3l67.6-34.9l45,37.2l40.5-28.2l40.5,52.9l31.5-37.2l33.8,73.2l32.7-47.3l30.4,56.3l22.5-41.7l37.2,52.9H-0.4l46.2-50.7
                 L78.4,174.1z"/>
             <g class="foreground">

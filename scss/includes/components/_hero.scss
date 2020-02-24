@@ -19,6 +19,7 @@
         position:fixed;
         @include flex-col(flex-end,center);
         z-index:1;
+        pointer-events: none;
 
         @include mq('tablet') {
             z-index:-1;

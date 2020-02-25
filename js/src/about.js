@@ -3,16 +3,24 @@ $(document).ready(function() {
     var topofDiv        = $('.features-content-container').offset().top;
     var height          = $('.features-content-container').outerHeight();
     var abtStringType   = $('.special-heading');
+    var scrolling       = false;
         
     arrayAbt(abtStringType);
-    
-    $(window).scroll(function(){    
-        if ($(this).scrollTop() > (topofDiv + height - 190)){ 
-            $('.about-graphic-container').addClass('active');
-            $('.special-heading').addClass('active');
-            specialCharActive();
-        }
+ 
+    $( window ).scroll( function() {
+        scrolling = true;
     });
+    
+    setInterval( function() {
+        if ( scrolling ) {
+            scrolling = false;  
+            if ($(this).scrollTop() > (topofDiv + height - 190)){ 
+                $('.about-graphic-container').addClass('active');
+                $('.special-heading').addClass('active');
+                specialCharActive();
+            }
+        }
+    },150);
 
     function specialCharActive() {
 

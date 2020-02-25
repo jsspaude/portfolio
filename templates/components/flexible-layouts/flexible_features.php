@@ -99,11 +99,6 @@
                     </g>
                 </svg>
             </div>
-            <div class='graphic-input'>
-                <form class="dynamicForm">
-                    <input type="text" class="dynamicInput" placeholder="Your Story...">
-                </form>
-            </div>
         </div>
     <?php endif; ?>
 </section><!-- end features-container -->

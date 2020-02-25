@@ -50,9 +50,7 @@
                         color:map-get($colors, 'pink' );
                         text-shadow: -2px -1px 1px map-get($colors, 'white' );
                         font-family:map-get($fonts, "heading");
-                        font-weight:900;
-                        // border-bottom:2px dashed map-get($colors, 'white' );
-                       
+                        font-weight:900;    
                     }
                 }   
             }
@@ -74,6 +72,8 @@
                     padding-top:15px;
                     position:relative;
                     right:-200vw;
+                    transform:skew(-40deg);
+                    transition: all 1s ease-in;
                     @include flex-row(flex-start,flex-start);
 
                     @include mq('tablet') {
@@ -83,13 +83,6 @@
                     p {
                         margin:0 !important;
                         font-weight:400 !important;  
-                    }
-
-                    &[data-row='1'] {
-
-                        p {
-                            color:map-get($colors, 'black' );
-                        }
                     }
                 }
             }
@@ -121,11 +114,18 @@
     }
 }
 
+.features-container {
 
-.active {
-    
-    .line1, .line2, .line3 {
-        animation-play-state: running !important;
+    .active {
+        
+        .line1, .line2, .line3 {
+            animation-play-state: running !important;
+        }
+
+        .paragraph-container {
+            right:0vw !important;
+            animation: skew 1s ease-in forwards;
+        }
     }
 }
 
@@ -133,36 +133,11 @@
 // SVGS
 
 
-.line1 {
+.line1, .line2, .line3 {
     stroke-dasharray: 1772;
     stroke-dashoffset: 1772;
     animation: draw 1000ms ease-in-out .5s forwards;
     animation-play-state: paused !important;
-}
-
-.line2 {
-    stroke-dasharray: 1772;
-    stroke-dashoffset: 1772;
-    animation: draw 2000ms ease-in-out 1s forwards;
-    animation-play-state: paused !important;
-}
-
-.line3 {
-    stroke-dasharray: 1772;
-    stroke-dashoffset: 1772;
-    animation: draw 2000ms ease-in-out 1.5s forwards;
-    animation-play-state: paused !important;
-}
-
-@keyframes draw {
-  from {
-    stroke-dashoffset: 1772;
-
-  }
-  to{
-    stroke-dashoffset: 0;
-
-  }
 }
 
 .outer-screen {
@@ -235,3 +210,28 @@
 .textbox {
     fill:none;
 }
+
+// ANIMATIONS
+
+@keyframes draw {
+    from {
+      stroke-dashoffset: 1772;
+  
+    }
+    to{
+      stroke-dashoffset: 0;
+  
+    }
+}
+
+@keyframes skew {
+    from {
+        transform:skew(-20deg);
+
+    }
+    to{
+        transform:skew(0deg);
+
+    }
+}
+

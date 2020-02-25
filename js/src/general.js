@@ -8,6 +8,7 @@ $(document).ready(function() {
 			$header 	= $('#header');
 	var 	scrolling   = false;
 
+
 	// BURGER MENU
 
 	navButton.click(function() {

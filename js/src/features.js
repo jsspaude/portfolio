@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    var topofDiv    = $('.services-content-container').offset().top;
-    var height      = $('.services-content-container').outerHeight();
     var scrolling   = false;
  
     $( window ).scroll( function() {
@@ -12,42 +10,27 @@ $(document).ready(function() {
         if ( scrolling ) {
             
             scrolling               = false;
-            var scrollCurrent       = $(document).scrollTop() ;
+            var scrollCurrent       = $(document).scrollTop();
             var offsetContent       = $('.features-content-container').offset().top;
 
-                if((offsetContent-200) < scrollCurrent) {
-                     featuresActive();
-                }      
+            if((offsetContent-200) < scrollCurrent) {
+                $('.features-content').each(function(i){
+                    featureActive();
+                    scrolling = false;
+                });
+            }      
         }
+        console.log(scrolling);
     }, 250 );
 
-    $('.dynamicInput').each(function() {
-        var elem            = $(this);
-     
-        // Save current value of element
-        elem.data('oldVal', elem.val());
-     
-        // Look for changes in the value
-        elem.bind("propertychange change click keyup input paste", function(event){
-           // If value has changed...
-            if (elem.data('oldVal') != elem.val()) {
-            // Updated stored value
-            elem.data('oldVal', elem.val());
-                $('.heading').text(elem.val());
-            }
-        });
-    });
+    function featureActive() {
 
-    function featuresActive() {
-        
-        $('.features-content').each(function(i){
-            
-            setTimeout (function() {
-                console.log('test');
-                var $this = $(this);
-                $this.addClass('active');
-            },250 );
+        $('.features-content').each(function(i) {
+          var featureContent = $(this);
+          setTimeout(function() {
+            featureContent.addClass('active');
+          }, i*1000);
         });
-    
+            
     }
 });

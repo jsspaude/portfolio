@@ -8,18 +8,46 @@ $(document).ready(function() {
     });
     
     setInterval( function() {
-    if ( scrolling ) {
         
-        scrolling = false;
-        
-        if ($(this).scrollTop() > (topofDiv + height - 190)){ 
-            $('.features-content-container').addClass('active');
-            $('.features-content-container').addClass('in-view');
+        if ( scrolling ) {
+            
+            scrolling               = false;
+            var scrollCurrent       = $(document).scrollTop() ;
+            var offsetContent       = $('.features-content-container').offset().top;
+
+                if((offsetContent-200) < scrollCurrent) {
+                     featuresActive();
+                }      
         }
-        else{
-            $('.features-content-container').removeClass('active');
-        }
-    }
     }, 250 );
 
+    $('.dynamicInput').each(function() {
+        var elem            = $(this);
+     
+        // Save current value of element
+        elem.data('oldVal', elem.val());
+     
+        // Look for changes in the value
+        elem.bind("propertychange change click keyup input paste", function(event){
+           // If value has changed...
+            if (elem.data('oldVal') != elem.val()) {
+            // Updated stored value
+            elem.data('oldVal', elem.val());
+                $('.heading').text(elem.val());
+            }
+        });
+    });
+
+    function featuresActive() {
+        
+        $('.features-content').each(function(i){
+            
+            setTimeout (function() {
+                console.log('test');
+                var $this = $(this);
+                $this.addClass('active');
+            },250 );
+        });
+    
+    }
 });

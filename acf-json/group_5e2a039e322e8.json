@@ -312,7 +312,7 @@
                             "collapsed": "",
                             "min": 0,
                             "max": 0,
-                            "layout": "table",
+                            "layout": "block",
                             "button_label": "",
                             "sub_fields": [
                                 {
@@ -373,6 +373,25 @@
                                     "delay": 0
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_5e5429480f8db",
+                            "label": "Graphic",
+                            "name": "graphic",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "text",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -772,5 +791,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1581537677
+    "modified": 1582594921
 }

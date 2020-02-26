@@ -22,14 +22,14 @@ $(document).ready(function() {
                     percentArray.push(this);
                 });
 
-                if((offsetContent-200) < scrollCurrent) {
+                if((offsetContent-300) < scrollCurrent) {
                     $(this).addClass('active');
                     $(svgMask).css('transform', 'translateX(100%)' );
                 }
 
                 if(!$(this).hasClass('active')){
                     $(svgMask[i]).css('transform', 'translateX(' + percentArray[i] + '%)'  );
-                }
+                }       
             });
         }
     }, 20 );

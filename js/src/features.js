@@ -13,6 +13,8 @@ $(document).ready(function() {
             var scrollCurrent       = $(document).scrollTop();
             var offsetContent       = $('.features-content-container').offset().top;
 
+            console.log(scrollCurrent);
+
             if((offsetContent-200) < scrollCurrent) {
                 $('.features-content').each(function(i){
                     featureActive();
@@ -20,7 +22,6 @@ $(document).ready(function() {
                 });
             }      
         }
-        console.log(scrolling);
     }, 250 );
 
     function featureActive() {

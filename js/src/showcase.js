@@ -51,7 +51,7 @@ $(document).ready(function() {
                 $('.showcase-container').removeClass('active');
             }
             
-            if ($(this).scrollTop() > (height - 70) && (x != length)) {
+            if ($(this).scrollTop() > (height - 100) && (x != length)) {
 
                 $(dashedLine).addClass('active');
 

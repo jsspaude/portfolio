@@ -3,16 +3,17 @@
 /* ----------------------------------------- */
 
 .features-container {
+    min-height:0 !important;
 
     .features-content-container {
         flex:1;
         width:100%;
         @include flex-row(flex-start,flex-start);
-        padding:30px 30px 0px 30px !important;
+        padding:30px 30px 70px 30px !important;
 
         .features-content {
             flex:1;
-            @include flex-col(flex-start,center);
+            @include flex-col(center,center);
             align-self:stretch;
             padding-top:30px;
             flex-wrap:nowrap;
@@ -56,7 +57,7 @@
             }
 
             .descriptions-container {
-                height:auto;
+                height:70%;
                 width:100%;
                 padding-left:45px;
                 @include flex-row(center,center);
@@ -71,9 +72,9 @@
                     width:100%;
                     padding-top:15px;
                     position:relative;
-                    right:-200vw;
-                    transform:skew(-40deg);
-                    transition: all 1s ease-in;
+                    opacity:0;
+                    background-color:rgba(255,255,255,.25);
+                    transition: all 500ms ease-in;
                     @include flex-row(flex-start,flex-start);
 
                     @include mq('tablet') {
@@ -99,10 +100,6 @@
    
     @include flex-row(space-between,center);
 
-    svg {
-        height:auto;
-        width:100%;
-    }
 
     input {
         border:solid 1px map-get($colors, 'blue' );
@@ -123,8 +120,7 @@
         }
 
         .paragraph-container {
-            right:0vw !important;
-            animation: skew 1s ease-in forwards;
+            opacity:1 !important;
         }
     }
 }
@@ -140,77 +136,6 @@
     animation-play-state: paused !important;
 }
 
-.outer-screen {
-    fill:#FFFFFF;
-    stroke:#305F72;
-    stroke-width:1;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-    stroke-miterlimit:10;}
-
-.inner-screen {
-    fill:#FFFFFF;
-    stroke:#305F72;
-    stroke-width:.5;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-    stroke-miterlimit:10;
-}
-
-.heading {
-    font-family:'Archivo-SemiBold';
-}
-
-.subHeading {
-    font-family:'Roboto-Regular';
-}
-
-#heading1 {
-    font-size:12px;
-}
-
-#heading2 {
-    font-size:5px;
-}
-
-#heading3 {
-    font-size:3px;
-}
-
-#subHeading1 {
-    font-size:6px;
-}
-
-#subHeading2 {
-    font-size:2.3px;
-}
-
-#subHeading3 {
-    font-size:1.5px;
-}
-
-.line {
-    fill:none;
-    stroke:#305F72;
-    stroke-miterlimit:10;
-}
-
-#line1 {
-    stroke-width:2;
-}
-
-#line2 {
-    stroke-width:.7;
-}
-
-#line3{
-    stroke-width:.45;
-}
-
-.textbox {
-    fill:none;
-}
-
 // ANIMATIONS
 
 @keyframes draw {
@@ -221,17 +146,6 @@
     to{
       stroke-dashoffset: 0;
   
-    }
-}
-
-@keyframes skew {
-    from {
-        transform:skew(-20deg);
-
-    }
-    to{
-        transform:skew(0deg);
-
     }
 }
 

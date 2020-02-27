@@ -3,7 +3,22 @@
 /* ----------------------------------------- */
 
 .features-container {
-    min-height:0 !important;
+
+    .features-wrapper {
+        height:calc(100vh - 50px) !important;
+        width:100%;
+        max-width: 84%;
+        margin-left: auto;
+        margin-right: auto;
+        z-index:-1;
+        @include flex-col(flex-end, flex-start);
+
+        svg {
+            height:auto;
+            width:50%;
+            margin-left:5%;
+        }
+    }
 
     .features-content-container {
         flex:1;
@@ -73,7 +88,6 @@
                     padding-top:15px;
                     position:relative;
                     opacity:0;
-                    background-color:rgba(255,255,255,.25);
                     transition: all 500ms ease-in;
                     @include flex-row(flex-start,flex-start);
 
@@ -135,6 +149,16 @@
     animation: draw 1000ms ease-in-out .5s forwards;
     animation-play-state: paused !important;
 }
+
+.outer-screen {
+    fill:#FFFFFF;
+    stroke:none;
+    stroke-width:1;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-miterlimit:10;
+}
+
 
 // ANIMATIONS
 

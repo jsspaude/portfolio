@@ -12,17 +12,25 @@ $(document).ready(function() {
             scrolling               = false;
             var scrollCurrent       = $(document).scrollTop();
             var offsetContent       = $('.features-content-container').offset().top;
+            var offsetContainer     = $('.features-container').offset().top;
+            var scrollPercent       = ((scrollCurrent - offsetContainer)+100)/1000;
 
-            console.log(scrollCurrent);
+            console.log(scrollPercent);
 
             if((offsetContent-200) < scrollCurrent) {
                 $('.features-content').each(function(i){
                     featureActive();
-                    scrolling = false;
                 });
-            }      
+            }
+
+            if(scrollPercent < .2 ) {
+
+                $('#slopeEffect').attr('slope', scrollPercent  );   
+            }
+
+            // figure out percent of div scrolled through not percent of div from top
         }
-    }, 250 );
+    }, 20 );
 
     function featureActive() {
 

@@ -1,3 +1,23 @@
 /* ----------------------------------------- */
 /* FOOTER */
 /* ----------------------------------------- */
+
+footer {
+    min-height:50vh;
+    width:100%;
+    background-color:map-get($colors, 'blue' );
+
+    .footer-content-container {
+        height:100%;
+        width:100%;
+        @include flex-row(space-between, center);
+
+        .form-container {
+            flex:1;
+        }
+
+        .contact-container {
+            flex:1;
+        }
+    }
+}

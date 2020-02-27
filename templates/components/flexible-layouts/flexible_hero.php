@@ -3,7 +3,7 @@
     //VARS
     $subHeading1        = get_sub_field('sub_heading_1');
     $subHeading2        = get_sub_field('sub_heading_2');
-    $heroForm           = get_sub_field('form');
+    $heroForm           = get_sub_field('contact_form');
 ?>
 
 
@@ -88,6 +88,6 @@
         </div>
     </div>
     <div class="form-container">
-        <?php get_template_part('templates/template-parts/contact', 'form'); ?>
+        <?php echo $heroForm; ?>
     </div>
 </section> <!-- end hero-container -->

@@ -111,8 +111,7 @@
 		'Javascript' 	=> array(
 			//These Javascript FIles will Appear on the Website Frontend
 			'Client' => array(
-				'scripts.js',
-				'libraries/lazysizes.min.js'
+				'scripts.js'
 			),
 			//These Javascript Files will Appear in the Administration Area
 			'Admin' => array(

@@ -1,88 +1,117 @@
-.form-container {
-    flex:1;
-    min-height:50%;
-    @include flex-col(center,center);
+.hero-container {
 
-    .form {
-        background-color:map-get($colors, 'blue' );
+    .form-container {
         position:absolute;
         z-index:1;
         right:8%;
-        padding:30px;
         max-width:400px;
         width:20%;
-        -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-        -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-        box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-        color:map-get($colors, 'white' );
-        font-family:map-get($fonts, 'body' );            
-        font-size:1rem;
-        font-weight:400;
+        background-color:map-get($colors, 'blue' );
+        @include flex-col(center,center);
 
-        @include mq('tablet') {
-            width:80%;
-            position:relative;
-            left:0;
-            margin-top:30px;
-        }
-
-        fieldset {
-            border:none;
-        }
-
-        .field {
+        .frm_forms {
+            background-color:map-get($colors, 'blue' );
+            padding:30px;
             width:100%;
-            padding:5px 0;
-
-            textarea {
-                width:90%;
-                height:80px;
-                font-size:.667rem;
-                padding:2px;
-            }
-
-            input[type=text] {
-                font-size:.667rem;
-                padding:2px;
-                width:90%;
-                height:30px;
-            }
-
-            label[for=cc] {
-                font-size:.667rem;
-                padding:2px;
-            }
-        }
-
-        .help-inline {
-            color:map-get($colors, 'pink' );
-        }
-
-        p.alert {
-            font-size:.667rem;
-            padding:2px;
-        }
-
-        .form-submit {
-            padding:10px 0px;
-        }
-
-        h6 {
             color:map-get($colors, 'white' );
-            font-family:map-get($fonts, 'heading' );
-            font-weight:900;
-            font-size:1.5rem;
-            padding-bottom:10px;
-        }
-
-        .submit {
-            color:map-get($colors, 'black' );
-            font-family:map-get($fonts, 'body' );
-            font-weight:400;
+            font-family:map-get($fonts, 'body' );            
             font-size:1rem;
-            padding:5px;
-            background:map-get($colors, 'white' );
-            box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+            font-weight:400;
+            -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+            -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+            box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+
+            @include mq('tablet') {
+                width:80%;
+                position:relative;
+                left:0;
+                margin-top:30px;
+            }
+
+            fieldset {
+                border:none;
+            }
+
+            .form-field {
+                width:100%;
+                padding:10px 0px;
+                margin:0 !important;
+
+                textarea {
+                    width:90%;
+                    height:80px;
+                    font-size:14px;
+                    padding:2px;
+                }
+
+                input[type=text] {
+                    font-size:14px;
+                    padding:6px 10px;
+                    width:100%;
+                    height:30px;
+                }
+
+                label[for=cc] {
+                    font-size:.667rem;
+                    padding:2px;
+                }
+            }
+
+            .help-inline {
+                color:map-get($colors, 'pink' );
+            }
+
+            p.alert {
+                font-size:.667rem;
+                padding:2px;
+            }
+
+            .form-submit {
+                padding:10px 0px;
+            }
+
+            .frm_primary_label, h3 {
+                color:map-get($colors, 'white' );
+                font-family:map-get($fonts, 'heading' );
+                font-weight:900;
+                font-size:1rem;
+                padding-bottom:10px;
+            }
+
+            h3 {
+                font-size:1.5rem;
+            }
+
+            .submit {
+                color:map-get($colors, 'black' );
+                font-family:map-get($fonts, 'body' );
+                font-weight:400;
+                font-size:1rem;
+                padding:5px;
+                background:map-get($colors, 'white' );
+                box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+            }
         }
+    } 
+}
+
+footer {
+    
+    .frm_forms {
+        width:50%;
     }
-} 
+
+    .frm_primary_label, .frm_form_title {
+        color:map-get($colors, 'pink' ) !important;
+        font-family:map-get($fonts, 'heading' );
+        font-weight:900;
+        font-size:1rem;
+        padding-bottom:10px;
+    }
+
+    input[type=text], input[type=email] {
+        width:75% !important;
+        height:30px;
+    }
+
+}

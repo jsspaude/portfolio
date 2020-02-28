@@ -1,10 +1,10 @@
-<?php if( get_row_layout() === 'flexible_hero' ) : 
+<?php
   //VARS
-    $contactForm    = get_sub_field('contact_form');
-    $formTitle      = $contactForm['form_title'];
-    $nameField      = $contactForm['name_field'];
-    $emailField     = $contactForm['email_field'];
-    $messageField   = $contactForm['message_field'];
+    $contactForm    = get_field('contact_form' , 'option');
+    $formTitle      = get_field('form_title','option');
+    $nameField      = get_field('name_field','option');
+    $emailField     = get_field('email_field','option');
+    $messageField   = get_field('message_field','option');
  
 /**
  * Simple contact form template for WordPress
@@ -32,7 +32,7 @@ $text_domain_string = 'contact-form';
 load_theme_textdomain( $text_domain_string, get_stylesheet_directory() . '/contact-form-languages' );
 
 // form processing if the input field has been set
-if ( isset( $_POST['submit'] ) && wp_verify_nonce( $_POST['contact_form_nonce'], 'form_submit' ) ) {
+if ( isset( $_POST['submit'] ) ) {
 	
 	// define markup for error messages
 	$error_tag = apply_filters( 'wp-contact-form-template_error_tag', 'p' );
@@ -167,7 +167,7 @@ do_action( 'wp-contact-form-template_form_before' ); ?>
         <label for="from">
         <?php _e( $nameField, $text_domain_string ); ?> <small class="help-inline"><?php _e( '*', $text_domain_string ); ?></small>
         </label>
-        <input type="text" id="from" name="from" placeholder="<?php esc_attr_e( 'Your name', $text_domain_string ); ?>" value="<?php if ( isset( $from ) && ! isset( $email_sent ) ) echo esc_attr( $from ); ?>" />
+        <input type="text" class="from" name="from" placeholder="<?php esc_attr_e( 'Your name', $text_domain_string ); ?>" value="<?php if ( isset( $from ) && ! isset( $email_sent ) ) echo esc_attr( $from ); ?>" />
         <?php
         if ( isset( $from_error ) )
           echo '<' . $error_tag . ' class="alert">' . $from_error . '</' . $error_tag . '>';
@@ -178,7 +178,7 @@ do_action( 'wp-contact-form-template_form_before' ); ?>
         <label for="email">
           <?php _e( $emailField, $text_domain_string ); ?> <small class="help-inline"><?php _e( '*', $text_domain_string ); ?></small>
         </label>
-        <input type="text" placeholder="<?php esc_attr_e( 'john@doe.com', $text_domain_string ); ?>" id="email" name="email" value="<?php if ( isset( $email ) && ! isset( $email_sent ) ) echo esc_attr( $email ); ?>" />
+        <input type="text" placeholder="<?php esc_attr_e( 'john@doe.com', $text_domain_string ); ?>" class="email" name="email" value="<?php if ( isset( $email ) && ! isset( $email_sent ) ) echo esc_attr( $email ); ?>" />
         <?php
         if ( isset( $email_error ) )
           echo '<' . $error_tag . ' class="alert">' . $email_error . '</' . $error_tag . '>';
@@ -191,7 +191,7 @@ do_action( 'wp-contact-form-template_form_before' ); ?>
         <label for="text">
           <?php _e( $messageField, $text_domain_string ); ?> <small class="help-inline"><?php _e( '*', $text_domain_string ); ?></small>
         </label>
-        <textarea id="text" name="text" placeholder="<?php esc_attr_e( 'Your message &#x0085;', $text_domain_string ); ?>"><?php if ( isset( $message ) && ! isset( $email_sent ) ) echo esc_textarea( $message ); ?></textarea>
+        <textarea class="text" name="text" placeholder="<?php esc_attr_e( 'Your message &#x0085;', $text_domain_string ); ?>"><?php if ( isset( $message ) && ! isset( $email_sent ) ) echo esc_textarea( $message ); ?></textarea>
         <?php
         if ( isset( $message_error ) )
           echo '<' . $error_tag . ' class="alert">' . $message_error . '</' . $error_tag . '>';
@@ -208,13 +208,13 @@ do_action( 'wp-contact-form-template_form_before' ); ?>
       <p class="form-submit">
         <input class="submit" type="submit" name="submit" value="<?php esc_attr_e( 'GET QUOTE', $text_domain_string ); ?>" />
       </p>
-      <?php wp_nonce_field( 'form_submit', 'contact_form_nonce' ) ?>
       <?php do_action( 'wp-contact-form-template_form' ); ?>
       
     </fieldset>
   </form>
+  	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+		async defer>
+	</script>
 </div>
 
 <?php do_action( 'wp-contact-form-template_form_after' ); ?>
-
-<?php endif; ?> 

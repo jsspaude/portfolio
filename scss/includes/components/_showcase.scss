@@ -4,6 +4,7 @@
 
 .showcase-container {
     height:auto !important;
+    overflow-y: hidden;
 
     .showcase-wrapper {
         left: 0;
@@ -16,6 +17,13 @@
         margin-right: auto;
         z-index:-1;
 
+        &.hidden {
+
+            svg {
+                display:none;
+            }
+        }
+
         @include mq('tablet') {
             display: none;
         }
@@ -23,7 +31,7 @@
         svg {
             width:15px;
             float:right;
-            height:100vh;
+            height:calc(100vh - 50px);
             transform:translateY((50vh));
         }
 
@@ -116,6 +124,7 @@
                 background-repeat:no-repeat;
                 transition: all ease 6s;
                 border: 2px solid map-get($colors, black );
+                
 
                 @include mq('tablet') {
                     width:100%;

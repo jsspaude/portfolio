@@ -1,29 +1,35 @@
 $(document).ready(function() {
 
-	const 	header 		= $('#primary-navigation'),
-			navButton 	= $('#menu-toggle'),
-			navLink 	= $('.menu-item > a'),
-			navOverlay 	= $('#mobile-overlay-toggle'),
-			$window 	= $(window),
-			$header 	= $('#header');
-	var 	scrolling   = false;
-
+	const 	navBar 			= $('#primary-navigation'),
+			navButton 		= $('#menu-toggle'),
+			navLink 		= $('.menu-item > a'),
+			navOverlay 		= $('#mobile-overlay-toggle'),
+			headerHeight	= $('header').height(),
+			$window 		= $(window);
+	var 	scrolling   	= false;
 
 	// BURGER MENU
 
 	navButton.click(function() {
-		header.toggleClass('open');
+		navBar.toggleClass('open');
 		navButton.toggleClass('open');
 		navOverlay.toggleClass('display-none');
+
+		if($('nav').hasClass('open')) {
+			$('nav').css({'top': headerHeight});
+		}
+		else{
+			$('nav').css({'top': '-50px'});
+		}
 	});
 
 	navOverlay.click(function() {
-		header.removeClass('open');
+		navBar.removeClass('open');
 		navOverlay.addClass('display-none');
 	});
 
 	navLink.click(function() {
-		header.removeClass('open');
+		navBar.removeClass('open');
 		navOverlay.addClass('display-none');
 	});
 
@@ -37,28 +43,24 @@ $(document).ready(function() {
 		if ( scrolling ) {
 			
 			scrolling = false;
-			if ($(window).scrollTop() > 100){
+			if (($(window).scrollTop() > 100) || ($window.width() < 1000) ){
+				$('nav').css({'top': '-50px'});
 				$('header').addClass('header-small');
-				$('header').removeClass('.header');
+				$('header').removeClass('header');
+				$('#primary-navigation').removeClass('top');
+				
 			}
 			else if($(window.top == 0) && ($window.width() > 1000)) {
-				$('header').addClass('.header');
+				$('header').addClass('header');
 				$('header').removeClass('header-small');
+				$('#primary-navigation').addClass('top');
+				$('nav').css({'top': '0'});
+				$(navButton).removeClass('open');
+				$(navBar).removeClass('open');
 			}
 		}
 	}, 50 );
    
-	function resize() {
-   
-		if ($window.width() < 1000) {
-			return $header.addClass('header-small');
-		}
-		else if ($window.width() > 1000) {
-			return $header.removeClass('header-small');
-		}
-	}
-	
-	$window.resize(resize).trigger('resize');
 
 	// SMOOTH SCROLL NAV
 

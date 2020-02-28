@@ -36,16 +36,16 @@
 				<div id="menu-toggle">
 					<span></span>
 				</div>
-				<nav id="primary-navigation">
-				<?php
-					wp_nav_menu(array(
-						'container_class' 	=> 'main-nav',
-						'theme_location' 	=> 'primary',
-						'menu_class' 		=> 'nav-wrapper',
-						'walker' 			=> new Menu_With_Description
-					));
-				?>
-				</nav>
 			</section>
 
 		</header>
+		<nav id="primary-navigation" class="closed">
+			<?php
+				wp_nav_menu(array(
+					'container_class' 	=> 'main-nav',
+					'theme_location' 	=> 'primary',
+					'menu_class' 		=> 'nav-wrapper',
+					'walker' 			=> new Menu_With_Description
+				));
+			?>
+		</nav>

@@ -5,7 +5,6 @@
 header {
     width:100%;
     max-width:100vw;
-    height:map-get($layout, 'header-height' );
     @include flex-row(center,center);
     position:fixed;
     z-index:4;
@@ -28,6 +27,10 @@ header {
             }
         }
 
+    }
+
+    &.header {
+        height:map-get($layout, 'header-height' );
     }
 
     &.header-small {

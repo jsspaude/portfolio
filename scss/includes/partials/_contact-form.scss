@@ -82,7 +82,7 @@
                 font-size:1.5rem;
             }
 
-            .submit {
+            .frm_button_submit {
                 color:map-get($colors, 'black' );
                 font-family:map-get($fonts, 'body' );
                 font-weight:400;
@@ -112,6 +112,24 @@ footer {
     input[type=text], input[type=email] {
         width:75% !important;
         height:30px;
+    }
+
+    .frm_button_submit {
+        color:map-get($colors, 'white' ) !important;
+        font-family:map-get($fonts, 'body' ) !important;
+        font-weight:400;
+        font-size:1rem;
+        padding:5px;
+        background:map-get($colors, 'pink' ) !important;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5) !important;
+        border:none!important;
+        border-radius:0 !important;
+        width:30% !important;
+
+        &:hover {
+            box-shadow:none !important;
+            color:map-get($colors, 'black' ) !important;
+        }
     }
 
 }

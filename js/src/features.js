@@ -15,8 +15,6 @@ $(document).ready(function() {
             var offsetContainer     = $('.features-container').offset().top;
             var scrollPercent       = ((scrollCurrent - offsetContainer)+100)/1000;
 
-            console.log(scrollPercent);
-
             if((offsetContent-200) < scrollCurrent) {
                 $('.features-content').each(function(i){
                     featureActive();
@@ -26,6 +24,8 @@ $(document).ready(function() {
             if(scrollPercent < .2 ) {
 
                 $('#slopeEffect').attr('slope', scrollPercent  );   
+                $('#slopeEffectTablet').attr('slope', (scrollPercent -.05)  );   
+                $('#slopeEffectMobile').attr('slope', (scrollPercent -.1) ); 
             }
 
             // figure out percent of div scrolled through not percent of div from top

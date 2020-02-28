@@ -38,10 +38,12 @@ $(document).ready(function() {
 			
 			scrolling = false;
 			if ($(window).scrollTop() > 100){
-				$('#header').addClass('header-small');
+				$('header').addClass('header-small');
+				$('header').removeClass('.header');
 			}
 			else if($(window.top == 0) && ($window.width() > 1000)) {
-				$('#header').removeClass('header-small');
+				$('header').addClass('.header');
+				$('header').removeClass('header-small');
 			}
 		}
 	}, 50 );

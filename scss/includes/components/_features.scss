@@ -14,9 +14,22 @@
         @include flex-col(flex-end, flex-start);
 
         svg {
-            height:auto;
-            width:50%;
-            margin-left:5%;
+
+            &:first-child {
+                height:auto;
+                width:50%;
+                margin-left:5%;
+            }
+
+            &:nth-child(2) {
+                height:auto;
+                width:25%;
+            }
+
+            &:nth-child(3) {
+                height:auto;
+                width:25%;
+            }
         }
     }
 
@@ -158,6 +171,8 @@
     stroke-linejoin:round;
     stroke-miterlimit:10;
 }
+
+
 
 
 // ANIMATIONS

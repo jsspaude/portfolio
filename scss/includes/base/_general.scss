@@ -21,7 +21,7 @@
 
 		body {	
 			padding-top:150px;		
-			position:relative;
+			
 			@include flex-col(flex-start,center);
 			@each $key, $value in $primary {
 				#{"" + $key}: $value ;
@@ -158,7 +158,8 @@
 			&.component {
 				width:100%;
 				max-width:map-get($layout, 'max-width' );
-				min-height:90vh;
+				min-height:550px;
+				align-self:stretch;
 				@include flex-col(flex-start,flex-start);
 				flex-wrap:nowrap;
 				margin:50px 0;

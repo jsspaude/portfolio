@@ -6,6 +6,7 @@ $(document).ready(function() {
     const wrapperEnd    = $('.showcase-wrapper').length;
 
     $($('.showcase-wrapper[data-row=' + (wrapperEnd) +']')).addClass('hidden');
+    $('.showcase-container').css('min-height', (wrapperEnd*550) + 'px');
     
     $("div[data-row]").each(function() {
         if ($(this).attr('data-row') % 2 == 1 && ($(this).attr('data-row') != 0)){

@@ -22,7 +22,7 @@
 	</head>
 
 	<body <?php body_class(); ?>>
-		<header id="header" class="header-small">
+		<header class="header-small">
 			<section id="header-container">
 				<div id="branding" class="branding">
 						<a href="<?php echo home_url(); ?>" title="Go to Our Home Page: <?php bloginfo('name'); ?>">

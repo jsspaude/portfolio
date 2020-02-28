@@ -13,6 +13,44 @@
         margin-bottom:50px;
     }
 
+    .hero-wrapper {
+        height:100vh;
+        width:100vw;
+        position:fixed;
+        @include flex-col(flex-end,center);
+        z-index:1;
+        pointer-events: none;
+
+        @include mq('tablet') {
+            z-index:-1;
+        }
+
+        #van-skyline {
+            transition:all 1s ease;
+            position:fixed;
+            
+            @include mq('tablet') {
+                top:100px;
+                
+            }
+        }
+
+        .drawing {
+            fill:none;
+            stroke:none;
+            stroke-miterlimit:10;
+
+            &.visible {
+                fill:white !important;
+                // stroke:map-get($colors, 'pink' );
+            }
+        }
+
+        .background {
+            stroke:white;
+        }
+    }
+
     .content-container {
         @include fillContainer;
         @include flex-col(center,center);

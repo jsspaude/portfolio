@@ -22,7 +22,7 @@
 	</head>
 
 	<body <?php body_class(); ?>>
-		<header id="header" class="">
+		<header class="header-small">
 			<section id="header-container">
 				<div id="branding" class="branding">
 						<a href="<?php echo home_url(); ?>" title="Go to Our Home Page: <?php bloginfo('name'); ?>">
@@ -36,16 +36,16 @@
 				<div id="menu-toggle">
 					<span></span>
 				</div>
-				<nav id="primary-navigation">
-				<?php
-					wp_nav_menu(array(
-						'container_class' 	=> 'main-nav',
-						'theme_location' 	=> 'primary',
-						'menu_class' 		=> 'nav-wrapper',
-						'walker' 			=> new Menu_With_Description
-					));
-				?>
-				</nav>
 			</section>
 
 		</header>
+		<nav id="primary-navigation" class="closed">
+			<?php
+				wp_nav_menu(array(
+					'container_class' 	=> 'main-nav',
+					'theme_location' 	=> 'primary',
+					'menu_class' 		=> 'nav-wrapper',
+					'walker' 			=> new Menu_With_Description
+				));
+			?>
+		</nav>

@@ -1,45 +1,68 @@
 $(document).ready(function() {
 
-	// Burger Menu
+	const 	navBar 			= $('#primary-navigation'),
+			navButton 		= $('#menu-toggle'),
+			navLink 		= $('.menu-item > a'),
+			navOverlay 		= $('#mobile-overlay-toggle'),
+			headerHeight	= $('header').height(),
+			$window 		= $(window);
+	var 	scrolling   	= false;
 
-	const 	header 		= 		$('#primary-navigation'),
-			navButton 	= 		$('#menu-toggle'),
-			navLink 	= 		$('.menu-item > a');
-	const	navOverlay 	=		$('#mobile-overlay-toggle');
+	// BURGER MENU
 
 	navButton.click(function() {
-		header.toggleClass('open');
+		navBar.toggleClass('open');
 		navButton.toggleClass('open');
 		navOverlay.toggleClass('display-none');
+
+		if($('nav').hasClass('open')) {
+			$('nav').css({'top': headerHeight});
+		}
+		else{
+			$('nav').css({'top': '-50px'});
+		}
 	});
 
 	navOverlay.click(function() {
-		header.removeClass('open');
+		navBar.removeClass('open');
 		navOverlay.addClass('display-none');
 	});
 
 	navLink.click(function() {
-		header.removeClass('open');
+		navBar.removeClass('open');
 		navOverlay.addClass('display-none');
 	});
 
-	// Header Change
-
-	$(window).scroll(function(){
-		if ($(window).scrollTop() > 100){
-			$('#header').addClass('header-small');
-			// $('#branding>a>h1, #branding>a>div>h4, #branding>a>div>h5').addClass('header-font-small');
-			$('#primary-navigation').addClass('primary-navigation-small');
+	// HEADER CHANGE
+ 
+    $( window ).scroll( function() {
+        scrolling = true;
+    });
+    
+    setInterval( function() {
+		if ( scrolling ) {
+			
+			scrolling = false;
+			if (($(window).scrollTop() > 100) || ($window.width() < 1000) ){
+				$('nav').css({'top': '-50px'});
+				$('header').addClass('header-small');
+				$('header').removeClass('header');
+				$('#primary-navigation').removeClass('top');
+				
+			}
+			else if($(window.top == 0) && ($window.width() > 1000)) {
+				$('header').addClass('header');
+				$('header').removeClass('header-small');
+				$('#primary-navigation').addClass('top');
+				$('nav').css({'top': '0'});
+				$(navButton).removeClass('open');
+				$(navBar).removeClass('open');
+			}
 		}
-		else if($(window.top == 0)) {
-			$('#header').removeClass('header-small');
-			// $('#branding>a>h1, #branding>a>div>h4, #branding>a>div>h5').removeClass('header-font-small');
-			$('#primary-navigation').removeClass('primary-navigation-small');
-			$('.open').removeClass('open');
-		}
-	});
+	}, 50 );
+   
 
-	// Smooth Scroll Nav
+	// SMOOTH SCROLL NAV
 
 	$("a").on('click', function(event) {
 

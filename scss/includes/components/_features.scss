@@ -4,14 +4,47 @@
 
 .features-container {
 
-    .features-content-container {
+    .features-wrapper {
+        height:calc(100vh - 50px) !important;
         width:100%;
-        @include flex-row(space-between,flex-start);
+        max-width: 84%;
+        margin-left: auto;
+        margin-right: auto;
+        z-index:-1;
+        @include flex-col(flex-end, flex-start);
+
+        svg {
+
+            &:first-child {
+                height:auto;
+                width:50%;
+                margin-left:5%;
+            }
+
+            &:nth-child(2) {
+                height:auto;
+                width:25%;
+            }
+
+            &:nth-child(3) {
+                height:auto;
+                width:25%;
+            }
+        }
+    }
+
+    .features-content-container {
+        flex:1;
+        width:100%;
+        @include flex-row(flex-start,flex-start);
+        padding:30px 30px 70px 30px !important;
 
         .features-content {
             flex:1;
-            @include flex-col(flex-start,center);
+            @include flex-col(center,center);
             align-self:stretch;
+            padding-top:30px;
+            flex-wrap:nowrap;
 
             @include mq('tablet') {
                 margin:50px 0 !important;
@@ -46,15 +79,13 @@
                         color:map-get($colors, 'pink' );
                         text-shadow: -2px -1px 1px map-get($colors, 'white' );
                         font-family:map-get($fonts, "heading");
-                        font-weight:900;
-                        // border-bottom:2px dashed map-get($colors, 'white' );
-                       
+                        font-weight:900;    
                     }
                 }   
             }
 
             .descriptions-container {
-                height:60%;
+                height:70%;
                 width:100%;
                 padding-left:45px;
                 @include flex-row(center,center);
@@ -67,7 +98,10 @@
                 .paragraph-container {
                     height:100%;
                     width:100%;
-                    padding-top:30px;
+                    padding-top:15px;
+                    position:relative;
+                    opacity:0;
+                    transition: all 500ms ease-in;
                     @include flex-row(flex-start,flex-start);
 
                     @include mq('tablet') {
@@ -78,41 +112,42 @@
                         margin:0 !important;
                         font-weight:400 !important;  
                     }
-
-                    &[data-row='1'] {
-
-                        p {
-                            color:map-get($colors, 'black' );
-                        }
-                    }
                 }
             }
+
         }
     }   
 }
 
-
-.active {
+.graphic-container {
+    height:auto;
+    width:60%;
+    padding:0 30px;
     
-    .line1, .line2, .line3 {
-        animation-play-state: running !important;
+   
+    @include flex-row(space-between,center);
+
+
+    input {
+        border:solid 1px map-get($colors, 'blue' );
+        padding:5px;
+
+        &:hover {
+            background-color:rgba(0,0,0,.1);
+        }
     }
 }
 
-.in-view {
+.features-container {
 
-    .paragraph-container {
-
-        &[data-row='1'] {
-        transform:translateX(0vw) !important;
+    .active {
+        
+        .line1, .line2, .line3 {
+            animation-play-state: running !important;
         }
 
-        &[data-row='2'] {
-        transform:translateY(0vh) !important;
-        }
-
-        &[data-row='3'] {
-        transform:translateX(0vw) !important;
+        .paragraph-container {
+            opacity:1 !important;
         }
     }
 }
@@ -120,47 +155,36 @@
 
 // SVGS
 
-.line1 {
+
+.line1, .line2, .line3 {
     stroke-dasharray: 1772;
     stroke-dashoffset: 1772;
     animation: draw 1000ms ease-in-out .5s forwards;
     animation-play-state: paused !important;
 }
 
-.line2 {
-    stroke-dasharray: 1772;
-    stroke-dashoffset: 1772;
-    animation: draw 2000ms ease-in-out 1s forwards;
-    animation-play-state: paused !important;
-}
-
-.line3 {
-    stroke-dasharray: 1772;
-    stroke-dashoffset: 1772;
-    animation: draw 2000ms ease-in-out 1.5s forwards;
-    animation-play-state: paused !important;
-}
-
-@keyframes draw {
-  from {
-    stroke-dashoffset: 1772;
-
-  }
-  to{
-    stroke-dashoffset: 0;
-
-  }
-}
-
-#svg1 {
-    max-height:100% !important;
-    position:absolute;
-    z-index:0;
-}
-
-.st0 {
-    fill:none;
-    stroke:#305f72;
-    stroke-width:10;
+.outer-screen {
+    fill:#FFFFFF;
+    stroke:none;
+    stroke-width:1;
+    stroke-linecap:round;
+    stroke-linejoin:round;
     stroke-miterlimit:10;
 }
+
+
+
+
+// ANIMATIONS
+
+@keyframes draw {
+    from {
+      stroke-dashoffset: 1772;
+  
+    }
+    to{
+      stroke-dashoffset: 0;
+  
+    }
+}
+

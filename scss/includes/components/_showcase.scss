@@ -4,6 +4,7 @@
 
 .showcase-container {
     height:auto !important;
+    overflow-y: hidden;
 
     .showcase-wrapper {
         left: 0;
@@ -12,9 +13,18 @@
         height:calc(100vh - 50px) !important;
         width:100%;
         max-width: 84%;
+        min-height:550px;
         margin-left: auto;
         margin-right: auto;
         z-index:-1;
+
+        &.hidden {
+            display:none;
+
+            svg {
+                display:none;
+            }
+        }
 
         @include mq('tablet') {
             display: none;
@@ -23,7 +33,8 @@
         svg {
             width:15px;
             float:right;
-            height:100vh;
+            height:calc(100vh - 75px);
+            min-height:550px;
             transform:translateY((50vh));
         }
 
@@ -97,6 +108,7 @@
         @include flex-row(flex-start, center);
         width:100%;
         height:calc(100vh - 50px) !important;
+        min-height:550px;
 
         .showcase-graphic-container {
             flex:1;
@@ -116,6 +128,7 @@
                 background-repeat:no-repeat;
                 transition: all ease 6s;
                 border: 2px solid map-get($colors, black );
+                
 
                 @include mq('tablet') {
                     width:100%;
@@ -216,8 +229,10 @@
             }
 
             .paragraph-container {
-                height:40%;
+                min-height:40%;
+                padding:50px 0;
                 @include flex-col(center, flex-start);
+                flex-wrap: nowrap;
 
                 @include mq('tablet') {
                     height:auto;

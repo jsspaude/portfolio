@@ -6,7 +6,6 @@
     max-width:map-get($layout, 'max-width' );
     min-height:100vh;
     @include flex-row(center,center);
-
     @include mq('tablet') {
         flex-direction:column;
         padding-top:100px;
@@ -26,12 +25,17 @@
         }
 
         #van-skyline {
-            transition:all 1s ease;
+            transition:all 5s ease;
             position:fixed;
             
             @include mq('tablet') {
                 top:100px;
                 
+            }
+
+            &.active {
+                transform:translateY(2000px);
+                transition:all 5s ease;
             }
         }
 
@@ -39,7 +43,7 @@
             fill:none;
             stroke:none;
             stroke-miterlimit:10;
-
+ 
             &.visible {
                 fill:white !important;
                 // stroke:map-get($colors, 'pink' );

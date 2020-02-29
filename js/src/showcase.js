@@ -1,9 +1,10 @@
 $(document).ready(function() {
-    var topofDiv        = $('.showcase-content-container').offset().top;
-    var x               = 1;
-    var length          = 0;
-    var scrolling       = false;
-    const wrapperEnd    = $('.showcase-wrapper').length;
+    const   topofDiv            = $('.showcase-content-container').offset().top,
+            contentContainer    = $('.showcase-content-container'),
+            wrapperEnd          = $('.showcase-wrapper').length;
+    var     x                   = 1,
+            length              = 0,
+            scrolling           = false;
 
     $($('.showcase-wrapper[data-row=' + (wrapperEnd) +']')).addClass('hidden');
     $('.showcase-container').css('min-height', (wrapperEnd*550) + 'px');
@@ -15,23 +16,15 @@ $(document).ready(function() {
     });
 
     $('.showcase-wrapper').each(function(i){
-        var $this           = $(this).data('row', i);
-        var container       = $('.showcase-content-container[data-row="1"');
-        var posit           = $(container).position();
-        var height          = (container.height()) + 90;
-        var initNewPosit    = (posit.top*i) + posit.top;
-        var newPosit        = (posit.top) + (height*i);
+        const   $this               = $(this).data('row', i),
+                containerOffset     = $(contentContainer[i]).offset().top;
 
-
-        if(i===0) {
-            $this.offset({top:(initNewPosit + 51)});
-        }
-        else{
-            $this.offset({top:newPosit});
-        }
+        $this.offset({top: (containerOffset)});
 
         length++;
     });
+
+    
 
     $( window ).scroll( function() {
         scrolling = true;

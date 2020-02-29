@@ -16,7 +16,9 @@
         min-height:550px;
         margin-left: auto;
         margin-right: auto;
+        padding:30px 0;
         z-index:-1;
+        @include flex-row(flex-end, flex-start);
 
         &.hidden {
             display:none;
@@ -32,10 +34,10 @@
 
         svg {
             width:15px;
-            float:right;
-            height:calc(100vh - 75px);
+            overflow:hidden;
+            height:calc(100vh - 50px) !important;
             min-height:550px;
-            transform:translateY((50vh));
+            transform:translateX(-17.5px) translateY(50vh) translateY(-50px);
         }
 
         .svg-line-path {
@@ -46,7 +48,6 @@
             stroke-dasharray: 940; /* this is the entire length of the line */
             stroke-dashoffset: 940; /* this is the entire length of the line */
             animation-play-state: paused;
-
         }
 
         &.active {
@@ -162,13 +163,13 @@
         &:before {
             content:"";
             display:block;
-            position:absolute;
-            right:6.75%;
+            position:relative;
             height:50px;
             width:50px;
             background-color:map-get($colors, 'pink' );
             border-radius:25px;
-            transform:translateY(50px);
+            transform:translateX(30px);
+            order:10;
 
             @include mq('tablet') {
                 display:none;

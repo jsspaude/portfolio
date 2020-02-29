@@ -27,11 +27,6 @@ $(document).ready(function() {
                 $('#slopeEffectTablet').attr('slope', (scrollPercent -.05)  );   
                 $('#slopeEffectMobile').attr('slope', (scrollPercent -.1) ); 
             }
-<<<<<<< HEAD
-=======
-
-            // figure out percent of div scrolled through not percent of div from top
->>>>>>> 3832f9b123f83831da9732882388cf7181c749e2
         }
     }, 20 );
 

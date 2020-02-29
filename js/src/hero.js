@@ -1,10 +1,9 @@
 $(document).ready(function() {
 
-    const drawing       = $('.foreground');
-    const heroSVG       = $('#van-skyline');   
-    const drawingEnd    = $(drawing).length;
-    const windowWidth   = $(window).width();
-    var scrolling       = false;
+    const   drawing       = $('.foreground'),
+            heroSVG       = $('#van-skyline'),  
+            drawingEnd    = $(drawing).length;
+    var     scrolling       = false;
 
     $(drawing).each(function(i){
 
@@ -25,10 +24,16 @@ $(document).ready(function() {
     setInterval( function() {
         if ( scrolling ) {
             scrolling = false;
-            var scrollCurrent  = $(document).scrollTop();
 
-            $(heroSVG).css('transform', 'translateY(' + (scrollCurrent * 3) + 'px)');
+            const scrollCurrent  = $(document).scrollTop();
+
+            if(scrollCurrent > 0) {
+
+                $(heroSVG).addClass('active');
+            }
+            else {
+                $(heroSVG).removeClass('active');
+            }
         }
-    }, 10 );
-    
+    }, 10 );    
 });

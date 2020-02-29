@@ -16,10 +16,11 @@
             $servicesHeading    = get_sub_field('heading');
             $servicesDesc       = get_sub_field('description');
             $servicesGraphic    = get_sub_field('services_graphic', false, false);
+            $svgTemplate        = "services_" . get_row_index();
         ?>
         <div class='services-content' data-col='<?php echo get_row_index(); ?>'>
             <div class='graphic-container'>
-                <?php echo $servicesGraphic ?>
+                <?php get_template_part("templates/template-parts/svg", $svgTemplate); ?>
             </div>
             <div class='heading-container'>
                 <h5><?php echo $servicesHeading ?></h5>

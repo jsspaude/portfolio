@@ -343,9 +343,9 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
+                                    "tabs": "text",
+                                    "toolbar": "",
+                                    "media_upload": 0,
                                     "delay": 0
                                 }
                             ]

@@ -15,7 +15,6 @@
             //VARS
             $servicesHeading    = get_sub_field('heading');
             $servicesDesc       = get_sub_field('description');
-            $servicesGraphic    = get_sub_field('services_graphic', false, false);
             $svgTemplate        = "services_" . get_row_index();
         ?>
         <div class='services-content' data-col='<?php echo get_row_index(); ?>'>
@@ -26,7 +25,7 @@
                 <h5><?php echo $servicesHeading ?></h5>
             </div>
             <div class='paragraph-container'>
-                <p><?php echo $servicesDesc; ?>
+                <?php echo $servicesDesc; ?>
             </div>
         </div>
         <?php endwhile; ?>

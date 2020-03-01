@@ -61,7 +61,7 @@
             //VARS
             $svg                = get_sub_field('svg_animation', false, false);
             $featureHeading     = get_sub_field('heading');
-            $featureDesc        = get_sub_field('description', false, false);      
+            $featureDesc        = get_sub_field('description');      
         ?>
         <div class="features-content">
             <div class='titles-container'>
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class='paragraph-container' data-row="<?php echo get_row_index();?>">
-                <p><?php echo $featureDesc; ?></p>
+                <?php echo $featureDesc; ?>
             </div>
         </div>
         <?php endwhile; ?>

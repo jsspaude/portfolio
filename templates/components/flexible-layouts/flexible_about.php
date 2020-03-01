@@ -33,9 +33,7 @@
                 </h4>
             </div>
             <div class='content-paragraph'>
-                <p>
-                    <?php echo $contentParagraph; ?>
-                </p>
+                <?php echo $contentParagraph; ?>
             </div>
         </div>
         <div class='about-graphic-container'>

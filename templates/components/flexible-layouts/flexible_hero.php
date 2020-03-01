@@ -4,6 +4,7 @@
     $subHeading1        = get_sub_field('sub_heading_1');
     $subHeading2        = get_sub_field('sub_heading_2');
     $heroForm           = get_sub_field('contact_form');
+    $formTitle          = get_sub_field('form_title');
     $svgTemplate        = "hero_1";
 ?>
 
@@ -24,13 +25,12 @@
         <button>
             <a href="#footer">
                 <h4>
-                    NEED A DEVELOPER?
+                    <?php echo $formTitle; ?>
                 </h4>
             </a>
         </button>
     </div>
     <div class="form-container">
-        
         <?php echo $heroForm; ?>
     </div>
 </section> <!-- end hero-container -->

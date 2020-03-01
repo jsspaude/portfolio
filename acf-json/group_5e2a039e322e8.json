@@ -61,25 +61,6 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5e2a044f5e9cc",
-                            "label": "Sub Heading 3",
-                            "name": "sub_heading_3",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
                             "key": "field_5e5702a3739ab",
                             "label": "Form Title",
                             "name": "form_title",
@@ -202,46 +183,8 @@
                                     "toolbar": "full",
                                     "media_upload": 1,
                                     "delay": 0
-                                },
-                                {
-                                    "key": "field_5e2f82e7576bd",
-                                    "label": "SVG-Animation",
-                                    "name": "svg_animation",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0
                                 }
                             ]
-                        },
-                        {
-                            "key": "field_5e5429480f8db",
-                            "label": "Graphic",
-                            "name": "graphic",
-                            "type": "wysiwyg",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "text",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -327,25 +270,6 @@
                                     "tabs": "all",
                                     "toolbar": "full",
                                     "media_upload": 1,
-                                    "delay": 0
-                                },
-                                {
-                                    "key": "field_5e3d9903f59ef",
-                                    "label": "Services Graphic",
-                                    "name": "services_graphic",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "tabs": "text",
-                                    "toolbar": "",
-                                    "media_upload": 0,
                                     "delay": 0
                                 }
                             ]
@@ -641,5 +565,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1582760623
+    "modified": 1583105474
 }

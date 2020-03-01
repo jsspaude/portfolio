@@ -6,8 +6,12 @@
         right:8%;
         max-width:400px;
         width:20%;
-        background-color:map-get($colors, 'blue' );
+    
         @include flex-col(center,center);
+
+        @include mq('tablet') {
+            display:none;
+        }
 
         .frm_forms {
             background-color:map-get($colors, 'blue' );

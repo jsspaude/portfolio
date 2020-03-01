@@ -4,11 +4,12 @@
 .hero-container {
     width:100%;
     max-width:map-get($layout, 'max-width' );
-    min-height:100vh;
     @include flex-row(center,center);
+    flex-wrap:nowrap;
+
     @include mq('tablet') {
         flex-direction:column;
-        padding-top:100px;
+        justify-content: flex-start;
         margin-bottom:50px;
     }
 
@@ -20,18 +21,11 @@
         z-index:1;
         pointer-events: none;
 
-        @include mq('tablet') {
-            z-index:-1;
-        }
-
         #van-skyline {
-            transition:all 5s ease;
+            height:35%;
+            transition:all 1s ease;
             position:fixed;
-            
-            @include mq('tablet') {
-                top:100px;
-                
-            }
+            bottom:0;
 
             &.active {
                 transform:translateY(2000px);
@@ -46,7 +40,6 @@
  
             &.visible {
                 fill:white !important;
-                // stroke:map-get($colors, 'pink' );
             }
         }
 
@@ -60,6 +53,16 @@
         @include flex-col(center,center);
         flex:9;
 
+        @include mq('tablet') {
+            height:auto !important;
+            flex:1 !important;
+            height:50% !important;
+            align-self:stretch;
+            justify-content:flex-start;
+            align-items:flex-start;
+            padding-top:33%;
+        }
+
         div {
             @include flex-row(flex-start,center);
             line-height: 36px;
@@ -68,6 +71,7 @@
             @include mq('tablet') {
                 justify-content: flex-start !important;
                 width:90% !important;
+                
             }
 
             &:first-child {
@@ -79,11 +83,6 @@
                 justify-content: space-between;
                 width:95%;
                 border-bottom:4px solid map-get($colors, 'blue' );
-            }
-
-            &:nth-child(3) {
-                width:90%;
-                border-bottom:4px solid map-get($colors, 'pink' );
             }
 
             button {
@@ -105,5 +104,34 @@
 
         }
 
+    }
+
+    .cta {
+        flex:1;
+        height:50%;
+        align-self:stretch;  
+
+        button {
+            background-color:map-get($colors, 'blue' );
+            padding:30px;
+            -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+            -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+            box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+
+            h4 {
+                font-family:map-get($fonts, 'heading' );
+                color:map-get($colors, 'white' );
+                font-weight:700;
+            }
+
+            &:active {
+                background-color:map-get($colors, 'white' );
+                border:2px solid map-get($colors, 'blue' );
+
+                h4 {
+                    color:map-get($colors, 'blue' );
+                }
+            }
+        }
     }
 }

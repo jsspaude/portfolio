@@ -43,14 +43,14 @@ $(document).ready(function() {
 		if ( scrolling ) {
 			
 			scrolling = false;
-			if (($(window).scrollTop() > 100) || ($window.width() < 1000) ){
+			if (($(window).scrollTop() > 100) || ($window.width() < 450) ){
 				$('nav').css({'top': '-50px'});
 				$('header').addClass('header-small');
 				$('header').removeClass('header');
 				$('#primary-navigation').removeClass('top');
 				
 			}
-			else if($(window.top == 0) && ($window.width() > 1000)) {
+			else if($(window.top == 0) && ($window.width() > 450)) {
 				$('header').addClass('header');
 				$('header').removeClass('header-small');
 				$('#primary-navigation').addClass('top');

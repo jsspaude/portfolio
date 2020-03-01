@@ -65,19 +65,12 @@
         ?>
         <div class="features-content">
             <div class='titles-container'>
-                <div class='animation-container' data-row="<?php echo get_row_index();?>">
-                    <div class="animation">
-                        <?php echo $svg;?>
-                    </div>
-                </div>
                 <div class='heading-container' data-row="<?php echo get_row_index();?>">
                     <h4><?php echo $featureHeading; ?></h4>
                 </div>
             </div>
-            <div class='descriptions-container'>
-                <div class='paragraph-container' data-row="<?php echo get_row_index();?>">
-                    <p><?php echo $featureDesc; ?></p>
-                </div>
+            <div class='paragraph-container' data-row="<?php echo get_row_index();?>">
+                <p><?php echo $featureDesc; ?></p>
             </div>
         </div>
         <?php endwhile; ?>

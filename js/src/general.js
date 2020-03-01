@@ -1,3 +1,15 @@
+if ($(window).scrollTop() > 100) {
+	$('header').removeClass('header');
+	$('#primary-navigation').removeClass('top');
+}
+
+else {
+	$('header').removeClass('header-small');
+	$('header').addClass('header');
+	
+	$('#primary-navigation').addClass('top');
+}
+
 $(document).ready(function() {
 
 	const 	navBar 			= $('#primary-navigation'),

@@ -16,7 +16,9 @@
     .hero-wrapper {
         height:100vh;
         width:100vw;
+        max-width:map-get($layout, 'max-width' );
         position:fixed;
+        left:0;
         @include flex-col(flex-end,center);
         z-index:1;
         pointer-events: none;

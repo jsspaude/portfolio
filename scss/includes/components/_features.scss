@@ -41,7 +41,7 @@
 
         .features-content {
             flex:1;
-            @include flex-col(center,center);
+            @include flex-col(center,flex-start);
             align-self:stretch;
             padding-top:30px;
             flex-wrap:nowrap;
@@ -52,7 +52,7 @@
 
             .titles-container {
                 height:10%;
-                width:100%;
+                width:80%;
                 @include flex-row(flex-start,center);
                 flex-wrap:nowrap;
 
@@ -72,7 +72,6 @@
                 .heading-container {
                     height:100%;
                     width:auto;
-                    padding-left:15px;
                     @include flex-row(flex-start,center);
                     
                     h4 {
@@ -84,37 +83,24 @@
                 }   
             }
 
-            .descriptions-container {
-                height:70%;
-                width:100%;
-                padding-left:45px;
-                @include flex-row(center,center);
+            .paragraph-container {
+                height:100%;
+                width:80%;
+                padding-top:15px;
+                position:relative;
+                opacity:0;
+                transition: all 500ms ease-in;
+                @include flex-row(flex-start,flex-start);
 
                 @include mq('tablet') {
-                    // padding-left:0;
-                    justify-content: flex-start;
+                    width:80%;
                 }
 
-                .paragraph-container {
-                    height:100%;
-                    width:100%;
-                    padding-top:15px;
-                    position:relative;
-                    opacity:0;
-                    transition: all 500ms ease-in;
-                    @include flex-row(flex-start,flex-start);
-
-                    @include mq('tablet') {
-                        width:80%;
-                    }
-
-                    p {
-                        margin:0 !important;
-                        font-weight:400 !important;  
-                    }
+                p {
+                    margin:0 !important;
+                    font-weight:400 !important;  
                 }
             }
-
         }
     }   
 }

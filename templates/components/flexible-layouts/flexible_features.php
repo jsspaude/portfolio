@@ -63,7 +63,7 @@
             $featureHeading     = get_sub_field('heading');
             $featureDesc        = get_sub_field('description');      
         ?>
-        <div class="features-content">
+        <div class="features-content" data-js="fContent">
             <div class='titles-container'>
                 <div class='heading-container' data-row="<?php echo get_row_index();?>">
                     <h4><?php echo $featureHeading; ?></h4>

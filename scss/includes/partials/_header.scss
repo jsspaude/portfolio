@@ -16,7 +16,6 @@ header {
         @include flex-row(space-between,center);
         @include fillContainer;
         padding:0 map-get($layout, 'content-margin' );
-        
         background:map-get($colors, 'white');
         
     
@@ -178,10 +177,12 @@ header {
     top:-50vh;
     right:0;
     @include flex-row(flex-end,center);
-    // transition:all .5s ease-in, background-color 1ms;
     background-color:map-get($colors, 'pink' );
     transition:top 1s;
-    
+
+    a {
+        color:map-get($colors, 'pink' ) !important;
+    }
 
     ul {
         @include flex-row(space-between,center);
@@ -200,10 +201,15 @@ header {
         height:auto;
         z-index:2;
         transition:all 1s;
+        box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.75);
 
         li {
             padding:15px;
             color:map-get($colors, 'white' );
+        }
+
+        a {
+            color:map-get($colors, 'white' ) !important;
         }
     }
 
@@ -211,7 +217,7 @@ header {
         top:0;
         height:map-get($layout, 'header-height' );
         z-index:4;
-        background-color:map-get($colors, 'white' );
+        background-color:transparent;
         transition: none;
         
         ul {

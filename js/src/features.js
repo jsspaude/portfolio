@@ -1,5 +1,16 @@
 $(document).ready(function() {
-    var scrolling   = false;
+    var scrolling   = false,
+        offsetArray = [],
+        offsetDynArray = [];
+    const fContent = $('.features-content').offset().top;
+
+    $('.features-content').each(function(i){
+        const offsetInit      = $(this).offset().top;
+        
+        $(offsetInit).each(function(i){
+            offsetArray.push(this);
+        })
+    });
  
     $( window ).scroll( function() {
         scrolling = true;
@@ -11,15 +22,34 @@ $(document).ready(function() {
             
             scrolling               = false;
             var scrollCurrent       = $(document).scrollTop();
-            var offsetContent       = $('.features-content-container').offset().top;
             var offsetContainer     = $('.features-container').offset().top;
             var scrollPercent       = ((scrollCurrent - offsetContainer)+100)/1000;
+            
+            $('.features-content').each(function(i){
+                const offsetDyn       = $(this).offset().top;
+                const offsetDynArray  = jQuery.makeArray(offsetDyn);
 
-            if((offsetContent-200) < scrollCurrent) {
-                $('.features-content').each(function(i){
-                    featureActive();
-                });
-            }
+                console.log(offsetDynArray);
+
+                // if(
+                //     offsetDyn.every(function(value, _, array){
+                //         return array[0] === value;
+                //     })
+                // ){console.log('test')}
+
+                if(offsetDyn > offsetArray[i]) {
+                    $(this).addClass('active');
+                }
+            });
+
+            // if(
+            //     offsetDynArray.every(
+            //         function(value, _, array){
+            //         return array[0] === value;
+            //         })
+            //     ){
+            //         fContent.addClass('active');
+            // };
 
             if(scrollPercent < .2 ) {
 
@@ -27,17 +57,7 @@ $(document).ready(function() {
                 $('#slopeEffectTablet').attr('slope', (scrollPercent -.05)  );   
                 $('#slopeEffectMobile').attr('slope', (scrollPercent -.1) ); 
             }
+
         }
     }, 20 );
-
-    function featureActive() {
-
-        $('.features-content').each(function(i) {
-          var featureContent = $(this);
-          setTimeout(function() {
-            featureContent.addClass('active');
-          }, i*1000);
-        });
-            
-    }
 });

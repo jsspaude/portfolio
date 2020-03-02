@@ -92,3 +92,21 @@ p {
 		padding-top:0px !important;
 	}
 }
+
+.paragraph-container {
+
+	ul, li {
+		font-size:1rem;
+		font-family:map-get($fonts, 'body' );
+		font-weight:400;
+		list-style-type: disc !important;
+		list-style-position: inside !important;
+		text-indent: -20px; /* key property */
+		margin-left: 20px; /* key property */
+	}
+	
+	li {
+		padding-top:5px !important;
+	}
+}
+

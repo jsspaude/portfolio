@@ -1,4 +1,4 @@
-if ($(window).scrollTop() > 100) {
+if (($(window).scrollTop() > 100) || ($(window).width() < 450)) {
 	$('header').removeClass('header');
 	$('#primary-navigation').removeClass('top');
 }
@@ -6,7 +6,6 @@ if ($(window).scrollTop() > 100) {
 else {
 	$('header').removeClass('header-small');
 	$('header').addClass('header');
-	
 	$('#primary-navigation').addClass('top');
 }
 
@@ -16,9 +15,9 @@ $(document).ready(function() {
 			navButton 		= $('#menu-toggle'),
 			navLink 		= $('.menu-item > a'),
 			navOverlay 		= $('#mobile-overlay-toggle'),
-			headerHeight	= $('header').height(),
 			$window 		= $(window);
-	var 	scrolling   	= false;
+	var		headerHeight	= $('header').outerHeight(),
+		 	scrolling   	= false;
 
 	// BURGER MENU
 
@@ -53,15 +52,17 @@ $(document).ready(function() {
     
     setInterval( function() {
 		if ( scrolling ) {
-			
-			scrolling = false;
+
+			headerHeight	= $('header').outerHeight();
+			scrolling 		= false;
+
 			if (($(window).scrollTop() > 100) || ($window.width() < 450) ){
-				$('nav').css({'top': '-50px'});
+				$('nav').css({'top': "'" + headerHeight + "'"});
 				$('header').addClass('header-small');
 				$('header').removeClass('header');
-				$('#primary-navigation').removeClass('top');
-				
+				$('#primary-navigation').removeClass('top')
 			}
+
 			else if($(window.top == 0) && ($window.width() > 450)) {
 				$('header').addClass('header');
 				$('header').removeClass('header-small');

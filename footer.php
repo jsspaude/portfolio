@@ -33,6 +33,7 @@
             <a href="#services">
                 SERVICES
             </a>
+            |
             <a href="#showcase">
                 SHOWCASE
             </a>

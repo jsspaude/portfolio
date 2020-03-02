@@ -2,8 +2,9 @@ $(document).ready(function() {
 
     const   drawing       = $('.foreground'),
             heroSVG       = $('#van-skyline'),  
-            drawingEnd    = $(drawing).length;
-    var     scrolling       = false;
+            drawingEnd    = $(drawing).length,
+            bgShape       = $('.background-shape');
+    var     scrolling     = false;
 
     $(drawing).each(function(i){
 
@@ -25,14 +26,16 @@ $(document).ready(function() {
         if ( scrolling ) {
             scrolling = false;
 
-            const scrollCurrent  = $(document).scrollTop();
+            const   scrollCurrent  = $(document).scrollTop();
 
             if(scrollCurrent > 0) {
-
                 $(heroSVG).addClass('active');
+                $(bgShape).addClass('active');
             }
+
             else {
                 $(heroSVG).removeClass('active');
+                $(bgShape).removeClass('active');
             }
         }
     }, 10 );    

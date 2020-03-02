@@ -22,11 +22,12 @@
         </div>
     </div>
     <div class='cta responsive-only'>
+        <h4>
+            <?php echo $formTitle; ?>
+        </h4>
         <button>
             <a href="#footer">
-                <h4>
-                    <?php echo $formTitle; ?>
-                </h4>
+                GET A QUOTE
             </a>
         </button>
     </div>

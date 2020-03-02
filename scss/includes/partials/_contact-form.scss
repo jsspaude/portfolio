@@ -4,10 +4,9 @@
         position:absolute;
         z-index:1;
         right:8%;
-        top:130px;
+        top:25vh;
         max-width:400px;
         width:20%;
-    
         @include flex-col(center,center);
 
         @include mq('tablet') {
@@ -133,7 +132,8 @@ footer {
 
         &:hover {
             box-shadow:none !important;
-            color:map-get($colors, 'black' ) !important;
+            background-color: rgba(204,198,197,.5) !important;
+            color:map-get($colors, 'white' ) !important;
         }
     }
 

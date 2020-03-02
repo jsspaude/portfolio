@@ -6,6 +6,7 @@
     max-width:map-get($layout, 'max-width' );
     @include flex-row(center,center);
     flex-wrap:nowrap;
+    margin:0 !important;
 
     @include mq('tablet') {
         flex-direction:column;
@@ -103,35 +104,37 @@
                     padding:27.5px;
                 }
             }
-
         }
-
     }
 
-    .cta {
-        flex:1;
-        height:50%;
-        align-self:stretch;  
+    @include mq('tablet') {
 
-        button {
-            background-color:map-get($colors, 'blue' );
-            padding:30px;
-            -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-            -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-            box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+        .cta {
+            flex:1;
+            height:50%;
+            align-self:stretch;  
+            @include flex-row(space-between, flex-start);
+            padding-right:8%;
 
             h4 {
                 font-family:map-get($fonts, 'heading' );
-                color:map-get($colors, 'white' );
-                font-weight:700;
+                color:map-get($colors, 'blue' );
+                font-weight:700; 
+                padding:15px;
             }
 
-            &:active {
-                background-color:map-get($colors, 'white' );
-                border:2px solid map-get($colors, 'blue' );
+            button {
+                background-color:map-get($colors, 'blue' );
+                padding:15px;
+                -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+                -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+                box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+                font-size:1.5rem;
+                font-family:map-get($fonts, 'heading' );
+                font-weight:400;
 
-                h4 {
-                    color:map-get($colors, 'blue' );
+                a {
+                    color:map-get($colors, 'white' ) !important;
                 }
             }
         }

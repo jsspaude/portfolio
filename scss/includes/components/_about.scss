@@ -3,6 +3,8 @@
 /* ----------------------------------------- */
 
 .about-container {
+    overflow-x: hidden;
+    position:relative;
 
     .about-content-container {
         @include flex-row(space-between, center);

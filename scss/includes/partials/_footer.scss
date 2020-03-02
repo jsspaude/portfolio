@@ -22,7 +22,7 @@ footer {
     .footer-content-container {
         height:100%;
         width:100%;
-        max-width:map-get($layout, 'max-width' );
+        
         @include flex-row(space-between, center);
 
         .form-container {
@@ -77,5 +77,15 @@ footer {
     .footer-nav {
         width:100%;
         @include flex-row(space-between,center);
+
+        a, p {
+            color:map-get($colors, 'white' ) !important;
+            font-family:map-get($fonts, 'heading' );
+            font-weight:700;
+
+            &:hover {
+                color:map-get($colors, 'pink' ) !important;
+            }
+        }
     }
 }

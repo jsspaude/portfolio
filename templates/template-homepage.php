@@ -7,7 +7,7 @@ get_header(); ?>
     <div class="background-shape">
     </div>
 
-    <main class="main" role="main">
+    <main class="main" role="main" data-js="main">
     <?php // open the WordPress loop
 
 // ID of the current item in the WordPress Loop

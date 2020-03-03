@@ -1,39 +1,42 @@
-const   offsetArray = [],
-        fContent = document.querySelectorAll('[data-js*=fContent');
+const   offsetArray     = [],
+        featureContainer = document.querySelector('[data-js*="featureContainer"]'),
+        featureContent  = document.querySelectorAll('[data-js*="featureContent"]'),
+        slopeEffect = document.querySelectorAll('[data-js*="slopeEffect"]');
 
 
-fContent.forEach((element) => {
+// CREATE INITIAL STATE ARRAY
+
+featureContent.forEach((element) => {
     var offset = element.offsetTop;
 
     offsetArray.push(offset);
 });
 
-setInterval( featuresScroll, 20 );
+// WATCH FOR OFFSET CHANGE
     
-function featuresScroll() {
-    if ( scrolling ) {
+window.addEventListener('scroll', featureScroll );
+window.addEventListener('scroll', slopeScroll );
+
+function featureScroll(){
+    featureContent.forEach((content, i) => {
+        var offset = content.offsetTop;
         
-        scrolling               = false;
-        var scrollCurrent       = $(document).scrollTop();
-        var offsetContainer     = $('.features-container').offset().top;
-        var scrollPercent       = ((scrollCurrent - offsetContainer)+100)/1000;
-        
-        fContent.forEach((content, i) => {
-            var offset = content.offsetTop;
-            
-            if(offset > offsetArray[i]) {
-                content.classList.add('active');
-            }
-            
-        });
-
-
-        if(scrollPercent < .2 ) {
-
-            $('#slopeEffect').attr('slope', scrollPercent  );   
-            $('#slopeEffectTablet').attr('slope', (scrollPercent -.05)  );   
-            $('#slopeEffectMobile').attr('slope', (scrollPercent -.1) ); 
+        if(offset > offsetArray[i]) {
+            content.classList.add('active');
         }
+    });
+}
 
-    }
+function slopeScroll(){
+    const   scrollTop 	    = pageYOffset,
+            offsetContainer = featureContainer.offsetTop,         
+            scrollPercent   = ((scrollTop - offsetContainer)+100)/1000;
+
+    slopeEffect.forEach((item, index) => {
+        if(scrollPercent < .2 ) {
+            const modifier = index * .05;
+
+            item.setAttribute('slope', (scrollPercent - modifier));
+        }
+    });
 }

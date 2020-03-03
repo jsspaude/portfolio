@@ -100,7 +100,7 @@ p {
 		font-family:map-get($fonts, 'body' );
 		font-weight:400;
 		list-style-type: disc !important;
-		list-style-position: inside !important;
+		list-style-position: outside !important;
 		text-indent: -20px; /* key property */
 		margin-left: 20px; /* key property */
 	}

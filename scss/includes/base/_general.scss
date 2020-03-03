@@ -22,39 +22,6 @@
 			}
 
 			#wrapper {
-				max-width:100vw;
-
-				.background-shape {
-					overflow-x:hidden;
-					min-height:100vh;
-					width:100px;
-					align-self:stretch;
-					position:fixed;
-					right:8%;
-					z-index:-5;
-					background-color:map-get($colors, 'pink' );
-					transform:skew(-20deg);
-					transform-origin: top center;
-					pointer-events: none;
-					opacity:1;
-					transition:all ease 5s;
-
-					&.active {
-						opacity:0;
-						transition:all ease 2s;
-					}
-
-					@include mq('tablet') {
-						width:50px;
-						right:5%;
-						min-height:75vh;
-					}
-
-					@include mq('tablet-small') {
-						width:25px;
-						right:0;
-					}
-				}
 
 				main.main {
 					padding:0 map-get($layout, 'content-margin' );

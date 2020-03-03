@@ -4,9 +4,7 @@
 get_header(); ?>
 
 <div id="wrapper">
-    <div class="background-shape">
-    </div>
-
+    
     <main class="main" role="main" data-js="main">
     <?php // open the WordPress loop
 

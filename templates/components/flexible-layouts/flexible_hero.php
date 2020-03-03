@@ -4,7 +4,6 @@
     $subHeading1        = get_sub_field('sub_heading_1');
     $subHeading2        = get_sub_field('sub_heading_2');
     $heroForm           = get_sub_field('contact_form');
-    $formTitle          = get_sub_field('form_title');
     $svgTemplate        = "hero_1";
 ?>
 
@@ -22,9 +21,6 @@
         </div>
     </div>
     <div class='cta responsive-only'>
-        <h4>
-            <?php echo $formTitle; ?>
-        </h4>
         <button>
             <a href="#footer">
                 GET A QUOTE

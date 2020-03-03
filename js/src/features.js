@@ -1,31 +1,44 @@
-const   offsetArray     = [],
-        featureContainer = document.querySelector('[data-js*="featureContainer"]'),
-        featureContent  = document.querySelectorAll('[data-js*="featureContent"]'),
-        slopeEffect = document.querySelectorAll('[data-js*="slopeEffect"]');
+const   offsetArray         = [],
+        featureContainer    = document.querySelector('[data-js*="featureContainer"]'),
+        featureContent      = document.querySelectorAll('[data-js*="featureContent"]'),
+        featureArray        = Array.from(featureContent),
+        slopeEffect         = document.querySelectorAll('[data-js*="slopeEffect"]');
+var     flag                = false;
 
+window.addEventListener('scroll', featureScroll );
+window.addEventListener('scroll', slopeScroll );
 
 // CREATE INITIAL STATE ARRAY
 
 featureContent.forEach((element) => {
-    var offset = element.offsetTop;
+    const offset    = element.offsetTop;
 
     offsetArray.push(offset);
 });
 
-// WATCH FOR OFFSET CHANGE
-    
-window.addEventListener('scroll', featureScroll );
-window.addEventListener('scroll', slopeScroll );
+// ACTIVATE ON SCROLL
 
 function featureScroll(){
-    featureContent.forEach((content, i) => {
-        var offset = content.offsetTop;
-        
-        if(offset > offsetArray[i]) {
+    const   isEqual       = (input) => {  
+                            const offsetEnd = featureArray[featureArray.length-1].offsetTop;
+                            return input.every(element => element.offsetTop === offsetEnd);
+                            };
+    const   isTrue        = isEqual(featureArray);
+
+    featureArray.forEach((content, index) => {
+        const offset  = content.offsetTop;
+
+        if((offset > offsetArray[index])){
             content.classList.add('active');
         }
-    });
+    });  
+
+    if(isTrue) {
+        featureArray[featureArray.length-1].classList.add('active');
+    }
 }
+
+// SVG SLOPE MODIFIER
 
 function slopeScroll(){
     const   scrollTop 	    = pageYOffset,

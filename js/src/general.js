@@ -1,10 +1,11 @@
-var 	scrolling 		= false;
 const 	scrollTop 		= pageYOffset,
 		header 			= document.querySelector('[data-js*="header"]'),
 		navBar			= document.querySelector('[data-js*="primeNav"]'),
 		navButton 		= document.querySelector('[data-js*="menuToggle"]'),
 		mainDiv			= document.querySelector('[data-js*="main"]'),
-		headerHeight	= header.getBoundingClientRect();
+		headerHeight	= header.getBoundingClientRect().height;
+
+		console.log(headerHeight);
 
 // HEADER INITIAL
 
@@ -60,17 +61,12 @@ function hasOpen(){
 	var isOpen = navBar.classList.contains('open')
 
 	if(isOpen) {
-		navBar.style.top = `${headerHeight.height}px`;
+		navBar.style.top = `${headerHeight}px`;
 	}
 	else{
 		navBar.style.top = '-50px';
 	}
 };
-
-// navOverlay.click(function() {
-// 	navBar.removeClass('open');
-// 	navOverlay.addClass('display-none');
-// });
 
 // navLink.click(function() {
 // 	navBar.removeClass('open');

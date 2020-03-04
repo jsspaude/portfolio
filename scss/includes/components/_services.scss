@@ -44,11 +44,11 @@
 
             .graphic-container {
                 width:80%;
-                height:50%;
+                height:auto;
+                margin-bottom:15px;
                 @include flex-row(flex-start, center);
                 position:relative;
                 align-self:stretch;
-                overflow:hidden;
                 border:none;
                 box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
                 transition: box-shadow 1s ease;
@@ -60,22 +60,16 @@
                 svg {
                     width:100%;
                     height:100%;
-                    padding:5px;
-                    overflow:hidden;
                     stroke:map-get($colors, 'white' );
                     stroke-width:2;
+
+                    g {
+                        padding:10px;
+                    }
                 }
             }
 
             &.active {
-                .graphic-container {
-                    border:5px solid map-get($colors, 'blue' ) !important;
-                    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-
-                    &:hover {
-                        box-shadow:0px 0px 0px 0px rgba(0,0,0,0);;
-                    }
-                }
 
                 h5 {
                     color:map-get($colors, 'pink' ) !important;
@@ -115,4 +109,10 @@
 .shapeFill {
     fill:map-get($colors, 'blue' );
     stroke:none;
+}
+
+.svgCirc {
+    stroke:map-get($colors,'blue' );
+    stroke-width: 10px;
+    fill:none;
 }

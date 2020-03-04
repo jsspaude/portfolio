@@ -11,7 +11,7 @@
     <div class='section-heading'>
         <h2><?php echo $sectionHeading; ?></h2>
     </div>
-    <div class='features-content-container section-content' data-js="featureContainer">
+    <div class='features-content-container section-content' data-js="featConContainer">
     <?php if( have_rows('feature_instance') ):
     ?>
         <?php while( have_rows('feature_instance') ): the_row();

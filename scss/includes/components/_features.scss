@@ -155,25 +155,6 @@
     }   
 }
 
-.graphic-container {
-    height:auto;
-    width:60%;
-    padding:0 30px;
-    
-   
-    @include flex-row(space-between,center);
-
-
-    input {
-        border:solid 1px map-get($colors, 'blue' );
-        padding:5px;
-
-        &:hover {
-            background-color:rgba(0,0,0,.1);
-        }
-    }
-}
-
 .features-container {
 
     .active {
@@ -183,6 +164,25 @@
             opacity:1 !important;
             border: 1px solid map-get($colors, 'blue' ) !important;
             background-color:rgba(48, 95, 114, .1);
+        }
+    }
+
+    .graphic-container {
+        height:auto;
+        width:60%;
+        padding:0 30px;
+        
+       
+        @include flex-row(space-between,center);
+    
+    
+        input {
+            border:solid 1px map-get($colors, 'blue' );
+            padding:5px;
+    
+            &:hover {
+                background-color:rgba(0,0,0,.1);
+            }
         }
     }
 }

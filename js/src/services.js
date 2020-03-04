@@ -1,36 +1,40 @@
-$(document).ready(function() {
-    var svgMask             = $('.svgMask[data-svg]');
-    var scrolling           = false;
- 
-    $( window ).scroll( function() {
-        scrolling = true;
+
+const   svgMaskArray        = [...document.querySelectorAll('[data-svg*="servicesMask"]')],
+        svgCircArray        = [...document.querySelectorAll('[data-svg*="servicesCirc"]')],
+        servConArray        = [...document.querySelectorAll('[data-js*="servicesContent"]')],
+        sectionHeading	    = document.querySelector('[data-js*="servicesHeading"]').getBoundingClientRect().height,
+        servConContainer    = document.querySelector('[data-js*="servConContainer"]'),
+        servContainer       = document.querySelector('[data-js*="servContainer"]');
+
+// SCROLL LISTENERS
+
+window.addEventListener('scroll',() => { serviceScroll();});
+
+function serviceScroll() {
+    const   servConTop      = servConArray.map(element => element.getBoundingClientRect().top),
+            servConOffs     = servConArray.map(element => element.offsetTop),
+            aboveDiff       = headerHeight + sectionHeading + (servConContainer.offsetTop - servContainer.offsetTop);
+
+    // SCROLL SVGMASKS ON X AXIS USING DIV SCROLL TOP VALUE
+    servConArray.forEach((content,index) => {
+        if(servConTop[index] - aboveDiff <= 0) {
+            content.classList.add('active');
+        }    
     });
     
-    setInterval( function() {
-        if ( scrolling ) {
-            scrolling = false;
-
-            // SCROLL SVGMASKS ON X AXIS USING DIV SCROLL TOP VALUE
-            var scrollCurrent       = $(document).scrollTop() ;
-            var percentArray        = [];
-            
-            $('.services-content').each(function(i){
-                var offsetContent   = $(this).offset().top;
-                var scrollPercent   = ((scrollCurrent / (offsetContent - 200)) *100);
-
-                $(scrollPercent).each(function(){
-                    percentArray.push(this);
-                });
-
-                if((offsetContent-300) < scrollCurrent) {
-                    $(this).addClass('active');
-                    $(svgMask).css('transform', 'translateX(100%)' );
-                }
-
-                if(!$(this).hasClass('active')){
-                    $(svgMask[i]).css('transform', 'translateX(' + percentArray[i] + '%)'  );
-                }       
-            });
+    svgMaskArray.forEach((item, index) => {
+        const scrollPercent   = 100-(((servConTop[index]-aboveDiff)/servConOffs[index])*100); 
+        if(scrollPercent < 100) {
+            item.setAttribute('r', ((scrollPercent/2) + '%'));
         }
-    }, 1 );
-});
+    });
+
+    svgCircArray.forEach((item, index) => {
+        const scrollPercent   = 100-(((servConTop[index]-aboveDiff)/servConOffs[index])*100);
+        
+        if(scrollPercent < 100) { 
+            item.setAttribute('r', ((scrollPercent/2) + 10 + '%'));
+        }
+    });
+
+};

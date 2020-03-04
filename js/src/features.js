@@ -1,48 +1,45 @@
-const   offsetArray         = [],
-        featureContainer    = document.querySelector('[data-js*="featureContainer"]'),
-        featureContent      = document.querySelectorAll('[data-js*="featureContent"]'),
-        featureArray        = Array.from(featureContent),
+const   featConOffs         = [],
+        featConContainer    = document.querySelector('[data-js*="featConContainer"]'),
+        featConArray        = [...document.querySelectorAll('[data-js*="featureContent"]')],
         slopeEffect         = document.querySelectorAll('[data-js*="slopeEffect"]');
-var     flag                = false;
 
-window.addEventListener('scroll', featureScroll );
-window.addEventListener('scroll', slopeScroll );
+// SCROLL LISTENERS
+
+// window.addEventListener('scroll', featureScroll );
+window.addEventListener('scroll', () => {   slopeScroll(); 
+                                            featureScroll(); });
 
 // CREATE INITIAL STATE ARRAY
 
-featureContent.forEach((element) => {
-    const offset    = element.offsetTop;
-
-    offsetArray.push(offset);
+featConArray.forEach((element) => {
+    featConOffs.push(element.offsetTop);
 });
 
 // ACTIVATE ON SCROLL
 
 function featureScroll(){
     const   isEqual       = (input) => {  
-                            const offsetEnd = featureArray[featureArray.length-1].offsetTop;
+                            const offsetEnd = featConArray[featConArray.length-1].offsetTop;
                             return input.every(element => element.offsetTop === offsetEnd);
                             };
-    const   isTrue        = isEqual(featureArray);
+    const   isTrue        = isEqual(featConArray);
 
-    featureArray.forEach((content, index) => {
-        const offset  = content.offsetTop;
+    if(isTrue) {
+        featConArray[featConArray.length-1].classList.add('active');
+    }
 
-        if((offset > offsetArray[index])){
+    featConArray.forEach((content, index) => {
+        if((content.offsetTop > featConOffs[index])){
             content.classList.add('active');
         }
     });  
-
-    if(isTrue) {
-        featureArray[featureArray.length-1].classList.add('active');
-    }
 }
 
 // SVG SLOPE MODIFIER
 
 function slopeScroll(){
     const   scrollTop 	    = pageYOffset,
-            offsetContainer = featureContainer.offsetTop,         
+            offsetContainer = featConContainer.offsetTop,         
             scrollPercent   = ((scrollTop - offsetContainer)+100)/1000;
 
     slopeEffect.forEach((item, index) => {

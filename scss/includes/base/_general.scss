@@ -135,7 +135,7 @@
 				align-self:stretch;
 				@include flex-col(flex-start,flex-start);
 				flex-wrap:nowrap;
-				margin:50px 0;
+				margin-top:50px;
 
 				@include mq('tablet') {
 					min-height:75vh !important;

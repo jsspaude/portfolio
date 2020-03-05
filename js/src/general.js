@@ -5,8 +5,6 @@ const 	scrollTop 		= pageYOffset,
 		mainDiv			= document.querySelector('[data-js*="main"]'),
 		headerHeight	= header.getBoundingClientRect().height;
 
-		console.log(headerHeight);
-
 // HEADER INITIAL
 
 if ((scrollTop > 100) || (screen.width < 450)) {

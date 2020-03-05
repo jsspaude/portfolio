@@ -12,10 +12,10 @@
         
         .services-content {
             width:30%;
-            height:100%;
+            min-height:100%;
+            align-self:stretch;
             @include flex-col(flex-start, flex-start);
             flex-wrap:nowrap;
-            padding-top:5%;
 
             @include mq('tablet') {
                 width:100%;
@@ -43,12 +43,9 @@
             }
 
             .graphic-container {
-                width:80%;
-                height:auto;
                 margin-bottom:15px;
+                width:75%;
                 @include flex-row(flex-start, center);
-                position:relative;
-                align-self:stretch;
                 border:none;
                 box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
                 transition: box-shadow 1s ease;
@@ -59,12 +56,27 @@
 
                 svg {
                     width:100%;
-                    height:100%;
+                    height:auto;
                     stroke:map-get($colors, 'white' );
                     stroke-width:2;
 
                     g {
-                        padding:10px;
+                        transform-origin: center;
+                        transform:scale(.75);
+                        
+                        path {
+                            transform-origin: center;
+                            transform:scale(.8);
+                        }
+                    }
+
+                    &#wrench {
+
+                        path {
+                            transform-origin: center;
+                            transform:scale(.6);
+                        }
+
                     }
                 }
             }
@@ -72,7 +84,7 @@
             &.active {
 
                 h5 {
-                    color:map-get($colors, 'pink' ) !important;
+                    color:map-get($colors, 'blue' ) !important;
                 }
 
                 .shapeFill {
@@ -81,23 +93,22 @@
             }
 
             .heading-container {
-                padding-top:15px;
-                height:10%;
+                padding:15px 0;
                 align-self:stretch;
-            }
 
-            h5 {
-                font-size:1.25rem;
-                font-family:map-get($fonts, 'heading' );
-                color:map-get($colors, 'black' );
-                font-weight:700;
-                width:auto;
-                padding:20px 0;
+                h5 {
+                    font-size:1.25rem;
+                    font-family:map-get($fonts, 'heading' );
+                    color:map-get($colors, 'pink' );
+                    font-weight:700;
+                    width:auto !important;
+                }
             }
 
             .paragraph-container {
-                height:40%;
+                min-height:40%;
                 width:90%;
+                flex:4;
                 align-self:stretch;
             }
         }
@@ -111,8 +122,3 @@
     stroke:none;
 }
 
-.svgCirc {
-    stroke:map-get($colors,'blue' );
-    stroke-width: 10px;
-    fill:none;
-}

@@ -4,7 +4,9 @@ const   svgMaskArray        = [...document.querySelectorAll('[data-svg*="service
         servConArray        = [...document.querySelectorAll('[data-js*="servicesContent"]')],
         sectionHeading	    = document.querySelector('[data-js*="servicesHeading"]').getBoundingClientRect().height,
         servConContainer    = document.querySelector('[data-js*="servConContainer"]'),
-        servContainer       = document.querySelector('[data-js*="servContainer"]');
+        servContainer       = document.querySelector('[data-js*="servContainer"]'),
+        servRootArray       = [...document.querySelectorAll('[data-svg*="servRoot"]')],
+        servGroupArray      = [...document.querySelectorAll('[data-svg*="servGroup"]')];
 
 // SCROLL LISTENERS
 
@@ -23,17 +25,17 @@ function serviceScroll() {
     });
     
     svgMaskArray.forEach((item, index) => {
-        const scrollPercent   = 100-(((servConTop[index]-aboveDiff)/servConOffs[index])*100); 
+        const   scrollPercent   = 100-(((servConTop[index]-aboveDiff)/servConOffs[index])*100),
+                radiusPercent   = ((scrollPercent)/2);
         if(scrollPercent < 100) {
-            item.setAttribute('r', ((scrollPercent/2) + '%'));
+            item.setAttribute('r', ((radiusPercent) + '%'));
         }
     });
 
     svgCircArray.forEach((item, index) => {
         const scrollPercent   = 100-(((servConTop[index]-aboveDiff)/servConOffs[index])*100);
-        
         if(scrollPercent < 100) { 
-            item.setAttribute('r', ((scrollPercent/2) + 10 + '%'));
+            item.setAttribute('r', ((scrollPercent/2) + '%'));
         }
     });
 

@@ -48,17 +48,18 @@
     }
 
     .features-content-container {
-        width:100% !important;
+        width:auto !important;
         height:auto !important;
         align-self: stretch;
-        padding:30px 15px 0px 15px !important;
+        padding:30px 0 0 0 !important;
 
         @include mq('tablet') {
             padding:0px !important;
         }
 
         .features-content {
-            width:33%;
+            flex:1;
+            width:100%;
             min-height:75vh;
             margin:0;
             @include flex-col(flex-start,flex-start);
@@ -66,6 +67,8 @@
             flex-wrap:nowrap;
             position:sticky;
             top:25%;
+            z-index:2;
+            pointer-events: none;
 
             @include mq('tablet') {
                 top:100px !important;
@@ -80,7 +83,7 @@
             }
 
             &:nth-child(2) {
-                transform:translateX(30vw);
+               align-items:center;
 
                 @include mq ('tablet') {
                     @include flex-col(center, center);
@@ -88,7 +91,7 @@
             }
 
             &:nth-child(3) {
-                transform:translateX(60vw);
+                align-items:flex-end;
 
                 @include mq ('tablet') {
                     position:relative!important;
@@ -96,50 +99,24 @@
                 }
             }
 
-            .titles-container {
-                height:10%;
-                width:80%;
+            .heading-container {
+                width:33%;
+                padding:15px;
                 @include flex-row(flex-start,center);
-                flex-wrap:nowrap;
-                margin:0 -10px;
-
-                .animation-container {
-                    width:auto;
-                    height:auto;
-    
-                    .animation {
-    
-                        svg {
-                            height:30px;
-                            width:30px;
-                        }
-                    }
-                }    
-
-                .heading-container {
-                    height:100%;
-                    width:auto;
-                    @include flex-row(flex-start,center);
-                    
-                    h4 {
-                        color:map-get($colors, 'pink' );
-                        text-shadow: -2px -1px 1px map-get($colors, 'white' );
-                        font-family:map-get($fonts, "heading");
-                        font-weight:900;    
-                    }
-                }   
-            }
+                
+                h3 {
+                    color:map-get($colors, 'pink' );
+                }
+            }   
 
             .paragraph-container {
-                height:100%;
-                width:80%;
-                margin-top:15px; 
-                margin:15px -10px -10px -10px;   
-                padding:10px;
-                position:relative;
+                flex:1;
+                width:33%;
                 opacity:0;
+                padding:15px;
                 transition: all 500ms ease-in;
                 border: 1px solid map-get($colors, 'white' );
+                pointer-events:auto !important;
 
                 @include mq('tablet') {
                     width:80%;
@@ -162,8 +139,6 @@
 
         .paragraph-container {
             opacity:1 !important;
-            border: 1px solid map-get($colors, 'blue' ) !important;
-            background-color:rgba(48, 95, 114, .1);
         }
     }
 

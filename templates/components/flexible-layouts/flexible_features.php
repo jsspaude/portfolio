@@ -21,10 +21,8 @@
             $featureDesc        = get_sub_field('description');      
         ?>
         <div class="features-content" data-js="featureContent">
-            <div class='titles-container'>
-                <div class='heading-container' data-row="<?php echo get_row_index();?>">
-                    <h4><?php echo $featureHeading; ?></h4>
-                </div>
+            <div class='heading-container' data-row="<?php echo get_row_index();?>">
+                <h3><?php echo $featureHeading; ?></h3>
             </div>
             <div class='paragraph-container' data-row="<?php echo get_row_index();?>">
                 <?php echo $featureDesc; ?>

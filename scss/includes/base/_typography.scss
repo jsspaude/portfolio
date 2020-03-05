@@ -34,6 +34,11 @@ nav {
 	}
 }
 
+a {
+    position: relative;
+    z-index: 5;
+}
+
 
 h1 {	
 	font-size:5.063rem;
@@ -101,9 +106,9 @@ p {
 		font-weight:400;
 		list-style-type: disc !important;
 		list-style-position: outside !important;
-		text-indent: -20px; /* key property */
-		margin-left: 20px; /* key property */
+		margin-left:10px;
 	}
+
 	
 	li {
 		padding-top:5px !important;

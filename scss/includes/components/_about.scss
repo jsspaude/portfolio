@@ -3,13 +3,12 @@
 /* ----------------------------------------- */
 
 .about-container {
-    overflow-x: hidden;
+    overflow: hidden;
     position:relative;
 
     .about-content-container {
         @include flex-row(space-between, center);
-        height:90%;
-
+       
         @include mq('tablet') {
         }
 
@@ -42,10 +41,10 @@
 
                     &.active {
                         color:map-get($colors, 'black' ) !important;
+                    }
 
-                        .highlight {
-                            color: map-get($colors, 'blue' ) !important;
-                        }
+                    &.highlight {
+                        color: map-get($colors, 'pink' ) !important;
                     }
                 }
             }
@@ -101,32 +100,39 @@
                     height:400px;
                 }
             }
+        }
+    }
+}
 
-            &.active {
+.about-container {
 
+    &.active {
+
+        .about-graphic-container {
+
+            img {
+                transform:rotate(2deg);
+                transition:all ease-in 1s;
+            }
+        
+            &:before {
+                transform:translate(0px, 0px);
+                transition:all linear 1s;
+            }
+        
+            &:after {
+                transform:translate(100px, 50px);
+                transition:all linear 1s;
+            }
+        
+            &:hover {
+                
                 img {
-                    transform:rotate(2deg);
+                    transform:rotate(-2deg);
                     transition:all ease-in 1s;
                 }
-    
-                &:before {
-                    transform:translate(0px, 0px);
-                    transition:all linear 1s;
-                }
-    
-                &:after {
-                    transform:translate(100px, 50px);
-                    transition:all linear 1s;
-                }
-
-                &:hover {
-                    img {
-                        transform:rotate(-2deg);
-                        transition:all ease-in 1s;
-                    }
-                }
-
             }
+    
         }
     }
 }

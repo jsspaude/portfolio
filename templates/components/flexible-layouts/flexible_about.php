@@ -17,7 +17,7 @@
     
     endif;?>
 
-<section class="about-container component">
+<section class="about-container component" data-js="abtContainer">
     <div class='about-wrapper section-wrapper'>
     </div>
     <div class="section-heading">
@@ -28,7 +28,7 @@
     <div class='about-content-container section-content'>
         <div class='about-content'>
             <div class='content-heading'>
-                <h4 class="special-heading">
+                <h4 class="special-heading" data-js="abtStrContainer">
                     <?php echo $contentHeading; ?>
                 </h4>
             </div>

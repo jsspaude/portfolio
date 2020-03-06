@@ -5,12 +5,22 @@ const   svgMaskArray        = [...document.querySelectorAll('[data-svg*="service
         sectionHeading	    = document.querySelector('[data-js*="servicesHeading"]').getBoundingClientRect().height,
         servConContainer    = document.querySelector('[data-js*="servConContainer"]'),
         servContainer       = document.querySelector('[data-js*="servContainer"]'),
+        servHeadingArray    = [...document.querySelectorAll('[data-js*="servHeadingCon"]')],
+        servGraphArray      = [...document.querySelectorAll('[data-js*="servGraphCon"]')],
         servRootArray       = [...document.querySelectorAll('[data-svg*="servRoot"]')],
         servGroupArray      = [...document.querySelectorAll('[data-svg*="servGroup"]')];
 
 // SCROLL LISTENERS
 
 window.addEventListener('scroll',() => { serviceScroll();});
+
+servHeadingArray.forEach((item, index) => {
+    const itemWidth = servGraphArray[index].getBoundingClientRect().width;
+    const itemHeight = servGraphArray[index].getBoundingClientRect().height;
+    
+    item.style.width=itemWidth + "px";
+    item.style.height=itemHeight + "px";
+});
 
 function serviceScroll() {
     const   servConTop      = servConArray.map(element => element.getBoundingClientRect().top),

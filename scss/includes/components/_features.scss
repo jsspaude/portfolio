@@ -71,15 +71,11 @@
             pointer-events: none;
 
             @include mq('tablet') {
-                top:100px !important;
-                transform:none !important;
+                position:relative;
                 min-height:50vh;
                 width:100% !important;
-                margin:30px 0;
-                padding:15px 0;
-                @include flex-col(flex-end, center);
-                background: map-get($colors, 'white' );
-                box-shadow:0px 0px 10px 10px map-get($colors, 'white' );
+                @include flex-col(flex-start, center);
+                
             }
 
             &:nth-child(2) {
@@ -100,7 +96,7 @@
             }
 
             .heading-container {
-                width:33%;
+                width:100%;
                 padding:15px;
                 @include flex-row(flex-start,center);
                 

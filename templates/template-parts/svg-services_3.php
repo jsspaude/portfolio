@@ -1,27 +1,6 @@
 
 <svg id="Layer_1" data-svg="servRoot" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 252" style="enable-background:new 0 0 252 252;" overflow="visible">
-    <filter id="dropshadowCirc" height="130%">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> <!-- stdDeviation is how much to blur -->
-        <feOffset dx="2" dy="2" result="offsetblur"/> <!-- how much to offset -->
-        <feComponentTransfer>
-            <feFuncA type="linear" slope="2"/> <!-- slope is the opacity of the shadow -->
-        </feComponentTransfer>
-        <feMerge> 
-            <feMergeNode/> <!-- this contains the offset blurred image -->
-            <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
-        </feMerge>
-    </filter>
-    <filter id="dropshadowShape" height="130%">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> <!-- stdDeviation is how much to blur -->
-        <feOffset dx="2" dy="2" result="offsetblur"/> <!-- how much to offset -->
-        <feComponentTransfer>
-            <feFuncA type="linear" slope="1"/> <!-- slope is the opacity of the shadow -->
-        </feComponentTransfer>
-        <feMerge> 
-            <feMergeNode/> <!-- this contains the offset blurred image -->
-            <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
-        </feMerge>
-    </filter>
+
     <mask id="puzzleMask">
         <circle cx="50%" cy="50%" r="50%" class='svgMask' width="100%" height="100%" fill="white"  data-svg="servicesMask"/>
     </mask>
@@ -37,5 +16,5 @@
             c12.2,0,22.1-9.9,22.1-22.1c0-2.7-0.5-5.2-1.4-7.6h30.4V150c-2.9,1.4-6.1,2.2-9.5,2.2c-12.2,0-22.1-9.9-22.1-22.1
             C217.9,117.9,227.8,108,240,108z" filter='url(#dropshadowShape)'/>
     </g>
-    <circle cx="50%" cy="50%" r="60%" class='svgCirc' width="100%" height="100%" fill="transparent" data-svg="servicesCirc" mask="url(#wpMask)" filter='url(#dropshadowCirc)'/>
+    <circle cx="50%" cy="50%" r="60%" class='svgCirc' width="100%" height="100%" fill="transparent" data-svg="servicesCirc" mask="url(#puzzleMask)" filter='url(#dropshadowCirc)'/>
 </svg>

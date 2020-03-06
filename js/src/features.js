@@ -1,6 +1,6 @@
-const   featConOffs         = [],
-        featConContainer    = document.querySelector('[data-js*="featConContainer"]'),
+const   featConContainer    = document.querySelector('[data-js*="featConContainer"]'),
         featConArray        = [...document.querySelectorAll('[data-js*="featureContent"]')],
+        featConOffs         = featConArray.map(element => element.getBoundingClientRect().top),
         slopeEffect         = document.querySelectorAll('[data-js*="slopeEffect"]');
 
 // SCROLL LISTENERS
@@ -9,13 +9,7 @@ const   featConOffs         = [],
 window.addEventListener('scroll', () => {   slopeScroll(); 
                                             featureScroll(); });
 
-// CREATE INITIAL STATE ARRAY
-
-featConArray.forEach((element) => {
-    featConOffs.push(element.offsetTop);
-});
-
-// ACTIVATE ON SCROLL
+// ADD ACTIVE CLASSES
 
 function featureScroll(){
     const   isEqual       = (input) => {  

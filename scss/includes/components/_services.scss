@@ -45,9 +45,9 @@
             .graphic-container {
                 margin-bottom:15px;
                 width:75%;
-                @include flex-row(flex-start, center);
+                
                 border:none;
-                box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+               
                 transition: box-shadow 1s ease;
 
                 @include mq('tablet') {
@@ -81,27 +81,21 @@
                 }
             }
 
-            &.active {
-
-                h5 {
-                    color:map-get($colors, 'blue' ) !important;
-                }
-
-                .shapeFill {
-                    fill:map-get($colors, 'pink' ) !important;
-                }
-            }
-
             .heading-container {
                 padding:15px 0;
                 align-self:stretch;
+                position:absolute;
+                @include flex-col(center, flex-start);
 
-                h5 {
-                    font-size:1.25rem;
+                h3 {
+                    font-size:2.25rem;
                     font-family:map-get($fonts, 'heading' );
                     color:map-get($colors, 'pink' );
                     font-weight:700;
                     width:auto !important;
+                    text-shadow:2px 2px 2px black;
+                    background-color:rgba(255,255,255,0.5);
+                    line-height:2.25rem;
                 }
             }
 

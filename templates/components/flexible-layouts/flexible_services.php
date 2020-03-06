@@ -1,5 +1,5 @@
 <?php 
-    if( get_row_layout() === 'flexible_services')
+    if( get_row_layout() === 'flexible_services') :
     $sectionHeading = get_sub_field('section_heading');
 ?>
 
@@ -18,11 +18,11 @@
             $svgTemplate        = "services_" . get_row_index();
         ?>
         <div class='services-content' data-col='<?php echo get_row_index(); ?>' data-js="servicesContent">
-            <div class='graphic-container'>
+            <div class='graphic-container' data-js="servGraphCon">
+                <div class='heading-container' data-js="servHeadingCon">
+                    <h3><?php echo $servicesHeading ?></h3>
+                </div>
                 <?php get_template_part("templates/template-parts/svg", $svgTemplate); ?>
-            </div>
-            <div class='heading-container'>
-                <h5><?php echo $servicesHeading ?></h5>
             </div>
             <div class='paragraph-container'>
                 <?php echo $servicesDesc; ?>
@@ -30,6 +30,7 @@
         </div>
         <?php endwhile; ?>
     </div>
+<?php endif; ?>
 <?php endif; ?>
 </section>
 

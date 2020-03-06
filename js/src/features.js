@@ -3,13 +3,8 @@ const   featConContainer    = document.querySelector('[data-js*="featConContaine
         featConOffs         = featConArray.map(element => element.getBoundingClientRect().top),
         slopeEffect         = document.querySelectorAll('[data-js*="slopeEffect"]');
 
-// SCROLL LISTENERS
-
-// window.addEventListener('scroll', featureScroll );
 window.addEventListener('scroll', () => {   slopeScroll(); 
                                             featureScroll(); });
-
-// ADD ACTIVE CLASSES
 
 function featureScroll(){
     const   isEqual       = (input) => {  
@@ -28,8 +23,6 @@ function featureScroll(){
         }
     });  
 }
-
-// SVG SLOPE MODIFIER
 
 function slopeScroll(){
     const   scrollTop 	    = pageYOffset,

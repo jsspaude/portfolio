@@ -6,11 +6,12 @@
     overflow: hidden;
     position:relative;
 
+    .section-heading {
+        position:static !important;
+    }
+
     .about-content-container {
         @include flex-row(space-between, center);
-       
-        @include mq('tablet') {
-        }
 
         .about-content {
             flex:1;

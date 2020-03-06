@@ -1,42 +1,26 @@
-$(document).ready(function() {
+const   heroCompRect        = document.querySelector('[data-js*="heroComp"]').getBoundingClientRect(),
+        heroFGArray         = [...document.querySelectorAll('[data-svg*="heroFG"]')],
+        heroSVG             = document.querySelector('[data-svg*="hero_1"]'),
+        heroPathArray       = [...document.querySelectorAll('[data-svg*="heroFG"] [data-svg*="heroPath"]' )];
 
-    const   drawing       = $('.foreground'),
-            heroSVG       = $('#van-skyline'),  
-            drawingEnd    = $(drawing).length,
-            bgShape       = $('.background-shape');
-    var     scrolling     = false;
+window.addEventListener('scroll',() => {heroScroll();});
 
-    $(drawing).each(function(i){
-
-        if(i <= drawingEnd) {
-
-            setTimeout(function() {
-
-                    $(drawing[i]).children().attr('filter' , 'url(#dropshadow)');
-                    $(drawing[i]).children().addClass('visible');
-            }, i*250);
-        }
-    });
- 
-    $( window ).scroll( function() {
-        scrolling = true;
-    });
-    
-    setInterval( function() {
-        if ( scrolling ) {
-            scrolling = false;
-
-            const   scrollCurrent  = $(document).scrollTop();
-
-            if(scrollCurrent > 0) {
-                $(heroSVG).addClass('active');
-                $(bgShape).addClass('active');
-            }
-
-            else {
-                $(heroSVG).removeClass('active');
-                $(bgShape).removeClass('active');
-            }
-        }
-    }, 10 );    
+heroFGArray.forEach((content,index) => {
+    if(index <= (heroFGArray.length-1)) {
+        setTimeout( () => {
+            content.classList.add('visible');
+        }, index*250);
+    }
 });
+
+function heroScroll(){
+    if(pageYOffset > 0) {
+        heroSVG.style.transition = 'all 5s ease';
+        heroSVG.style.transform = 'translateY(2000px)';
+    }
+
+    else {
+        heroSVG.style.transition = 'all 1s ease';
+        heroSVG.style.transform = 'translateY(0px)';
+    }
+};

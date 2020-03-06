@@ -1,4 +1,4 @@
-const   abtContainer    = document.querySelector('[data-js*="abtContainer"]'),
+const   abtComp         = document.querySelector('[data-js*="abtContainer"]'),
         abtStrContainer = document.querySelector('[data-js*="abtStrContainer"]'),
         abtStrArray     = [...document.querySelector('[data-js*="abtStrContainer"]').innerHTML.trim()];
 
@@ -12,7 +12,7 @@ function aboutScroll() {
             abtContainerRect    = document.querySelector('[data-js*="abtContainer"]').getBoundingClientRect();
 
     if((abtContainerRect.top - headerHeight -50) <= 0) {
-        abtContainer.classList.add('active');
+        abtComp.classList.add('active');
 
         abtStrArray.forEach((string,index) => {
             setTimeout(function() {

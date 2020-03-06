@@ -8,7 +8,7 @@
 ?>
 
 
-<section class="hero-container component">
+<section class="hero-container component" data-js="heroComp">
     <div class='hero-wrapper section-wrapper'>
         <?php get_template_part("templates/template-parts/svg", $svgTemplate); ?>
     </div>

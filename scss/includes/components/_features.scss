@@ -39,14 +39,6 @@
         }
     }
 
-    .section-heading {
-
-        @include mq('tablet') {
-            position:sticky;
-            top:50px;
-        }
-    }
-
     .features-content-container {
         width:auto !important;
         height:auto !important;
@@ -61,7 +53,7 @@
             flex:1;
             width:100%;
             min-height:75vh;
-            margin:0;
+            margin:0; 
             @include flex-col(flex-start,flex-start);
             padding-top:30px;
             flex-wrap:nowrap;
@@ -96,9 +88,13 @@
             }
 
             .heading-container {
-                width:100%;
+                width:33%;
                 padding:15px;
                 @include flex-row(flex-start,center);
+
+                @include mq('tablet') {
+                    width:100%;
+                }
                 
                 h3 {
                     color:map-get($colors, 'pink' );
@@ -111,11 +107,10 @@
                 opacity:0;
                 padding:15px;
                 transition: all 500ms ease-in;
-                border: 1px solid map-get($colors, 'white' );
                 pointer-events:auto !important;
 
                 @include mq('tablet') {
-                    width:80%;
+                    width:100%;
                 }
 
                 p {

@@ -4,7 +4,6 @@
 
 .showcase-container {
     height:auto !important;
-    overflow-y: hidden;
 
     .showcase-wrapper {
         left: 0;
@@ -82,34 +81,12 @@
         
     }
 
-    &.active {
-
-        .section-heading {
-            transition:all ease 500ms;
-
-            h2 {
-                transform:translateX(-500px);
-                transition:all ease 500ms;
-            }
-        }
-
-        .section-heading-small {
-            transition:all ease 1ms;
-
-            h2 {
-                transition:all ease 1s;
-                opacity:1;
-                text-shadow:-1px 1px 0px (map-get($colors, 'black' ));
-            }
-        }
-
-    }
-
     .showcase-content-container {
         @include flex-row(flex-start, center);
         width:100%;
         height:calc(100vh - 50px) !important;
         min-height:550px;
+        overflow-y: hidden;
 
         .showcase-graphic-container {
             flex:1;

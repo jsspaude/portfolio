@@ -11,8 +11,8 @@
 
     @include mq('tablet') {
         flex-direction:column;
-        justify-content: flex-start;
-        margin-bottom:50px;
+        position:absolute;
+        top:0;
     }
 
     .hero-wrapper {
@@ -61,9 +61,6 @@
             flex:1 !important;
             height:50% !important;
             align-self:stretch;
-            justify-content:flex-start;
-            align-items:flex-start;
-            padding-top:33%;
         }
 
         div {
@@ -102,39 +99,6 @@
                     font-size:1.618em;
                     display:inline-block;
                     padding:27.5px;
-                }
-            }
-        }
-    }
-
-    @include mq('tablet') {
-
-        .cta {
-            flex:1;
-            height:50%;
-            align-self:stretch;  
-            @include flex-row(space-between, flex-start);
-            padding-right:8%;
-
-            h4 {
-                font-family:map-get($fonts, 'heading' );
-                color:map-get($colors, 'blue' );
-                font-weight:700; 
-                padding:15px;
-            }
-
-            button {
-                background-color:map-get($colors, 'blue' );
-                padding:15px;
-                -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-                -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-                box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-                font-size:1.5rem;
-                font-family:map-get($fonts, 'heading' );
-                font-weight:400;
-
-                a {
-                    color:map-get($colors, 'white' ) !important;
                 }
             }
         }

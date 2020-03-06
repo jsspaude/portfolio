@@ -20,13 +20,6 @@
             <h4> <?php echo $subHeading2;  ?> </h4>
         </div>
     </div>
-    <div class='cta responsive-only'>
-        <button>
-            <a href="#footer">
-                GET A QUOTE
-            </a>
-        </button>
-    </div>
     <div class="form-container">
         <?php echo $heroForm; ?>
     </div>

@@ -1,26 +1,28 @@
-
-const   svgMaskArray        = [...document.querySelectorAll('[data-svg*="servicesMask"]')],
-        svgCircArray        = [...document.querySelectorAll('[data-svg*="servicesCirc"]')],
-        servConArray        = [...document.querySelectorAll('[data-js*="servicesContent"]')];
+const   servicesSection     = sections[sections.indexOf(document.querySelector('[data-js="servComp"]'))],
+        servConContainer    = servicesSection.querySelectorAll('[data-js="contentContainer"]'),
+        servContent         = [...servicesSection.querySelectorAll('[data-js="content"]')],
+        servConPosit        = servContent.map(element => element.getBoundingClientRect().top+scrollTop),
+        svgRoot             = [...document.querySelectorAll('[data-svg="services"]')];
 
 window.addEventListener('scroll',() => { serviceScroll();});
 
 function serviceScroll() {
-    const   servConTop      = servConArray.map(element => element.getBoundingClientRect().top),
-            servConOffs     = servConArray.map(element => element.offsetTop);
 
+    servContent.forEach((content,index) => {
+        const   contentTop      = content.getBoundingClientRect().top,
+                scrollScale     = 1-(contentTop/servConPosit[index]),
+                svgGroup        = svgRoot[index].querySelector('g');
 
-    servConArray.forEach((content,index) => {
-        const   scrollPercent   = 100-(((servConTop[index]-headerHeight)/servConOffs[index])*100),
-                radiusPercent   = ((scrollPercent)/2);
-        
-        if(servConTop[index] - headerHeight - 20 <= 0) {
+        if(contentTop - headerHeight - 20 <= 0) {
             content.classList.add('active');
         }  
-        
-        if(servConTop[index]-headerHeight > 0) {
-            svgMaskArray[index].setAttribute('r', ((radiusPercent) + '%'));
-            svgCircArray[index].setAttribute('r', ((scrollPercent/2) + '%'));
+
+        else {
+            content.classList.remove('active');
+        }
+
+        if(scrollScale <= 1) {
+            svgGroup.setAttribute('transform', 'scale('+scrollScale+')');
         }
     });
 };

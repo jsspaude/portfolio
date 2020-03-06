@@ -143,7 +143,8 @@
 				margin-top:50px;
 
 				@include mq('tablet') {
-					min-height:75vh !important;
+					position:relative;
+					min-height:100vh !important;
 				}
 				
 				.section-heading {

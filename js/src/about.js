@@ -20,7 +20,7 @@ function aboutScroll() {
                 if(string.innerHTML.match(/^J|S|S$/)){ 
                     string.classList.add('highlight');
                 }
-            }, index*150);
+            }, index*100);
         });
     }
 };

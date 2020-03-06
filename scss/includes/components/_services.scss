@@ -14,7 +14,6 @@
         @include mq('tablet') {
             justify-content: center;
             min-height:0;
-            padding:50px 0 !important;
             flex-wrap: wrap;
         }
         
@@ -40,37 +39,6 @@
                     flex:1;
                     margin:auto;
                     width:50%;
-                }
-
-                svg {
-                    width:75%;
-                    height:50%;
-                    stroke:map-get($colors, 'white' );
-                    stroke-width:1;
-
-                    @include mq('tablet') {
-                        width:100%;
-                        height:100%;
-                    }
-
-                    g {
-                        transform-origin: center;
-                        transform:scale(.75);
-                        
-                        path {
-                            transform-origin: center;
-                            transform:scale(.8);
-                        }
-                    }
-
-                    &#wrench {
-
-                        path {
-                            transform-origin: center;
-                            transform:scale(.6);
-                        }
-
-                    }
                 }
             }
 
@@ -126,14 +94,48 @@
                     }
                 }
             }
+
+            &.active {
+
+                svg {
+                    background-color:map-get($colors, 'pink' )!important;
+                }
+            }
         }
     }
 }
 
 //SVGS
 
-.shapeFill {
-    fill:map-get($colors, 'blue' );
-    stroke:none;
-}
+.services-container {
 
+    svg {
+        width:75%;
+        height:50%;
+        stroke:map-get($colors, 'white' );
+        stroke-width:1;
+
+        @include mq('tablet') {
+            width:100%;
+            height:100%;
+        }
+
+        g {
+            transform-origin: center;
+
+            path {
+                fill:map-get($colors, 'blue' );
+                stroke:none;
+                transform-origin: center;
+
+            }
+
+            rect {
+                fill:white;
+                stroke:white;
+                transform-origin: center;
+                
+            }
+        }
+    }
+}

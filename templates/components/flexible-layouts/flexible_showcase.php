@@ -2,7 +2,7 @@
     //VARS
         $sectionHeading         = get_sub_field('section_heading');
 ?>
-<section class="showcase-container component">
+<section class="showcase-container component" data-js="showcase">
 
 <div class='section-heading'>
      <h2><?php echo $sectionHeading; ?></h2>
@@ -25,46 +25,44 @@
     </svg>
     </div>
 
-    <div class='showcase-content-container section-content' data-row='<?php echo get_row_index(); ?>'>
+    <div class='showcase-content-container section-content' data-row='<?php echo get_row_index(); ?>' data-js="contentContainer">
         <div class='showcase-graphic-container'> 
             <div class="showcase-graphic" style="background-image:url(<?php echo $projectGraphic['url']; ?>)">
             </div>
         </div>
-        <div class='showcase-content'>
-            <div class='heading-container'>
-                <h3>
-                    <?php echo $projectHeading; ?>
-                </h3>
-            </div>
+        <div class='heading-container'>
+            <h3>
+                <?php echo $projectHeading; ?>
+            </h3>
+        </div>
 
-            <?php if( have_rows('tag_instance') ): ?>
+        <?php if( have_rows('tag_instance') ): ?>
 
-            <div class='tag-container'>
+        <div class='tag-container'>
 
-                <?php while( have_rows('tag_instance') ): the_row();
-                        //VARS
-                            $projectTag     = get_sub_field('project_tag');
-                ?>
-                <h6>
-                    <?php echo $projectTag; ?>
-                </h6>
+            <?php while( have_rows('tag_instance') ): the_row();
+                    //VARS
+                        $projectTag     = get_sub_field('project_tag');
+            ?>
+            <h6>
+                <?php echo $projectTag; ?>
+            </h6>
 
-                <?php endwhile; ?>
+            <?php endwhile; ?>
 
-            </div>
+        </div>
 
-            <?php endif; ?>
+        <?php endif; ?>
 
-            <div class='paragraph-container'>
-                <p>
-                    <?php echo $projectParagraph; ?>
-                </p>
-            </div>
-            <div class='link-container'>
-                <h5>
-                    <?php echo $projectLink; ?>
-                </h5>
-            </div>
+        <div class='paragraph-container'>
+            <?php echo $projectParagraph; ?>
+        </div>
+        <div class='link-container'>
+            <button>
+                <a href="<?php echo $projectLink; ?>" target=_blank rel=noopener>
+                    VISIT PAGE
+                </a>
+            </button>
         </div>
     </div>
 

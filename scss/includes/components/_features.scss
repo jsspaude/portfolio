@@ -42,7 +42,6 @@
     .features-content-container {
         width:auto !important;
         height:auto !important;
-        align-self: stretch;
         padding:30px 0 0 0 !important;
 
         @include mq('tablet') {
@@ -94,10 +93,7 @@
 
                 @include mq('tablet') {
                     width:100%;
-                }
-                
-                h3 {
-                    color:map-get($colors, 'pink' );
+                    padding:15px 0;
                 }
             }   
 
@@ -111,6 +107,7 @@
 
                 @include mq('tablet') {
                     width:100%;
+                    padding:15px 0;
                 }
 
                 p {

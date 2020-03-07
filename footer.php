@@ -1,6 +1,32 @@
 <!-- Footer -->	
 <?php 
     $footerForm     = get_field('footer_form', 'option');
+    $logo1          = get_field('logo_1', 'option');
+    $logo2          = get_field('logo_2', 'option');
+
+    if( $logo1 ):
+
+        // Image variables.
+        $url = $logo1['url'];
+        $alt = $logo1['alt'];
+    
+        // Thumbnail size attributes.
+        $size = 'squareSmall';
+        $logo_1_S = $logo1['sizes'][ $size ];
+    
+    endif;
+
+    if( $logo2 ):
+
+        // Image variables.
+        $url = $logo2['url'];
+        $alt = $logo2['alt'];
+    
+        // Thumbnail size attributes.
+        $size = 'squareSmall';
+        $logo_2_S = $logo2['sizes'][ $size ];
+    
+    endif;
 ?>
 <footer>
     <div class='cta-container'>
@@ -19,11 +45,11 @@
                 </h4>
             </div>
             <div class='link-container'>
-                <a>
-                    linked
+                <a href="https://www.linkedin.com/in/jess-spaude/" rel=noopener targret=_blank>
+                    <img srcset="<?php echo esc_url($logo_1_S); ?>" alt="<?php echo esc_attr($alt); ?>" />
                 </a>
-                <a>
-                    git
+                <a href="https://github.com/jsspaude" rel=noopener targret=_blank>
+                    <img srcset="<?php echo esc_url($logo_2_S); ?>" alt="<?php echo esc_attr($alt); ?>" />
                 </a>
             </div>
         </div>

@@ -11,94 +11,76 @@
         @include flex-col(flex-start,flex-start);
         flex-wrap:nowrap;
 
-        @include mq('tablet') {
-            justify-content: center;
+        @include mq('tablet-small') {
+            justify-content: center !important;
             min-height:0;
             flex-wrap: wrap;
         }
         
         .services-content {
             width:100%;
-            min-height:80vh;
-            align-self:stretch;
-            @include flex-row(flex-start, center);
-            flex-wrap:nowrap;
+            height:80vh;
+            @include flex-col(center, center);
 
-            @include mq('tablet') {
-                min-height:0;
-                padding:50px 0;
-                height:auto;
+            @include mq('tablet-small') {
+                align-items: flex-start;
+                height:50vh;
+                margin:30px 0;
+                flex-wrap: nowrap;
             }
 
             .graphic-container {
-                flex:1;
+                width:50%;
                 height:100%;
-                margin-bottom:15px;
+                @include flex-col(center, flex-start);
 
-                @include mq('tablet') {
-                    flex:1;
-                    margin:auto;
+                @include mq('tablet-small') {
+                    max-height:25vh;
                     width:50%;
-                }
-            }
+                    height:50%;
 
-            .text-container {
-                flex:1;
-
-                @include mq('tablet') {
-                    flex:2;
-                    margin:auto;
                 }
             }
 
             .heading-container {
+                width:50%;
                 padding:15px 0;
-                align-self:stretch;
-                @include flex-col(center, flex-start);
 
-                @include mq('tablet') {
-                    padding:15px;
+                @include mq('tablet-small') {
+                    width:100%;
+                    height:auto;
                 }
 
-                h3 {
-                    font-size:2.25rem;
-                    font-family:map-get($fonts, 'heading' );
-                    color:map-get($colors, 'pink' );
-                    font-weight:700;
-                    width:auto !important;
-                    line-height:2.25rem;
-
-                    @include mq('tablet') {
-                        font-size:1.5rem;
-                    }
-                }
             }
 
             .paragraph-container {
-                min-height:40%;
-                width:90%;
-                flex:4;
-                align-self:stretch;
+                width:50%;
 
-                @include mq('tablet') {
-                    @include flex-col(center, center);
+                @include mq('tablet-small') {
+                    @include flex-col(flex-start, center);
+                    height:auto;
                     width:100%;
-                    padding:15px;
+                    flex-wrap: nowrap !important;
+                    padding:0 !important;
+                    animation: shift 1s ease-in 1 forwards;
+                    animation-play-state: paused;
                 }
 
                 p {
                     width:100%;
-                    
-                    @include mq('tablet') {
-                        font-size:.667rem;
-                    }
                 }
             }
 
             &.active {
 
-                svg {
-                    background-color:map-get($colors, 'pink' )!important;
+                .paragraph-container {
+                    @include mq('tablet-small') {
+                        animation-play-state: running;
+                    }
+                }
+
+                rect {
+                    stroke:map-get($colors, 'pink' )!important;
                 }
             }
         }
@@ -115,8 +97,8 @@
         stroke:map-get($colors, 'white' );
         stroke-width:1;
 
-        @include mq('tablet') {
-            width:100%;
+        @include mq('tablet-small') {
+            width:auto;
             height:100%;
         }
 
@@ -138,4 +120,11 @@
             }
         }
     }
+}
+
+//ANIMATIONS
+
+@keyframes shift {
+    0% {transform:translateX(-200%);}
+    100% {transform:translateX(0%);}
 }

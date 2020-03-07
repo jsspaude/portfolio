@@ -1,10 +1,7 @@
 const   heroCompRect        = document.querySelector('[data-js*="heroComp"]').getBoundingClientRect(),
         heroFGArray         = [...document.querySelectorAll('[data-svg*="heroFG"]')],
         heroSVG             = document.querySelector('[data-svg*="hero_1"]'),
-        sections            = [...document.querySelectorAll('section')],
         heroPathArray       = [...document.querySelectorAll('[data-svg*="heroFG"] [data-svg*="heroPath"]' )];
-
-        console.log(sections);
 
 window.addEventListener('scroll',() => {heroScroll();});
 

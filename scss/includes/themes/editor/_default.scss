@@ -1,15 +1,16 @@
+/* DEFAULT EDITOR THEME */
+/* ----------------------------------------- */
 
-	/* DEFAULT EDITOR THEME */
-	/* ----------------------------------------- */
-
-	@import "../../partials/_article.scss";
-	
-
-
-
+div.mce-edit-area {
+	align-items:flex-start;
+}
 
 p {
-		font-family:map-get($fonts, 'body' );
-		font-size:20px;
-		font-weight:400;
+	font-family:map-get($fonts, 'body' );
+	font-size:20px;
+	font-weight:400;
+}
+
+ul, li {
+	font-size:15px;
 }

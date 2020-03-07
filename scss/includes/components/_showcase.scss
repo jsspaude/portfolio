@@ -5,6 +5,10 @@
 .showcase-container {
     height:auto !important;
 
+    @include mq('tablet') {
+        margin-bottom:50px;
+    }
+
     .showcase-wrapper {
         left: 0;
         right: 0;
@@ -82,20 +86,25 @@
     }
 
     .showcase-content-container {
-        @include flex-row(flex-start, center);
+        @include flex-col(center, center);
         width:100%;
         height:calc(100vh - 50px) !important;
         min-height:550px;
         overflow-y: hidden;
 
+        @include mq('tablet') {
+            display:block;
+        }
+
         .showcase-graphic-container {
-            flex:1;
             height:100%;
-            width:100%;
+            width:25%;
             @include flex-col(center, center);
 
             @include mq('tablet') {
-                flex:2;
+                width:50%;
+                height:50%;
+                float:left;
             }
 
             .showcase-graphic {
@@ -106,11 +115,6 @@
                 background-repeat:no-repeat;
                 transition: all ease 6s;
                 border: 2px solid map-get($colors, black );
-                
-
-                @include mq('tablet') {
-                    width:100%;
-                }
 
                 &:hover {
                     background-position:bottom;
@@ -137,96 +141,110 @@
             }
         }
 
-        &:before {
-            content:"";
-            display:block;
-            position:relative;
-            height:50px;
-            width:50px;
-            background-color:map-get($colors, 'pink' );
-            border-radius:25px;
-            transform:translateX(30px);
-            order:10;
+        .heading-container {
+            width:75%;
+            padding:0 50px;
 
             @include mq('tablet') {
-                display:none;
-            }
-        }
-
-        .showcase-content {
-            flex:2;
-            height:100%;
-            padding:30px;
-            @include flex-col(center, flex-start);
-            flex-wrap: nowrap;
-
-            @include mq('tablet') {
+                width:50%;
+                height:25%;
+                @include flex-col(flex-end, flex-start);
+                float:right;
                 padding:0;
             }
 
             h3 {
-                font-family:map-get($fonts, 'heading' );
-                font-weight:700;
+                color:map-get($colors, 'black')
             }
 
-            .tag-container {
-                @include flex-row(space-between, flex-start);
+        }
+
+        .tag-container {
+            @include flex-row(flex-start, flex-start);
+            padding:10px 50px;
+            width:75%;
+            align-self: stretch;
+
+            @include mq('tablet') {
+                width:50%;
+                height:25%;
+                flex-direction:column;
+                float:right;
+                padding:10px 0 !important;
+            }
+
+            h6 {
+                margin:0 15px;
+                padding:2px 5px;
                 width:auto;
-                height:5%;
+                color:white;
+                background-color:map-get($colors, 'blue' );
+
+                &:nth-child(1) {
+                    margin-left:0px;
+                }
 
                 @include mq('tablet') {
-                    height:auto;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                }
-
-                h6 {
-                    margin:0 15px;
-                    padding:2px 5px;
-                    width:auto;
-                    color:white;
-                    background-color:map-get($colors, 'blue' );
-
-                    &:nth-child(1) {
-                        margin-left:0px;
-                    }
-
-                    @include mq('tablet') {
-                        margin:2.5px 0;
-                    }
+                    margin:2.5px 0;
                 }
             }
+        }
 
-            .heading-container {
-                height:10%;
-                @include flex-col(center, flex-start);
+        .paragraph-container {
+            width:75%;
+            padding:30px 50px;
+            @include flex-col(center, flex-start);
+            flex-wrap: nowrap;
+
+            @include mq('tablet') {
+                height:auto;
+                width:100%;
+                padding: 0;
+            }
+
+            p {
+                width:75%;
 
                 @include mq('tablet') {
-                    height:auto;
+                    width:100%;
                 }
             }
+        }
 
-            .paragraph-container {
-                min-height:40%;
+        .link-container {
+            width:75%;
+            @include flex-col(center, flex-start);
+            padding: 15px 50px;
+
+            @include mq('tablet') {
+                width:100%;
                 padding:50px 0;
-                @include flex-col(center, flex-start);
-                flex-wrap: nowrap;
-
-                @include mq('tablet') {
-                    height:auto;
-                    padding: 15px 0;
-                }
             }
 
-            .link-container {
-                height:15%;
-                @include flex-col(center, flex-start);
-                padding: 15px 0;
+            button {
+                border:1px solid map-get($colors, 'blue' );
+                padding:5px;
 
-                h5 {
+                a {
                     font-family:map-get($fonts, 'heading' );
                     font-weight:700;
                 }
+            }
+        }
+
+        &:before {
+            content:"";
+            display:block;
+            position:absolute;
+            right:8%;
+            height:50px;
+            width:50px;
+            background-color:map-get($colors, 'pink' );
+            border-radius:25px;
+            order:10;
+
+            @include mq('tablet') {
+                display:none;
             }
         }
     }

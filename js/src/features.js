@@ -1,24 +1,29 @@
-const   featConContainer    = document.querySelector('[data-js*="featConContainer"]'),
-        featConArray        = [...document.querySelectorAll('[data-js*="featureContent"]')],
-        featConOffs         = featConArray.map(element => element.getBoundingClientRect().top),
+const   featuresSection     = sections[sections.indexOf(document.querySelector('[data-js="features"]'))],
+        featConContainer    = featuresSection.querySelector('[data-js="contentContainer"]'),
+        featConArray        = [...featuresSection.querySelectorAll('[data-js="content"]')],
+        featConOffs         = featConArray.map(element => gbcrTop(element) + scrollTop),
+        featMarker          = (gbcrTop(featConContainer)+pageYOffset) - headerHeight - (viewHeight(25)),
         slopeEffect         = document.querySelectorAll('[data-js*="slopeEffect"]');
 
 window.addEventListener('scroll', () => {   slopeScroll(); 
                                             featureScroll(); });
 
 function featureScroll(){
-    const   isEqual       = (input) => {  
-                            const offsetEnd = featConArray[featConArray.length-1].offsetTop;
-                            return input.every(element => element.offsetTop === offsetEnd);
-                            };
-    const   isTrue        = isEqual(featConArray);
+    const   isEqual         = (input) => {  
+                                const offsetEnd = featConArray[featConArray.length-1].offsetTop;
+                                return input.every(element => element.offsetTop === offsetEnd);
+                                },
+            isTrue          = isEqual(featConArray);
+            scrollTop 	    = pageYOffset;
 
     if(isTrue) {
         featConArray[featConArray.length-1].classList.add('active');
     }
 
     featConArray.forEach((content, index) => {
-        if((content.offsetTop > featConOffs[index])){
+        const   contentPosit    = featConArray.map(content => scrollTop + headerHeight + (heightDiff(featuresSection,content)));
+
+        if((contentPosit[index] >= featMarker) || (content.offsetTop > featConOffs[index])){
             content.classList.add('active');
         }
     });  

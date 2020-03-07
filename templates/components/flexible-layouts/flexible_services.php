@@ -21,13 +21,11 @@
             <div class='graphic-container' data-js="servGraphCon">
                 <?php get_template_part("templates/template-parts/svg", $svgTemplate); ?>
             </div>
-            <div class='text-container'>
-                <div class='heading-container' data-js="servHeadingCon">
-                        <h3><?php echo $servicesHeading ?></h3>
-                    </div>
-                <div class='paragraph-container'>
-                    <?php echo $servicesDesc; ?>
+            <div class='heading-container' data-js="servHeadingCon">
+                    <h3><?php echo $servicesHeading ?></h3>
                 </div>
+            <div class='paragraph-container' data-js="paragraph">
+                <?php echo $servicesDesc; ?>
             </div>
         </div>
         <?php endwhile; ?>

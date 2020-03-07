@@ -1,7 +1,7 @@
 const   servicesSection     = sections[sections.indexOf(document.querySelector('[data-js="servComp"]'))],
-        servConContainer    = servicesSection.querySelectorAll('[data-js="contentContainer"]'),
+        servConContainer    = servicesSection.querySelector('[data-js="contentContainer"]'),
         servContent         = [...servicesSection.querySelectorAll('[data-js="content"]')],
-        servConPosit        = servContent.map(element => element.getBoundingClientRect().top+scrollTop),
+        servConPosit        = servContent.map(element => gbcrTop(element)+scrollTop),
         svgRoot             = [...document.querySelectorAll('[data-svg="services"]')];
 
 window.addEventListener('scroll',() => { serviceScroll();});
@@ -9,19 +9,22 @@ window.addEventListener('scroll',() => { serviceScroll();});
 function serviceScroll() {
 
     servContent.forEach((content,index) => {
-        const   contentTop      = content.getBoundingClientRect().top,
-                scrollScale     = 1-(contentTop/servConPosit[index]),
-                svgGroup        = svgRoot[index].querySelector('g');
+        const   contentTop      = gbcrTop(content),
+                svgGroup        = svgRoot[index].querySelector('g'),
+                servHeightDiff  = heightDiff(servicesSection, servConContainer),
+                activate        = contentTop - (headerHeight - servHeightDiff) -100,
+                scrollScale     = 1-((contentTop+servHeightDiff)/servConPosit[index]);
 
-        if(contentTop - headerHeight - 20 <= 0) {
+        if(activate <= 0) {
             content.classList.add('active');
+            content.querySelector('[data-js="paragraph"]').style.transform = 'translateX(0%)';
         }  
 
         else {
             content.classList.remove('active');
         }
 
-        if(scrollScale <= 1) {
+        if(scrollScale <= 1 && screen.width > 1200) {
             svgGroup.setAttribute('transform', 'scale('+scrollScale+')');
         }
     });

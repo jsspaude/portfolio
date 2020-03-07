@@ -140,7 +140,7 @@
 				align-self:stretch;
 				@include flex-col(flex-start,flex-start);
 				flex-wrap:nowrap;
-				margin-top:50px;
+				padding-top:50px;
 
 				@include mq('tablet') {
 					position:relative;
@@ -151,12 +151,9 @@
 
 					@include mq('tablet') {
 						width:100%;
-						margin:auto;
 
 						h2 {
 							width:auto!important;
-							text-align: center;
-							border-bottom:solid 2px map-get($colors, 'blue' );
 						}
 					}
 				}
@@ -168,6 +165,10 @@
 				.section-content {
 					height:80%;
 					padding:30px;
+
+					@include mq ('tablet') {
+						padding:0;
+					}
 				}
 			}
 		}

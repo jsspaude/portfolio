@@ -7,12 +7,13 @@
     @include flex-row(center,center);
     flex-wrap:nowrap;
     margin:0 !important;
-    overflow-x: hidden;
+    overflow: hidden;
 
     @include mq('tablet') {
         flex-direction:column;
         position:absolute;
         top:0;
+        padding:0 !important;
     }
 
     .hero-wrapper {
@@ -24,6 +25,10 @@
         @include flex-col(flex-end,center);
         z-index:1;
         pointer-events: none;
+
+        @include mq('tablet') {
+          
+        }
 
         #van-skyline {
             height:35%;
@@ -39,6 +44,10 @@
 
         g {
             display:none;
+
+            @include mq('tablet') {
+                display:block;
+            }
 
             &.visible {
                 display:block;
@@ -61,6 +70,17 @@
             flex:1 !important;
             height:50% !important;
             align-self:stretch;
+            align-items:flex-start !important;
+        }
+
+        h3 {
+            color:map-get($colors, 'black' );
+            font-family:map-get($fonts, 'body' );
+            font-weight:400;
+
+            @include mq('tablet') {
+                font-size:2.25rem;
+            }
         }
 
         div {
@@ -71,7 +91,6 @@
             @include mq('tablet') {
                 justify-content: flex-start !important;
                 width:90% !important;
-                
             }
 
             &:first-child {
@@ -83,6 +102,11 @@
                 justify-content: space-between;
                 width:95%;
                 border-bottom:4px solid map-get($colors, 'blue' );
+
+                @include mq('tablet') {
+                    justify-content: flex-start !important;
+                    width:70% !important;
+                }
             }
 
             button {
@@ -103,4 +127,102 @@
             }
         }
     }
+
+    .form-container {
+        position:absolute;
+        z-index:1;
+        right:8%;
+        top:25vh;
+        max-width:400px;
+        width:20%;
+        @include flex-col(center,center);
+
+        @include mq('tablet') {
+            display:none;
+        }
+
+        .frm_forms {
+            background-color:map-get($colors, 'blue' );
+            padding:30px;
+            width:100%;
+            color:map-get($colors, 'white' );
+            font-family:map-get($fonts, 'body' );            
+            font-size:1rem;
+            font-weight:400;
+            -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+            -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+            box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+
+            @include mq('tablet') {
+                width:80%;
+                position:relative;
+                left:0;
+                margin-top:30px;
+            }
+
+            fieldset {
+                border:none;
+            }
+
+            .form-field {
+                width:100%;
+                padding:10px 0px;
+                margin:0 !important;
+
+                textarea {
+                    width:90%;
+                    height:80px;
+                    font-size:14px;
+                    padding:2px;
+                }
+
+                input[type=text] {
+                    font-size:14px;
+                    padding:6px 10px;
+                    width:100%;
+                    height:30px;
+                }
+
+                label[for=cc] {
+                    font-size:.667rem;
+                    padding:2px;
+                }
+            }
+
+            .help-inline {
+                color:map-get($colors, 'pink' );
+            }
+
+            p.alert {
+                font-size:.667rem;
+                padding:2px;
+            }
+
+            .form-submit {
+                padding:10px 0px;
+            }
+
+            .frm_primary_label, h3 {
+                color:map-get($colors, 'white' );
+                font-family:map-get($fonts, 'heading' );
+                font-weight:900;
+                font-size:1rem;
+                padding-bottom:10px;
+            }
+
+            h3 {
+                font-size:1.5rem;
+            }
+
+            .frm_button_submit {
+                color:map-get($colors, 'black' );
+                font-family:map-get($fonts, 'body' );
+                font-weight:400;
+                font-size:1rem;
+                padding:5px;
+                background:map-get($colors, 'white' );
+                box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+            }
+        }
+    } 
 }

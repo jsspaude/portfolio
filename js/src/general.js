@@ -1,10 +1,3 @@
-const 	scrollTop 		= pageYOffset,
-		header 			= document.querySelector('[data-js*="header"]'),
-		navBar			= document.querySelector('[data-js*="primeNav"]'),
-		navButton 		= document.querySelector('[data-js*="menuToggle"]'),
-		mainDiv			= document.querySelector('[data-js*="main"]'),
-		headerHeight	= header.getBoundingClientRect().height;
-
 // HEADER INITIAL
 
 if ((scrollTop > 100) || (screen.width < 450)) {
@@ -47,10 +40,13 @@ navButton.addEventListener('click', () => {
 });
 
 mainDiv.addEventListener('click', () => {
+
+	if(screen.width < 100 || scrollTop > 0) {
 	navButton.classList.remove('open');
 	navBar.classList.remove('open');
 	
 	hasOpen();
+	}
 });
 
 
@@ -91,5 +87,3 @@ $("a").on('click', function(event) {
 		});
 	}
 });	
-
-

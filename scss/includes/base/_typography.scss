@@ -57,8 +57,15 @@ h2 {
 
 h3 {
 	font-size:2.25rem;
-	font-family:map-get($fonts, 'body' );
-	font-weight:400;
+	font-family:map-get($fonts, 'heading' );
+	color:map-get($colors, 'pink' );
+	font-weight:700;
+	width:auto !important;
+	line-height:2.25rem;
+
+	@include mq('tablet') {
+		font-size:1.5rem;
+	}
 }
 
 h4 {
@@ -104,12 +111,12 @@ p {
 		font-weight:400;
 		list-style-type: disc !important;
 		list-style-position: outside !important;
-		margin-left:10px;
 	}
 
 	
 	li {
 		padding-top:5px !important;
+		margin-left:15px;
 	}
 }
 

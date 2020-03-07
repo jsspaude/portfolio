@@ -13,10 +13,19 @@
     .about-content-container {
         @include flex-row(space-between, center);
 
+        @include mq('tablet') {
+            flex-direction:column;
+        }
+
         .about-content {
             flex:1;
             align-self:stretch;
             @include flex-col(flex-start, flex-start);
+
+            @include mq('tablet') {
+                flex:3;
+                height:100%;
+            }
 
             div {
                 padding:15px 0;
@@ -28,7 +37,7 @@
                 }
 
                 &.content-paragraph {
-                    height:75%;
+                    height:50%;
                     @include flex-col(flex-start, flex-start);
                 }
             }
@@ -57,12 +66,14 @@
             align-self:stretch;
             @include flex-row(center, flex-start);
 
-            @include mq('tablet') {}
-
             img {
                 position:relative;
                 z-index:3;
                 transition:all ease-in 1s;
+
+                @include mq('tablet') {
+                    height: 300px;
+                }
             }
 
             &:before {
@@ -79,8 +90,12 @@
                 transition:all linear 1s;
 
                 @include mq('tablet') {
+                    width:125px;
+                    height:250px;
+                    border-top:15px map-get($colors, 'blue' ) solid;
+                    border-bottom:15px map-get($colors, 'blue' ) solid;
+                    border-left:15px map-get($colors, 'blue' ) solid;
                     transform:translate(0px, 0px);
-                    height:400px;
                 }
             }
 
@@ -98,8 +113,25 @@
                 transition:all linear 1s;
 
                 @include mq('tablet') {
+                    width:125px;
+                    height:250px;
+                    border-top:15px map-get($colors, 'pink' ) solid;
+                    border-bottom:15px map-get($colors, 'pink' ) solid;
+                    border-right:15px map-get($colors, 'pink' ) solid;
                     transform:translate(50px, 50px)!important;
-                    height:400px;
+                }
+            }
+        }
+
+        .link-container {
+            @include flex-row(flex-start, flex-start);
+            width:100%;
+
+            a {
+                display:block;
+
+                @include mq('tablet') {
+                    width:50px;
                 }
             }
         }

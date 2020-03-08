@@ -14,7 +14,7 @@
         @include flex-col(flex-start, flex-start);
         height:85vh!important;
         
-        @include mq('tablet') {
+        @include mq('resize-desktop') {
             flex-direction:column;
             height:auto !important;
         }
@@ -25,7 +25,7 @@
             align-self:stretch;
             @include flex-col(flex-start, flex-start);
 
-            @include mq('tablet') {
+            @include mq('resize-desktop') {
                 flex:3;
                 height:100%;
             }
@@ -50,7 +50,7 @@
                 font-weight:400;
                 font-size:2.25rem;
 
-                @include mq('tablet') {
+                @include mq('resize-desktop') {
                     font-size:1.5rem;
                 }
                 
@@ -78,7 +78,7 @@
                 z-index:3;
                 transition:all ease-in 1s;
 
-                @include mq('tablet') {
+                @include mq('resize-desktop') {
                     height: 300px;
                 }
             }
@@ -96,7 +96,7 @@
                 transform:translate(-100vw, 0px);
                 transition:all linear 1s;
 
-                @include mq('tablet') {
+                @include mq('resize-desktop') {
                     width:125px;
                     height:250px;
                     border-top:15px map-get($colors, 'blue' ) solid;
@@ -119,7 +119,7 @@
                 transform:translate(100vw, 50px);
                 transition:all linear 1s;
 
-                @include mq('tablet') {
+                @include mq('resize-desktop') {
                     width:125px;
                     height:250px;
                     border-top:15px map-get($colors, 'pink' ) solid;
@@ -134,7 +134,7 @@
             @include flex-row(flex-start, flex-start);
             width:50%;
 
-            @include mq('tablet') {
+            @include mq('resize-desktop') {
                 display:none;
             }
 

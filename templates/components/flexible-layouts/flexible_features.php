@@ -6,7 +6,11 @@
         $svgTemplate        = "features_1";
     ?>
     <div class='features-wrapper section-wrapper'>  
-        <?php get_template_part("templates/template-parts/svg", $svgTemplate); ?>
+        <div class='animation-container'>
+            <div class='sticky-container'>
+                <?php get_template_part("templates/template-parts/svg", $svgTemplate); ?>
+            </div>
+        </div>
     </div>
     <div class='section-heading'>
         <h2><?php echo $sectionHeading; ?></h2>

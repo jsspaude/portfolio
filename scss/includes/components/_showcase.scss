@@ -88,12 +88,13 @@
     .showcase-content-container {
         @include flex-col(center, center);
         width:100%;
-        height:calc(100vh - 50px) !important;
+        height:100vh !important;
         min-height:550px;
         overflow-y: hidden;
 
         @include mq('tablet') {
             display:block;
+            height:115vh !important;
         }
 
         .showcase-graphic-container {

@@ -10,7 +10,7 @@ const 	scrollTop 		= pageYOffset,
         
 // FUNCS        
 
-var gbcrTop 		= x => x.getBoundingClientRect().top;
-var heightDiff 		= (x, y) => gbcrTop(x) - gbcrTop(y);
-var heightSum 		= (x, y) => gbcrTop(x) + gbcrTop(y);
-var viewHeight		= v => (v * h) / 100;
+const 	gbcrTop 		= x => x.getBoundingClientRect().top,
+		heightDiff 		= (x, y) => gbcrTop(x) - gbcrTop(y),
+		heightSum 		= (x, y) => gbcrTop(x) + gbcrTop(y),
+		viewHeight		= v => (v * h) / 100;

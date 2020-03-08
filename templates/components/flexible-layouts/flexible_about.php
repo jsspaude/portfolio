@@ -65,11 +65,6 @@
                 <?php echo $contentParagraph; ?>
             </div>
         </div>
-        <div class='about-graphic-container'>
-            <div class='about-graphic'>
-                <img srcset="<?php echo esc_url($lapM); ?>" alt="<?php echo esc_attr($altAG); ?>" />
-            </div>
-        </div>
         <div class='link-container'>
             <a href="<?php echo $logo1Link; ?>" target=_blank rel=noopener>
                 <img srcset="<?php echo esc_url($abt_1_S); ?>" alt="<?php echo esc_attr($altL1); ?>" />
@@ -77,6 +72,11 @@
             <a href="<?php echo $logo2Link; ?>" target=_blank rel=noopener>
                 <img srcset="<?php echo esc_url($abt_2_S); ?>" alt="<?php echo esc_attr($altL2); ?>" />
             </a>
+        </div>
+        <div class='about-graphic-container'>
+            <div class='about-graphic'>
+                <img srcset="<?php echo esc_url($lapM); ?>" alt="<?php echo esc_attr($altAG); ?>" />
+            </div>
         </div>
     </div>
 </section>

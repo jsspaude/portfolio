@@ -11,14 +11,17 @@
     }
 
     .about-content-container {
-        @include flex-row(space-between, center);
-
+        @include flex-col(flex-start, flex-start);
+        height:85vh!important;
+        
         @include mq('tablet') {
             flex-direction:column;
+            height:auto !important;
         }
 
         .about-content {
-            flex:1;
+            width:50%;
+            height:75%;
             align-self:stretch;
             @include flex-col(flex-start, flex-start);
 
@@ -37,7 +40,7 @@
                 }
 
                 &.content-paragraph {
-                    height:50%;
+                    height:75%;
                     @include flex-col(flex-start, flex-start);
                 }
             }
@@ -46,6 +49,10 @@
                 font-family:map-get($fonts, 'body' );
                 font-weight:400;
                 font-size:2.25rem;
+
+                @include mq('tablet') {
+                    font-size:1.5rem;
+                }
                 
                 .about-string {
                     color:map-get($colors, 'white' ) !important;
@@ -125,14 +132,15 @@
 
         .link-container {
             @include flex-row(flex-start, flex-start);
-            width:100%;
+            width:50%;
+
+            @include mq('tablet') {
+                display:none;
+            }
 
             a {
                 display:block;
 
-                @include mq('tablet') {
-                    width:50px;
-                }
             }
         }
     }

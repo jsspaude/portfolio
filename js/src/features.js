@@ -3,7 +3,8 @@ const   featuresSection     = sections[sections.indexOf(document.querySelector('
         featConArray        = [...featuresSection.querySelectorAll('[data-js="content"]')],
         featConOffs         = featConArray.map(element => gbcrTop(element) + scrollTop),
         featMarker          = (gbcrTop(featConContainer)+pageYOffset) - headerHeight - (viewHeight(25)),
-        slopeEffect         = document.querySelectorAll('[data-js*="slopeEffect"]');
+        featureSVG          = document.querySelector('[data-svg="features"'),
+        slopeEffect         = featureSVG.querySelector('[data-js="slopeEffect"]');
 
 window.addEventListener('scroll', () => {   slopeScroll(); 
                                             featureScroll(); });
@@ -32,13 +33,19 @@ function featureScroll(){
 function slopeScroll(){
     const   scrollTop 	    = pageYOffset,
             offsetContainer = featConContainer.offsetTop,         
-            scrollPercent   = ((scrollTop - offsetContainer)+100)/1000;
+            scrollPercent   = ((scrollTop - offsetContainer)+100);
 
-    slopeEffect.forEach((item, index) => {
-        if(scrollPercent < .2 ) {
-            const modifier = index * .05;
-
-            item.setAttribute('slope', (scrollPercent - modifier));
-        }
-    });
+    if((scrollPercent+100)/1000 < .2 ) {
+        slopeEffect.setAttribute('slope', ((scrollPercent/1000)));
+    }
+    if(scrollPercent/10 > 50) {
+        featureSVG.setAttribute("transform", "scale(.25, .5)");
+        featureSVG.setAttribute("y", "50%");
+    }
+    else{
+        featureSVG.setAttribute("transform", "scale(.1, .2)")
+    }
+    if(scrollPercent/10 > 100){
+        featureSVG.setAttribute("transform", "scale(1, 1)");
+    }
 }

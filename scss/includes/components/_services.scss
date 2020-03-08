@@ -45,7 +45,7 @@
             .heading-container {
                 width:50%;
                 padding:15px 0;
-                animation: shift 1s ease-in 1 forwards;
+                animation: shift 500ms ease-in 1 forwards;
                 animation-play-state: paused;
 
                 @include mq('tablet-small') {
@@ -57,7 +57,7 @@
 
             .paragraph-container {
                 width:50%;
-                animation: shift 1s ease-in 1 forwards;
+                animation: shift 500ms ease-in 1 forwards;
                 animation-play-state: paused;
 
                 @include mq('tablet-small') {

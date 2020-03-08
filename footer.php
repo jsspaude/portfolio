@@ -28,7 +28,7 @@
     
     endif;
 ?>
-<footer>
+<footer id="footer">
     <div class='cta-container'>
         <h3>
             GET IN TOUCH

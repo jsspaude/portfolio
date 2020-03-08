@@ -1,62 +1,29 @@
-$(document).ready(function() {
-    const   topofDiv            = $('.showcase-content-container').offset().top,
-            contentContainer    = $('.showcase-content-container'),
-            wrapperEnd          = $('.showcase-wrapper').length;
-    var     x                   = 1,
-            length              = 0,
-            scrolling           = false;
+    const   showcaseSection         = sections[sections.indexOf(document.querySelector('[data-js="showcase"]'))],
+            showcaseWrapper         = [...showcaseSection.querySelectorAll('[data-js="wrapper"]')],
+            showcaseConContainer    = [...showcaseSection.querySelectorAll('[data-js="contentContainer"]')],
+            showcaseTop             = $('.showcase-content-container').offset().top,
+            contentContainer        = $('.showcase-content-container'),
+            wrapperEnd              = $('.showcase-wrapper').length;
+    var     x                       = 1,
+            length                  = 0;
 
-    $($('.showcase-wrapper[data-row=' + (wrapperEnd) +']')).addClass('hidden');
-    $('.showcase-container').css('min-height', (wrapperEnd*550) + 'px');
-    
-    $("div[data-row]").each(function() {
-        if ($(this).attr('data-row') % 2 == 1 && ($(this).attr('data-row') != 0)){
-            $(this).addClass('odd');
+    showcaseWrapper[showcaseWrapper.length-1].classList.add('hidden');
+    showcaseSection.style.minHeight = showcaseWrapper.length * 550 + "px";
+    featConArray.map(element => gbcrTop(element) + scrollTop)
+
+    showcaseWrapper.forEach((content, index) => {
+        const containerOffset = showcaseConContainer.map(element => gbcrTop(element)+scrollTop);
+        content.style.top = containerOffset[index] + 'px';
+        if((index % 2 === 0) || index === 0) {
+            showcaseConContainer[index].classList.add('even');
+            content.classList.add('even');
         }
+
+        window.addEventListener('scroll', () => {
+            if((gbcrTop(content)-viewHeight(20) <= 0) && (index != showcaseWrapper.length)) {
+                content.classList.add('active');
+            }
+        });
     });
 
-    $('.showcase-wrapper').each(function(i){
-        const   $this               = $(this).data('row', i),
-                containerOffset     = $(contentContainer[i]).offset().top;
-
-        $this.offset({top: (containerOffset)});
-
-        length++;
-    });
-
-    
-
-    $( window ).scroll( function() {
-        scrolling = true;
-    });
-    
-    setInterval( function() {
-        if ( scrolling ) {
-
-            scrolling           = false;
-            var dashedLine      = $('.showcase-wrapper[data-row=' + (x) +']')
-            var height          = dashedLine.offset().top;
-            
-            if ($(this).scrollTop() > (topofDiv - 100)){ 
-                $('.showcase-container').addClass('active');
-            }
-
-            else{
-                $('.showcase-container').removeClass('active');
-            }
-            
-            if ($(this).scrollTop() > (height - 100) && (x != length)) {
-
-                $(dashedLine).addClass('active');
-
-                if (x < length) {
-                    x++
-                }
-            }
-
-            if(x == length) {
-                
-            }
-        }
-    }, 20 );
-});
+ 

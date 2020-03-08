@@ -2,7 +2,7 @@
     //VARS
         $sectionHeading         = get_sub_field('section_heading');
 ?>
-<section class="showcase-container component" data-js="showcase">
+<section id="showcase" class="showcase-container component" data-js="showcase">
 
 <div class='section-heading'>
      <h2><?php echo $sectionHeading; ?></h2>
@@ -18,7 +18,7 @@
                 $projectLink        = get_sub_field('project_link'); 
     ?>
 
-    <div class='showcase-wrapper section-wrapper' data-row='<?php echo get_row_index(); ?>'>
+    <div class='showcase-wrapper section-wrapper' data-row='<?php echo get_row_index(); ?>' data-js="wrapper">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 800">
         <path y="0" class="svg-line-path" d="M6.5 0v800"/>
         <path class="svg-line-dash" d="M6.5 0v800"/>

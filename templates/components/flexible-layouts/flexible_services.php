@@ -3,7 +3,7 @@
     $sectionHeading = get_sub_field('section_heading');
 ?>
 
-<section class="services-container component" data-js="servComp">
+<section id="services" class="services-container component" data-js="servComp">
     <div class='services-wrapper section-wrapper'>
     </div>
     <div class ='section-heading' data-js="headingHeight">

@@ -20,7 +20,7 @@
 	</head>
 
 	<body <?php body_class(); ?>>
-		<header class='header-small' data-js='header'>
+		<header id="header" class='header-small' data-js='header'>
 			<section id='header-container'>
 				<div id="branding" class="branding">
 						<a href="<?php echo home_url(); ?>" title="Go to Our Home Page: <?php bloginfo('name'); ?>">
@@ -47,3 +47,11 @@
 				));
 			?>
 		</nav>
+		<div class='back-to-top' data-js="backToTop" transition="all 5s ease">
+			<a href="#hero">
+				<button>
+					<div>
+					</div>
+				</button>
+			</a>
+		</div>

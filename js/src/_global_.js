@@ -6,6 +6,7 @@ const 	scrollTop 		= pageYOffset,
 		mainDiv			= document.querySelector('[data-js*="main"]'),
 		sections        = [...document.querySelectorAll('section')],
 		headerHeight	= header.getBoundingClientRect().height,
+		backToTop		= document.querySelector('[data-js="backToTop"]'),
 		h 				= Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         
 // FUNCS        

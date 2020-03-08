@@ -46,7 +46,7 @@
     endif;
 ?>
 
-<section class="about-container component" data-js="abtContainer">
+<section id="about" class="about-container component" data-js="abtContainer">
     <div class='about-wrapper section-wrapper'>
     </div>
     <div class="section-heading">

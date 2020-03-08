@@ -1,4 +1,5 @@
-const   heroCompRect        = document.querySelector('[data-js*="heroComp"]').getBoundingClientRect(),
+const   heroSection         = sections[sections.indexOf(document.querySelector('[data-js="hero"]'))],
+        heroCompRect        = heroSection.getBoundingClientRect(),
         heroFGArray         = [...document.querySelectorAll('[data-svg*="heroFG"]')],
         heroSVG             = document.querySelector('[data-svg*="hero_1"]'),
         heroPathArray       = [...document.querySelectorAll('[data-svg*="heroFG"] [data-svg*="heroPath"]' )];

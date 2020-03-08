@@ -2,9 +2,9 @@
     //VARS
         $sectionHeading         = get_sub_field('section_heading');
 ?>
-<section id="showcase" class="showcase-container component" data-js="showcase">
+<section class="showcase-container component" data-js="showcase">
 
-<div class='section-heading'>
+<div id="showcase" class='section-heading'>
      <h2><?php echo $sectionHeading; ?></h2>
 </div>
 

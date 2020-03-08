@@ -41,6 +41,7 @@ navButton.addEventListener('click', () => {
 	hasOpen();
 });
 
+
 mainDiv.addEventListener('click', () => {
 
 	if(screen.width < 100 || scrollTop > 0) {
@@ -49,6 +50,18 @@ mainDiv.addEventListener('click', () => {
 	
 	hasOpen();
 	}
+});
+
+navLink.forEach((item) =>{
+	item.addEventListener('click', () => {
+
+		if(screen.width < 100 || scrollTop > 0) {
+		navButton.classList.remove('open');
+		navBar.classList.remove('open');
+		
+		hasOpen();
+		}
+	})
 });
 
 
@@ -63,7 +76,9 @@ function hasOpen(){
 		navBar.style.top = '-50px';
 	}
 };
+   
 
+// SMOOTH SCROLL NAV
 
 // Vanilla JavaScript Scroll to Anchor
 // @ https://perishablepress.com/vanilla-javascript-scroll-anchor/
@@ -94,6 +109,7 @@ function scrollAnchors(e, respond = null) {
 		const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
 		if (distanceToTop(targetAnchor) === 0 || atBottom) {
 			targetAnchor.tabIndex = '-1';
+			targetAnchor.focus();
 			window.history.pushState('', '', targetID);
 			clearInterval(checkIfDone);
 		}

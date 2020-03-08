@@ -63,6 +63,10 @@
             <a href="#showcase">
                 SHOWCASE
             </a>
+            |
+            <a href="#topofpage">
+                BACK TO TOP
+            </a>
         </div>
         <div class='footer-nav-info'>
             <p>

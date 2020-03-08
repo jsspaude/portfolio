@@ -10,6 +10,7 @@ footer {
     bottom:0;
     background-color:map-get($colors, 'blue' );
     @include flex-row(center, flex-start);
+    z-index:11;
 
     .cta-container {
         padding:20px 40px;

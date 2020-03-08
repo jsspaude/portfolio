@@ -50,6 +50,8 @@
 			color:inherit;
 		}
 
+		*:focus { outline: 1px dotted map-get($colors, 'pink' ); }
+
 
 		@each $key, $value in $colors {
 			.bg#{$key} {

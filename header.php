@@ -48,7 +48,7 @@
 			?>
 		</nav>
 		<div class='back-to-top' data-js="backToTop" transition="all 5s ease">
-			<a href="#hero">
+			<a href="#home">
 				<button>
 					<div>
 					</div>

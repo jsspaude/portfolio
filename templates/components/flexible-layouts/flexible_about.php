@@ -46,10 +46,10 @@
     endif;
 ?>
 
-<section id="about" class="about-container component" data-js="abtContainer">
+<section class="about-container component" data-js="abtContainer">
     <div class='about-wrapper section-wrapper'>
     </div>
-    <div class="section-heading">
+    <div id="about"  class="section-heading">
         <h2>
             <?php echo $sectionHeading; ?>
         </h2>

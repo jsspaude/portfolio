@@ -1,5 +1,5 @@
 
-<section id="features" class="features-container component" data-js="features">
+<section  class="features-container component" data-js="features">
     <?php if( get_row_layout() === 'flexible_features' ):
         //VARS
         $sectionHeading     = get_sub_field('section_heading');
@@ -12,7 +12,7 @@
             </div>
         </div>
     </div>
-    <div class='section-heading'>
+    <div id="features" class='section-heading'>
         <h2><?php echo $sectionHeading; ?></h2>
     </div>
     <div class='features-content-container section-content' data-js="contentContainer">

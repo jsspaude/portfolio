@@ -3,10 +3,10 @@
     $sectionHeading = get_sub_field('section_heading');
 ?>
 
-<section id="services" class="services-container component" data-js="servComp">
+<section class="services-container component" data-js="servComp">
     <div class='services-wrapper section-wrapper'>
     </div>
-    <div class ='section-heading' data-js="headingHeight">
+    <div id="services" class ='section-heading' data-js="headingHeight">
         <h2> <?php echo $sectionHeading; ?> </h2>
     </div>
 <?php if( have_rows('services_instance') ) : ?>

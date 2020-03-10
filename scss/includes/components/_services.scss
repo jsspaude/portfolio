@@ -5,11 +5,7 @@
 .services-container {
     
     .services-content-container {
-        min-height:80vh;
-        align-self:stretch;
         width:100%;
-        position:sticky !important;
-        top:0px;
         @include flex-col(flex-start,flex-start);
         flex-wrap:nowrap;
 

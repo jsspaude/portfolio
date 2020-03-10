@@ -9,8 +9,8 @@
     <div id="services" class ='section-heading' data-js="headingHeight">
         <h2> <?php echo $sectionHeading; ?> </h2>
     </div>
-<?php if( have_rows('services_instance') ) : ?>
     <div class='services-content-container section-content' data-js="contentContainer">
+    <?php if( have_rows('services_instance') ) : ?>
         <?php while( have_rows('services_instance') ): the_row(); 
             //VARS
             $servicesHeading    = get_sub_field('heading');
@@ -29,8 +29,8 @@
             </div>
         </div>
         <?php endwhile; ?>
+    <?php endif; ?>
     </div>
-<?php endif; ?>
 <?php endif; ?>
 </section>
 

@@ -28,7 +28,7 @@
 							<h1> <?php bloginfo('name'); ?> </h1>
 							<div class="sub-heading">
 								<h4><?php bloginfo('description'); ?></h4>
-								<h5><?php bloginfo('wpurl'); ?></h5>
+								<h5>jessspaude.ca</h5>
 							</div>
 						</a>
 				</div>

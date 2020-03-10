@@ -17,11 +17,15 @@ function serviceScroll() {
 
         if(activate <= 0) {
             content.classList.add('active');
-            content.querySelector('[data-js="paragraph"]').style.transform = 'translateX(0%)';
         }  
 
         else {
             content.classList.remove('active');
+            content.classList.remove('inactive');
+        }
+
+        if(content.classList.contains('active') && index > 0) {
+            servContent[index-1].classList.add('inactive');
         }
 
         if(scrollScale <= 1 && screen.width > 1200) {

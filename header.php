@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/Blog" <?php language_attributes(); ?>>
 	<head>
-
 		<meta charset="<?php bloginfo('charset'); ?>" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,17 +16,12 @@
 			wp_head();
 		?>
 
-		
-
 		<!-- Global site tag (gtag.js) - Google Analytics Here -->
-
 	</head>
 
 	<body <?php body_class(); ?>>
-		
-		<header id="header" class="">
-			
-			<section id="header-container">
+		<header id="header" class='header-small' data-js='header'>
+			<section id='header-container'>
 				<div id="branding" class="branding">
 						<a href="<?php echo home_url(); ?>" title="Go to Our Home Page: <?php bloginfo('name'); ?>">
 							<h1> <?php bloginfo('name'); ?> </h1>
@@ -37,19 +31,27 @@
 							</div>
 						</a>
 				</div>
-				<div id="menu-toggle">
+				<div id="menu-toggle" data-js="menuToggle">
 					<span></span>
 				</div>
-				<nav id="primary-navigation">
-				<?php
-					wp_nav_menu(array(
-						'container_class' 	=> 'main-nav',
-						'theme_location' 	=> 'primary',
-						'menu_class' 		=> 'nav-wrapper',
-						'walker' 			=> new Menu_With_Description
-					));
-				?>
-				</nav>
 			</section>
 
 		</header>
+		<nav id="primary-navigation" class="closed" data-js='primeNav'>
+			<?php
+				wp_nav_menu(array(
+					'container_class' 	=> 'main-nav',
+					'theme_location' 	=> 'primary',
+					'menu_class' 		=> 'nav-wrapper',
+					'walker' 			=> new Menu_With_Description
+				));
+			?>
+		</nav>
+		<div class='back-to-top' data-js="backToTop" transition="all 5s ease">
+			<a href="#home">
+				<button>
+					<div>
+					</div>
+				</button>
+			</a>
+		</div>

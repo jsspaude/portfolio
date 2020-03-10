@@ -1,89 +1,117 @@
-$(document).ready(function() {
+// HEADER INITIAL
 
-	// Burger Menu
+if ((scrollTop > 100) || (screen.width < 450)) {
+	header.className = 'header-small';
+	navBar.classList.remove('top');
+}
 
-	const 	header 		= 		$('#primary-navigation'),
-			navButton 	= 		$('#menu-toggle'),
-			navLink 	= 		$('.menu-item > a');
-	const	navOverlay 	=		$('#mobile-overlay-toggle');
+else {
+	header.className = 'header';
+	navBar.classList.add('top');
+}
 
-	navButton.click(function() {
-		header.toggleClass('open');
-		navButton.toggleClass('open');
-		navOverlay.toggleClass('display-none');
-	});
+//HEADER CHANGE
 
-	navOverlay.click(function() {
-		header.removeClass('open');
-		navOverlay.addClass('display-none');
-	});
+window.onscroll = function() {
+	var 	scrollTop 	= pageYOffset;
 
-	navLink.click(function() {
-		header.removeClass('open');
-		navOverlay.addClass('display-none');
-	});
+	if ((scrollTop > 100) || (screen.width < 450) ){
+		navBar.style.top = headerHeight;
+		header.className = 'header-small';
+		navBar.classList.remove('top');
+		backToTop.style.bottom = "0px";
+	}
 
-	// Header Change
+	else if((scrollTop === 0) && (screen.width > 450)) {
+		header.className = 'header';
+		navBar.classList.add('top');
+		navButton.classList.remove('open');
+		navBar.classList.remove('open');
+		navBar.style.top = '0px';
+		backToTop.style.bottom = "-500px";
+	}
+};
 
-	$(window).scroll(function(){
-		if ($(window).scrollTop() > 100){
-			$('#header').addClass('header-small');
-			// $('#branding>a>h1, #branding>a>div>h4, #branding>a>div>h5').addClass('header-font-small');
-			$('#primary-navigation').addClass('primary-navigation-small');
-		}
-		else if($(window.top == 0)) {
-			$('#header').removeClass('header-small');
-			// $('#branding>a>h1, #branding>a>div>h4, #branding>a>div>h5').removeClass('header-font-small');
-			$('#primary-navigation').removeClass('primary-navigation-small');
-			$('.open').removeClass('open');
-		}
-	});
+// BURGER MENU
 
-	// Smooth Scroll Nav
+navButton.addEventListener('click', () => {
+	navBar.classList.toggle('open');
+	navButton.classList.toggle('open');
 
-	$("a").on('click', function(event) {
-
-		if (this.hash !== "") {
-		  event.preventDefault();
-	
-		  var hash = this.hash;
-
-		  $('html, body').animate({
-			scrollTop: $(hash).offset().top
-		  },0, function(){
-
-			window.location.hash = hash;
-		  });
-		}
-	  });	
-	
-
-	// Scroll function to detect if elements with [data-scroll-show] are in view
-
-	$(window).scroll(function(){
-
-		$('[data-scroll-show]').each(function() {
-
-			var topofDiv = $(this).offset().top; //gets offset of div
-			var height = $(this).outerHeight(); //gets height of div
-			var dataAmount = $(this).data('scroll-show');
-
-			if (dataAmount < 1) {
-				var amount = 1.5;
-			}
-			else {
-				var amount = dataAmount;
-			}
-
-			if($(window).scrollTop() > (topofDiv - height*amount)){
-			   $(this).addClass('show');
-			}
-			else{
-			   $(this).removeClass('show');
-			}
-
-		});
-
-	});
+	hasOpen();
 });
 
+
+mainDiv.addEventListener('click', () => {
+
+	if(screen.width < 100 || scrollTop > 0) {
+	navButton.classList.remove('open');
+	navBar.classList.remove('open');
+	
+	hasOpen();
+	}
+});
+
+navLink.forEach((item) =>{
+	item.addEventListener('click', () => {
+
+		if(screen.width < 100 || scrollTop > 0) {
+		navButton.classList.remove('open');
+		navBar.classList.remove('open');
+		
+		hasOpen();
+		}
+	})
+});
+
+
+function hasOpen(){
+
+	var isOpen = navBar.classList.contains('open')
+
+	if(isOpen) {
+		navBar.style.top = `${headerHeight}px`;
+	}
+	else{
+		navBar.style.top = '-50px';
+	}
+};
+   
+
+// SMOOTH SCROLL NAV
+
+// Vanilla JavaScript Scroll to Anchor
+// @ https://perishablepress.com/vanilla-javascript-scroll-anchor/
+
+(function() {
+	scrollTo();
+})();
+
+function scrollTo() {
+	var links = document.getElementsByTagName('a');
+	for (var i = 0; i < links.length; i++) {
+		var link = links[i];
+		if ((link.href && link.href.indexOf('#') != -1) && ((link.pathname == location.pathname) || ('/' + link.pathname == location.pathname)) && (link.search == location.search)) {
+			link.onclick = scrollAnchors;
+		}
+	}
+}
+
+function scrollAnchors(e, respond = null) {
+	const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
+	e.preventDefault();
+	var targetID = (respond) ? respond.getAttribute('href') : this.getAttribute('href');
+	const targetAnchor = document.querySelector(targetID);
+	if (!targetAnchor) return;
+	const originalTop = distanceToTop(targetAnchor);
+	window.scrollBy({ top: originalTop, left: 0, behavior: 'smooth' });
+	const checkIfDone = setInterval(function() {
+		const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
+		if (distanceToTop(targetAnchor) === 0 || atBottom) {
+			targetAnchor.tabIndex = '-1';
+			targetAnchor.focus();
+			window.history.pushState('', '', targetID);
+			clearInterval(checkIfDone);
+		}
+	}, 100);
+}

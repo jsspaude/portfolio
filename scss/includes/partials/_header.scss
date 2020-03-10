@@ -4,11 +4,11 @@
 
 header {
     width:100%;
-    height:map-get($layout, 'header-height' );
+    max-width:100vw;
     @include flex-row(center,center);
     position:fixed;
-    z-index:5;
-    padding:30px 0px;
+    z-index:10;
+    padding:0px 0px;
     top:0px;
     background:map-get($colors, 'white');
 
@@ -16,6 +16,7 @@ header {
         @include flex-row(space-between,center);
         @include fillContainer;
         padding:0 map-get($layout, 'content-margin' );
+        background:map-get($colors, 'white');
         
     
         #branding {
@@ -29,13 +30,21 @@ header {
 
     }
 
+    &.header {
+        height:map-get($layout, 'header-height' );
+
+        #menu-toggle {
+            display:none;
+        }
+    }
+
     &.header-small {
         padding:0;
         height:auto;
-        transition: all .5s ease-in;
         -webkit-box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.75);
+        background-color:white;
 
         #branding {
             padding-bottom:4px;
@@ -54,41 +63,35 @@ header {
         }
 
         #menu-toggle {
-            @include flex-row(center,center);
-            align-self:stretch;
             width:50px;
-            cursor: pointer;
-            position:relative;
-            z-index:5;
 
             span {
-                height:30px;
-                width:2px;
+                height:2px;
+                width:30px;
                 background-color:map-get($colors, 'pink' );
                 display:inline-block;
-                transform:rotate(20deg);
 
                 &:before {
                     content: "";
-                    height:20px;
-                    width:2px;
+                    height:2px;
+                    width:20px;
                     background-color:map-get($colors, 'pink' );
                     display:inline-block;
                     position: absolute;
                     top:50%;
-                    transform:translate(-7px, -5px);
+                    transform:translate(-7px, -7px);
                     transition: all .5s ease-in;
                 }
 
                 &:after {
                     content: "";
-                    height:15px;
-                    width:2px;
+                    height:2px;
+                    width:15px;
                     background-color:map-get($colors, 'pink' );
                     display:inline-block;
                     position: absolute;
                     top:50%;
-                    transform:translate(7px, -5px);
+                    transform:translate(7px, 5px);
                     transition: all .5s ease-in;
                 }
             }
@@ -99,81 +102,172 @@ header {
 #menu-toggle {
     @include flex-row(center,center);
     align-self:stretch;
-    width:50px;
+    width:100px;
     cursor: pointer;
     position:relative;
-    z-index:5;
+    z-index:11;
+
+    span {
+        height:2px;
+        width:40px;
+        background-color:map-get($colors, 'pink' );
+        display:inline-block;
+
+        &:before {
+            content: "";
+            height:2px;
+            width:30px;
+            background-color:map-get($colors, 'pink' );
+            display:inline-block;
+            position: absolute;
+            top:50%;
+            transform:translate(-7px, -7px);
+            transition: all .5s ease-in;
+        }
+
+        &:after {
+            content: "";
+            height:2px;
+            width:25px;
+            background-color:map-get($colors, 'pink' );
+            display:inline-block;
+            position: absolute;
+            top:50%;
+            transform:translate(7px, 5px);
+            transition: all .5s ease-in;
+        }
+    }
 
     &.open {
         padding:10px 0px !important;
 
         span {
-            height:0px !important;
-            width:0px !important;
-            background-color:map-get($colors, 'blue' );
+            height:2px !important;
+            width:30px !important;
+            background-color:map-get($colors, 'blue' ) !important;
             display:inline-block;
-            transform:rotate(0deg) !important;
+            transform:rotate(45deg);
 
             &:before {
                 content: "";
-                height:30px !important;
-                width:2px !important;
-                background-color:map-get($colors, 'blue' ) !important;
+                height:0px !important;
+                width:0px !important;
                 transition: all .5s ease-in;
-                transform:rotate(-45deg) !important;
-                top:0 !important;
             }
 
             &:after {
                 content: "";
-                height:30px !important;
-                width:2px !important;
+                height:2px !important;
+                width:30px !important;
+                display:inline-block;
                 background-color:map-get($colors, 'blue' ) !important;
                 transition: all .5s ease-in;
-                transform:rotate(45deg) !important;
+                transform:rotate(-90deg) !important;
             }
         }
     }
 }
 
 #primary-navigation {
-    flex:1;
+    height:auto;
+    width:100%;
+    padding: 0 8%;
+    position:fixed;
+    z-index:9;
+    top:-50vh;
+    right:0;
     @include flex-row(flex-end,center);
-    align-self:stretch;
+    background-color:map-get($colors, 'pink' );
+    transition:top 1s;
 
-    div {
-        @include fillContainer;
+    a {
+        color:map-get($colors, 'pink' ) !important;
 
-        ul {
-            @include flex-row(space-between,center);
-            @include fillContainer;
+        &:hover, &:focus {
+            color:map-get($colors, 'blue' ) !important;
         }
     }
 
-    &.primary-navigation-small {
-        position:fixed;
-        right:-50vw;
-        transition:all .5s ease-in;
-        height:100%;
-        width:33vw;
-        background-color:map-get($colors, 'white' );
-        border-left:2px solid map-get($colors, 'blue' );
+    ul {
+        @include flex-row(space-between,center);
+        color:map-get($colors, 'pink' );
 
-        ul {
-            @include flex-col(space-between,center);
-            @include fillContainer;
-            padding-bottom:100px;
-            height:100%;
+        li {
+            padding:0 15px;
+
+            &:last-child {
+                padding-right:0px !important;
+            }
+        }
+    }
+
+    &.open {
+        height:auto;
+        z-index:4;
+        transition:all 1s;
+        box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.75);
+
+        li {
+            padding:15px;
+            color:map-get($colors, 'white' );
         }
 
+        a {
+            color:map-get($colors, 'white' ) !important;
 
-        &.open {
-            right:0;
-            height:100%;
-            width:33vw;
-            background-color:map-get($colors, 'white' );
-            border-left:2px solid map-get($colors, 'blue' );
+            &:hover, &:focus {
+                color:map-get($colors, 'blue' ) !important;
+            }
+        }
+    }
 
+    &.top {
+        top:0;
+        height:map-get($layout, 'header-height' );
+        z-index:11;
+        background-color:transparent;
+        transition: none;
+        
+        ul {
+            color: map-get($colors, 'pink' ) !important;
+        }
+
+    }
+}
+
+.back-to-top {
+    width:100%;
+    height:50px;
+    position:fixed;
+    left:0;
+    bottom:-500px;
+    padding:0 8%;
+    @include flex-row(center,center);
+    transition:all 2s ease;
+    z-index:10;
+
+    a {
+        display:block;
+    }
+    
+    button {
+        height:100%;
+        width:50px;
+        @include flex-row(center,center);
+        border:none;
+        background-color:transparent;
+        cursor: pointer;
+        
+        div{
+            width: 0; 
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid map-get($colors, 'blue' );
+
+            &:hover, &:focus {
+                border-bottom: 15px solid map-get($colors, 'pink' );
+            }
+            
         }
     }
 }

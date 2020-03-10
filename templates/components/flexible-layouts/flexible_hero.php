@@ -2,31 +2,26 @@
     if( get_row_layout() === 'flexible_hero') 
     //VARS
     $subHeading1        = get_sub_field('sub_heading_1');
-    $subHeading2        = get_sub_field('sub_heading_1');
-    $subHeading3        = get_sub_field('sub_heading_2');
-    $heroForm           = get_sub_field('form');
+    $subHeading2        = get_sub_field('sub_heading_2');
+    $heroForm           = get_sub_field('contact_form');
+    $svgTemplate        = "hero_1";
 ?>
 
 
-<section class="hero-container">
-    <div class='hero-wrapper'>
-        <div class='content-container'>
-            <div>
-                <h3> <?php echo $subHeading1;  ?> </h3>
-            </div>
-            <div>
-                <h4> <?php echo $subHeading2;  ?> </h4>
-            </div>
-            <div>
-                <h5> <?php echo $subHeading3;  ?> </h4>
-            </div>
+<section id="home" class="hero-container component" data-js="hero">
+    <div class='hero-wrapper section-wrapper'>
+        <?php get_template_part("templates/template-parts/svg", $svgTemplate); ?>
+    </div>
+    <div class='content-container'>
+        <div>
+            <h3> <?php echo $subHeading1;  ?> </h3>
         </div>
-        <div class="form-container">
-            <!-- <div class='background-shape'>
-            </div> -->
-            <div class="form">
-                <?php echo $heroForm; ?>
-            </div>
+        <div>
+            <h4> <?php echo $subHeading2;  ?> </h4>
         </div>
-    </div><!-- end hero-wrapper -->
+    </div>
+    <div class="form-container">
+        <?php echo $heroForm; ?>
+    </div>
 </section> <!-- end hero-container -->
+

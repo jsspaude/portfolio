@@ -3,31 +3,39 @@
 /* ----------------------------------------- */
 
 .about-container {
-    width:100%;
-    max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
-    @include flex-col(center,flex-start);
-    flex-wrap:nowrap;
+    overflow: hidden;
+    position:relative;
 
     .section-heading {
-        height:10%;
+        position:static !important;
     }
 
     .about-content-container {
-        @include flex-row(space-between, center);
-        height:90%;
+        @include flex-col(flex-start, flex-start);
+        height:85vh!important;
+        
+        @include mq('tablet') {
+            flex-direction:column;
+            height:auto !important;
+        }
 
         .about-content {
-            flex:1;
+            width:50%;
+            height:75%;
             align-self:stretch;
-            @include flex-col(center, flex-start);
-            padding:30px 0;
+            @include flex-col(flex-start, flex-start);
+
+            @include mq('tablet') {
+                flex:3;
+                height:100%;
+            }
 
             div {
                 padding:15px 0;
 
                 &.content-heading {
                     height:auto;
+                    width:100%;
                     @include flex-col(center, flex-start);
                 }
 
@@ -38,19 +46,23 @@
             }
 
             h4 {
-                font-family:map-get($fonts, 'heading' );
-                font-weight:700;
+                font-family:map-get($fonts, 'body' );
+                font-weight:400;
                 font-size:2.25rem;
-                
-                .specialChar {
-                    color:map-get($colors, 'pink' );
-                    text-shadow:none;
-                    transition: all ease 2s;
 
+                @include mq('tablet') {
+                    font-size:1.5rem;
+                }
+                
+                .about-string {
+                    color:map-get($colors, 'white' ) !important;
 
                     &.active {
-                        text-shadow:-1px 1px 0px map-get($colors, 'black' );
-                        color:map-get($colors, 'pink' );
+                        color:map-get($colors, 'black' ) !important;
+                    }
+
+                    &.highlight {
+                        color: map-get($colors, 'pink' ) !important;
                     }
                 }
             }
@@ -65,57 +77,104 @@
                 position:relative;
                 z-index:3;
                 transition:all ease-in 1s;
+
+                @include mq('tablet') {
+                    height: 300px;
+                }
             }
 
             &:before {
                 content: "";
                 display:block;
-                background-color:map-get($colors, 'blue');
+                border-top:30px map-get($colors, 'blue' ) solid;
+                border-bottom:30px map-get($colors, 'blue' ) solid;
+                border-left:30px map-get($colors, 'blue' ) solid;
                 height:500px;
                 width:250px;
                 position: absolute;
                 z-index:2;
                 transform:translate(-100vw, 0px);
                 transition:all linear 1s;
+
+                @include mq('tablet') {
+                    width:125px;
+                    height:250px;
+                    border-top:15px map-get($colors, 'blue' ) solid;
+                    border-bottom:15px map-get($colors, 'blue' ) solid;
+                    border-left:15px map-get($colors, 'blue' ) solid;
+                    transform:translate(0px, 0px);
+                }
             }
 
             &:after {
                 content: "";
                 display:block;
-                background-color:map-get($colors, 'pink');
+                border-top:30px map-get($colors, 'pink' ) solid;
+                border-bottom:30px map-get($colors, 'pink' ) solid;
+                border-right:30px map-get($colors, 'pink' ) solid;
                 height:500px;
                 width:250px;
                 position: absolute;
                 z-index:1;
                 transform:translate(100vw, 50px);
                 transition:all linear 1s;
+
+                @include mq('tablet') {
+                    width:125px;
+                    height:250px;
+                    border-top:15px map-get($colors, 'pink' ) solid;
+                    border-bottom:15px map-get($colors, 'pink' ) solid;
+                    border-right:15px map-get($colors, 'pink' ) solid;
+                    transform:translate(50px, 50px)!important;
+                }
+            }
+        }
+
+        .link-container {
+            @include flex-row(flex-start, flex-start);
+            width:50%;
+
+            @include mq('tablet') {
+                display:none;
             }
 
-            &.active {
+            a {
+                display:block;
 
+            }
+        }
+    }
+}
+
+.about-container {
+
+    &.active {
+
+        .about-graphic-container {
+
+            img {
+                transform:rotate(2deg);
+                transition:all ease-in 1s;
+            }
+        
+            &:before {
+                transform:translate(0px, 0px);
+                transition:all linear 1s;
+            }
+        
+            &:after {
+                transform:translate(100px, 50px);
+                transition:all linear 1s;
+            }
+        
+            &:hover {
+                
                 img {
-                    transform:rotate(2deg);
+                    transform:rotate(-2deg);
                     transition:all ease-in 1s;
                 }
-    
-                &:before {
-                    transform:translate(50px, 0px);
-                    transition:all linear 1s;
-                }
-    
-                &:after {
-                    transform:translate(100px, 50px);
-                    transition:all linear 1s;
-                }
-
-                &:hover {
-                    img {
-                        transform:rotate(-2deg);
-                        transition:all ease-in 1s;
-                    }
-                }
-
             }
+    
         }
     }
 }

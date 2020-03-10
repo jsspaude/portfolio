@@ -111,8 +111,7 @@
 		'Javascript' 	=> array(
 			//These Javascript FIles will Appear on the Website Frontend
 			'Client' => array(
-				'scripts.js',
-				'libraries/lazysizes.min.js'
+				'scripts.js'
 			),
 			//These Javascript Files will Appear in the Administration Area
 			'Admin' => array(
@@ -633,17 +632,8 @@
 			$output .= apply_filters( 'walker_nav_menu_start_el', ( isset($link) ? $link : '' ), $item, $depth, $args );
 		}
 	}
-	add_filter('wp_nav_menu_items','add_new_menu_item', 10, 2);
-	function add_new_menu_item( $nav, $args ) {
-		$navLogo 		= get_field( 'nav_logo', 'option' );
 	
-		
-		if( $args->theme_location == 'primary' )
-		$newmenuitem = "<li class='menu-item-logo'><div class='menu-logo' style='background-image:url(\"$navLogo[url] \")' >" . "<a href='" . home_url() . "'>" . 
-        "</a></div></li>";
-		$nav = $newmenuitem.$nav;
-		return $nav;
-}
+
 	add_filter('wp_nav_menu_items', 'my_wp_nav_menu_items', 10, 2);
 
 	function my_wp_nav_menu_items( $items, $args ) {
@@ -819,4 +809,5 @@
 		return $api;
 	}
 	add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
 

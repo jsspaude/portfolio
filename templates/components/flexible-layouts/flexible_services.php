@@ -1,39 +1,36 @@
 <?php 
-    if( get_row_layout() === 'flexible_services')
+    if( get_row_layout() === 'flexible_services') :
     $sectionHeading = get_sub_field('section_heading');
 ?>
 
-<section class="services-container">
-    <div class='services-wrapper'>
+<section class="services-container component" data-js="servComp">
+    <div class='services-wrapper section-wrapper'>
     </div>
-    <div class ='section-heading-container'>
+    <div id="services" class ='section-heading' data-js="headingHeight">
         <h2> <?php echo $sectionHeading; ?> </h2>
     </div>
 <?php if( have_rows('services_instance') ) : ?>
-    <div class='services-content-container'>
+    <div class='services-content-container section-content' data-js="contentContainer">
         <?php while( have_rows('services_instance') ): the_row(); 
             //VARS
             $servicesHeading    = get_sub_field('heading');
             $servicesDesc       = get_sub_field('description');
-            $servicesGraphic    = get_sub_field('services_graphic', false, false);
+            $svgTemplate        = "services_" . get_row_index();
         ?>
-        <div class='services-content' data-col='<?php echo get_row_index(); ?>'>
-            <div class='graphic-container'>
-                <?php echo $servicesGraphic ?>
+        <div class='services-content' data-col='<?php echo get_row_index(); ?>' data-js="content">
+            <div class='graphic-container' data-js="servGraphCon">
+                <?php get_template_part("templates/template-parts/svg", $svgTemplate); ?>
             </div>
-            <div class='heading-container'>
-                <h5><?php echo $servicesHeading ?></h5>
-            </div>
-            <div class='description-container'>
-                <p><?php echo $servicesDesc; ?>
+            <div class='heading-container' data-js="servHeadingCon">
+                    <h3><?php echo $servicesHeading ?></h3>
+                </div>
+            <div class='paragraph-container' data-js="paragraph">
+                <?php echo $servicesDesc; ?>
             </div>
         </div>
         <?php endwhile; ?>
     </div>
 <?php endif; ?>
+<?php endif; ?>
 </section>
-
-
-
-
 

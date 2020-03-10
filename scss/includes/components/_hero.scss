@@ -4,30 +4,90 @@
 .hero-container {
     width:100%;
     max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
     @include flex-row(center,center);
+    flex-wrap:nowrap;
+    margin:0 !important;
+    overflow: hidden;
 
-    @include mq('desktop-wide') {
-        height:100vh;
-        padding-top:100px;
+    @include mq('tablet') {
+        flex-direction:column;
+        position:absolute;
+        top:0;
+        padding:0 !important;
     }
-}
 
-.hero-wrapper {
-    width:100%;
-    align-self:stretch;
-    @include flex-row(center,center);
+    .hero-wrapper {
+        height:100vh;
+        width:100vw;
+        max-width:map-get($layout, 'max-width' );
+        position:fixed !important;
+        left:0;
+        @include flex-col(flex-end,center);
+        z-index:1;
+        pointer-events: none;
 
+        #van-skyline {
+            height:35%;
+            position:fixed;
+            bottom:0;
+        }
+
+        .hero-draw {
+            fill:white;
+            stroke:white;
+            stroke-miterlimit:10;
+        }
+
+        g {
+            display:none;
+
+            @include mq('tablet') {
+                display:block;
+            }
+
+            &.visible {
+                display:block;
+            }
+        }
+
+        .hero-bg {
+            stroke:white;
+            fill:white;
+        }
+    }
 
     .content-container {
         @include fillContainer;
         @include flex-col(center,center);
         flex:9;
 
+        @include mq('tablet') {
+            height:auto !important;
+            flex:1 !important;
+            height:50% !important;
+            align-self:stretch;
+            align-items:flex-start !important;
+        }
+
+        h3 {
+            color:map-get($colors, 'black' );
+            font-family:map-get($fonts, 'body' );
+            font-weight:400;
+
+            @include mq('tablet') {
+                font-size:2.25rem;
+            }
+        }
+
         div {
             @include flex-row(flex-start,center);
             line-height: 36px;
             padding: 10px 0px;
+
+            @include mq('tablet') {
+                justify-content: flex-start !important;
+                width:90% !important;
+            }
 
             &:first-child {
                 width:100%;
@@ -38,11 +98,11 @@
                 justify-content: space-between;
                 width:95%;
                 border-bottom:4px solid map-get($colors, 'blue' );
-            }
 
-            &:nth-child(3) {
-                width:90%;
-                border-bottom:4px solid map-get($colors, 'pink' );
+                @include mq('tablet') {
+                    justify-content: flex-start !important;
+                    width:70% !important;
+                }
             }
 
             button {
@@ -61,41 +121,93 @@
                     padding:27.5px;
                 }
             }
-
         }
-
     }
 
     .form-container {
-        height:100%;
-        flex:1;
+        position:absolute;
+        z-index:1;
+        right:8%;
+        top:25vh;
+        max-width:400px;
+        width:20%;
         @include flex-col(center,center);
 
-        .form {
+        @include mq('tablet') {
+            display:none;
+        }
+
+        .frm_forms {
             background-color:map-get($colors, 'blue' );
-            position:absolute;
-            z-index:1;
-            right:8%;
             padding:30px;
-            max-width:400px;
-            width:20%;
+            width:100%;
+            color:map-get($colors, 'white' );
+            font-family:map-get($fonts, 'body' );            
+            font-size:1rem;
+            font-weight:400;
             -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
             -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
             box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
 
-            .frm_primary_label {
-                color:map-get($colors, 'white' );
-                font-family:map-get($fonts, 'body' );            
-                font-size:1rem;
-                font-weight:400;
+            @include mq('tablet') {
+                width:80%;
+                position:relative;
+                left:0;
+                margin-top:30px;
             }
 
-            .frm_form_title {
+            fieldset {
+                border:none;
+            }
+
+            .form-field {
+                width:100%;
+                padding:10px 0px;
+                margin:0 !important;
+
+                textarea {
+                    width:90%;
+                    height:80px;
+                    font-size:14px;
+                    padding:2px;
+                }
+
+                input[type=text] {
+                    font-size:14px;
+                    padding:6px 10px;
+                    width:100%;
+                    height:30px;
+                }
+
+                label[for=cc] {
+                    font-size:.667rem;
+                    padding:2px;
+                }
+            }
+
+            .help-inline {
+                color:map-get($colors, 'pink' );
+            }
+
+            p.alert {
+                font-size:.667rem;
+                padding:2px;
+            }
+
+            .form-submit {
+                padding:10px 0px;
+            }
+
+            .frm_primary_label, h3 {
                 color:map-get($colors, 'white' );
                 font-family:map-get($fonts, 'heading' );
                 font-weight:900;
-                font-size:1.5rem;
+                font-size:1rem;
                 padding-bottom:10px;
+            }
+
+            h3 {
+                font-size:1.5rem;
             }
 
             .frm_button_submit {
@@ -103,6 +215,7 @@
                 font-family:map-get($fonts, 'body' );
                 font-weight:400;
                 font-size:1rem;
+                padding:5px;
                 background:map-get($colors, 'white' );
                 box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5);
             }

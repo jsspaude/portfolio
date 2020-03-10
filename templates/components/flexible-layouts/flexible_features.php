@@ -1,38 +1,35 @@
 
-<section class="features-container">
+<section  class="features-container component" data-js="features">
     <?php if( get_row_layout() === 'flexible_features' ):
         //VARS
         $sectionHeading     = get_sub_field('section_heading');
+        $svgTemplate        = "features_1";
     ?>
-    <div class='features-wrapper'>
+    <div class='features-wrapper section-wrapper'>  
+        <div class='animation-container'>
+            <div class='sticky-container'>
+                <?php get_template_part("templates/template-parts/svg", $svgTemplate); ?>
+            </div>
+        </div>
     </div>
-    <div class='section-heading'>
+    <div id="features" class='section-heading'>
         <h2><?php echo $sectionHeading; ?></h2>
     </div>
-    <div class='features-content-container'>
+    <div class='features-content-container section-content' data-js="contentContainer">
     <?php if( have_rows('feature_instance') ):
     ?>
         <?php while( have_rows('feature_instance') ): the_row();
             //VARS
             $svg                = get_sub_field('svg_animation', false, false);
             $featureHeading     = get_sub_field('heading');
-            $featureDesc        = get_sub_field('description', false, false);
+            $featureDesc        = get_sub_field('description');      
         ?>
-        <div class="features-content">
-            <div class='titles-container'>
-                <div class='animation-container' data-row="<?php echo get_row_index();?>">
-                    <div class="animation">
-                        <?php echo $svg;?>
-                    </div>
-                </div>
-                <div class='heading-container' data-row="<?php echo get_row_index();?>">
-                    <h4><?php echo $featureHeading; ?></h4>
-                </div>
+        <div class="features-content" data-js="content">
+            <div class='heading-container' data-row="<?php echo get_row_index();?>">
+                <h3><?php echo $featureHeading; ?></h3>
             </div>
-            <div class='descriptions-container'>
-                <div class='paragraph-container' data-row="<?php echo get_row_index();?>">
-                    <p><?php echo $featureDesc; ?></p>
-                </div>
+            <div class='paragraph-container' data-row="<?php echo get_row_index();?>">
+                <?php echo $featureDesc; ?>
             </div>
         </div>
         <?php endwhile; ?>
@@ -40,3 +37,5 @@
     </div>
     <?php endif; ?>
 </section><!-- end features-container -->
+
+

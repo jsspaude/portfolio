@@ -3,13 +3,278 @@
 /* ----------------------------------------- */
 
 .showcase-container {
-    width:100%;
-    max-width:map-get($layout, 'max-width' );
-    height:calc(100vh - 190px);
-    @include flex-col(center,flex-start);
-    flex-wrap:nowrap;
+    height:auto !important;
 
-    .section-heading {
-        height:10%;
+    @include mq('tablet') {
+        margin-bottom:50px;
+    }
+
+    .showcase-wrapper {
+        left: 0;
+        right: 0;
+        top:0;
+        height:calc(100vh - 50px) !important;
+        width:100%;
+        max-width: 84%;
+        min-height:550px;
+        margin-left: auto;
+        margin-right: auto;
+        padding:30px 0;
+        z-index:-1;
+        @include flex-row(flex-end, flex-start);
+
+        &.hidden {
+            display:none;
+
+            svg {
+                display:none;
+            }
+        }
+
+        @include mq('tablet') {
+            display: none;
+        }
+
+        svg {
+            width:15px;
+            overflow:hidden;
+            height:calc(100vh - 50px) !important;
+            min-height:550px;
+            transform:translateX(-17.5px) translateY(50vh) translateY(-50px);
+        }
+
+        .svg-line-path {
+            fill:none; 
+            animation: dashed-line 3s ease-in-out 1 forwards;
+            stroke:map-get($colors, 'blue' ); 
+            stroke-width: 10; 
+            stroke-dasharray: 940; /* this is the entire length of the line */
+            stroke-dashoffset: 940; /* this is the entire length of the line */
+            animation-play-state: paused;
+        }
+
+        &.active {
+
+            .svg-line-path {
+                animation-play-state: running !important;
+            }
+        }
+
+        &.even {
+    
+            .svg-line-path {
+                stroke:map-get($colors, 'pink' )!important; 
+            }
+        }
+
+        .svg-line-dash {
+            fill: none;
+            stroke: #FFFFFF; /* this must match the background color */
+            stroke-dasharray: 10 20; /* draws a 10px dash line with a 16px gap between */
+            stroke-width: 12; /* make the dashed line slightly bigger than the one it's covering */
+          }
+        
+        @keyframes dashed-line {
+            from {
+                stroke-dashoffset: 940;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+    }
+
+    .showcase-content-container {
+        @include flex-col(center, center);
+        width:100%;
+        height:calc(100vh - 50px) !important;
+        min-height:550px;
+        overflow-y: hidden;
+
+        @include mq('tablet') {
+            display:block;
+            height:115vh !important;
+        }
+
+        .showcase-graphic-container {
+            height:100%;
+            width:25%;
+            @include flex-col(center, center);
+
+            @include mq('tablet') {
+                width:50%;
+                height:50%;
+                float:left;
+            }
+
+            .showcase-graphic {
+                width:75%;
+                height:75%;
+                background-size:cover;
+                background-position:top;
+                background-repeat:no-repeat;
+                transition: all ease 6s;
+                border: 2px solid map-get($colors, black );
+
+                &:hover {
+                    background-position:bottom;
+                }
+
+                &:active {
+                    background-position:bottom;
+                }
+
+                &:after {
+                    content:"";
+                    display:block;
+                    width:100%;
+                    height:100%;
+                    border: 10px solid map-get($colors, 'pink' );
+                    transform:translate(-50px, -50px);
+                    position:relative;
+                    z-index:-1;
+
+                    @include mq('tablet') {
+                        transform:translate(-20px,-20px);
+                    }
+                }
+            }
+        }
+
+        .heading-container {
+            width:75%;
+            padding:0 50px;
+
+            @include mq('tablet') {
+                width:50%;
+                height:25%;
+                @include flex-col(flex-end, flex-start);
+                float:right;
+                padding:0;
+            }
+
+            h3 {
+                color:map-get($colors, 'black')
+            }
+
+        }
+
+        .tag-container {
+            @include flex-row(flex-start, flex-start);
+            padding:10px 50px;
+            width:75%;
+            align-self: stretch;
+
+            @include mq('tablet') {
+                width:50%;
+                height:25%;
+                flex-direction:column;
+                float:right;
+                padding:10px 0 !important;
+            }
+
+            h6 {
+                margin:0 15px;
+                padding:2px 5px;
+                width:auto;
+                color:white;
+                background-color:map-get($colors, 'blue' );
+
+                &:nth-child(1) {
+                    margin-left:0px;
+                }
+
+                @include mq('tablet') {
+                    margin:2.5px 0;
+                }
+            }
+        }
+
+        .paragraph-container {
+            width:75%;
+            padding:30px 50px;
+            @include flex-col(center, flex-start);
+            flex-wrap: nowrap;
+
+            @include mq('tablet') {
+                height:auto;
+                width:100%;
+                padding: 0;
+            }
+
+            p {
+                width:75%;
+
+                @include mq('tablet') {
+                    width:100%;
+                }
+            }
+        }
+
+        .link-container {
+            width:75%;
+            @include flex-col(center, flex-start);
+            padding: 15px 50px;
+
+            @include mq('tablet') {
+                width:100%;
+                padding:50px 0;
+            }
+
+            button {
+                border:1px solid map-get($colors, 'blue' );
+                padding:5px;
+
+                a {
+                    font-family:map-get($fonts, 'heading' );
+                    font-weight:700;
+                }
+            }
+        }
+
+        &:before {
+            content:"";
+            display:block;
+            position:absolute;
+            right:8%;
+            height:50px;
+            width:50px;
+            background-color:map-get($colors, 'pink' );
+            border-radius:25px;
+            order:10;
+
+            @include mq('tablet') {
+                display:none;
+            }
+        }
+    }
+}
+
+.even {
+
+    &:before {
+        background-color:map-get($colors, 'blue') !important ;
+    }
+
+    .showcase-graphic {
+
+        &:after {
+            content:"";
+            display:block;
+            width:100%;
+            height:100%;
+            border: 10px solid map-get($colors, 'blue' ) !important;
+            transform:translate(-50px, -50px);
+            position:relative;
+            z-index:-1;
+        }
+    }
+
+    .tag-container {
+
+        h6 {
+            background-color:map-get($colors, 'pink' ) !important;
+        }
     }
 }

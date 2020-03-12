@@ -5,8 +5,20 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
-		<title><?php wp_title('|',true,'right'); ?></title>
-		<link href="https://fonts.googleapis.com/css?family=Archivo:700|Roboto:300,400&display=swap" rel="stylesheet">
+		<title><?php bloginfo('name'); ?></title>
+		<script>
+			WebFontConfig = {
+					google: { families: ['Archivo:700', 'Roboto:400'] }
+			};
+
+			(function(d) {
+					var wf = d.createElement('script'), s = d.scripts[0];
+					wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+					wf.async = true;
+					s.parentNode.insertBefore(wf, s);
+			})(document);
+		</script>
+		<link href="https://fonts.googleapis.com/css?family=Archivo:700|Roboto&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" />
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		<link rel="icon" href="<?php bloginfo('template_directory'); ?>/favicon.png" type="image/x-icon" />

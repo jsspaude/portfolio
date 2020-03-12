@@ -131,23 +131,26 @@
         top:25vh;
         max-width:400px;
         width:20%;
+        background-color:map-get($colors, 'blue' );
+        -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+        -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+        box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
         @include flex-col(center,center);
-
+    
         @include mq('tablet') {
             display:none;
         }
 
-        .frm_forms {
-            background-color:map-get($colors, 'blue' );
-            padding:30px;
-            width:100%;
+        h3 {
+            font-size:1.5rem;
+            text-align:center;
+            padding:30px 0 15px;
             color:map-get($colors, 'white' );
-            font-family:map-get($fonts, 'body' );            
-            font-size:1rem;
-            font-weight:400;
-            -webkit-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-            -moz-box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
-            box-shadow: inset 0px 0px 5px 0px rgba(255,255,255,1);
+        }
+    
+        #vscf {
+            padding:0 30px 30px 30px;
+            width:100%;
 
             @include mq('tablet') {
                 width:80%;
@@ -155,70 +158,82 @@
                 left:0;
                 margin-top:30px;
             }
+        }
+    }
+}
 
-            fieldset {
-                border:none;
-            }
+#vscf {
+    color:map-get($colors, 'white' );
+    font-family:map-get($fonts, 'body' );            
+    font-size:1rem;
+    font-weight:400;
 
-            .form-field {
-                width:100%;
-                padding:10px 0px;
-                margin:0 !important;
+    fieldset {
+        border:none;
+    }
 
-                textarea {
-                    width:90%;
-                    height:80px;
-                    font-size:14px;
-                    padding:2px;
-                }
+    .form-group {
+        width:100%;
+        padding:10px 0px;
+        margin:0 !important;
 
-                input[type=text] {
-                    font-size:14px;
-                    padding:6px 10px;
-                    width:100%;
-                    height:30px;
-                }
+        input {
+            width:100%;
+        }
 
-                label[for=cc] {
-                    font-size:.667rem;
-                    padding:2px;
-                }
-            }
+        textarea {
+            width:100%;
+            height:80px;
+            font-size:14px;
+            padding:2px;
 
-            .help-inline {
-                color:map-get($colors, 'pink' );
-            }
-
-            p.alert {
-                font-size:.667rem;
-                padding:2px;
-            }
-
-            .form-submit {
-                padding:10px 0px;
-            }
-
-            .frm_primary_label, h3 {
-                color:map-get($colors, 'white' );
-                font-family:map-get($fonts, 'heading' );
-                font-weight:900;
-                font-size:1rem;
-                padding-bottom:10px;
-            }
-
-            h3 {
-                font-size:1.5rem;
-            }
-
-            .frm_button_submit {
-                color:map-get($colors, 'black' );
-                font-family:map-get($fonts, 'body' );
-                font-weight:400;
-                font-size:1rem;
-                padding:5px;
-                background:map-get($colors, 'white' );
-                box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+            &.vscf-error {
+                border:solid 2px map-get($colors, 'pink' );
             }
         }
-    } 
+
+        input {
+            font-size:14px;
+            padding:6px 10px;
+            width:100%;
+            height:30px;
+
+            &.vscf-error {
+                border:solid 2px map-get($colors, 'pink' );
+            }
+        }
+
+        label {
+            font-size:1rem;
+            font-family: map-get($fonts, 'heading' );
+        }
+
+        span.vscf-error {
+            color:map-get($colors, 'pink' );
+            font-family:map-get($fonts, "body" );
+            font-size:.667rem;
+        }
+    }
+
+    .vscf-captcha-group {
+        width:100%;
+
+        label {
+            font-size:.667rem;
+        }
+
+        #vscf_captcha {
+            width:50%;
+        }
+    }
+
+    #vscf_send {
+        color:map-get($colors, 'black' );
+        font-family:map-get($fonts, 'body' );
+        font-weight:400;
+        font-size:1rem;
+        padding:5px;
+        background:map-get($colors, 'white' );
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+    }
 }

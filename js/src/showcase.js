@@ -1,9 +1,6 @@
     const   showcaseSection         = sections[sections.indexOf(document.querySelector('[data-js="showcase"]'))],
             showcaseWrapper         = [...showcaseSection.querySelectorAll('[data-js="wrapper"]')],
-            showcaseConContainer    = [...showcaseSection.querySelectorAll('[data-js="contentContainer"]')],
-            showcaseTop             = $('.showcase-content-container').offset().top,
-            contentContainer        = $('.showcase-content-container'),
-            wrapperEnd              = $('.showcase-wrapper').length;
+            showcaseConContainer    = [...showcaseSection.querySelectorAll('[data-js="contentContainer"]')];
     var     x                       = 1,
             length                  = 0;
 

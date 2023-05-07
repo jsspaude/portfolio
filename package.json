@@ -50,7 +50,7 @@
     "gulp-postcss": "^8.0.0",
     "gulp-sass-lint": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
-    "handlebars": "^4.7.3",
+    "handlebars": "^4.7.7",
     "postcss-load-config": "^2.1.0",
     "terser-webpack-plugin": "^2.3.5"
   }
